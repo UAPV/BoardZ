@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlGradingInstances" table="mdl_grading_instances">
+    <indexes>
+      <index name="mdl_gradinst_def_ix" columns="definitionid"/>
+      <index name="mdl_gradinst_rat_ix" columns="raterid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="definitionid" type="bigint" column="definitionid" nullable="false"/>
+    <field name="raterid" type="bigint" column="raterid" nullable="false"/>
+    <field name="itemid" type="bigint" column="itemid" nullable="true"/>
+    <field name="rawgrade" type="decimal" column="rawgrade" precision="10" scale="5" nullable="true"/>
+    <field name="status" type="bigint" column="status" nullable="false"/>
+    <field name="feedback" type="text" column="feedback" nullable="true"/>
+    <field name="feedbackformat" type="boolean" column="feedbackformat" nullable="true"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+  </entity>
+</doctrine-mapping>

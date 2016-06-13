@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlGradeGradesHistory" table="mdl_grade_grades_history">
+    <indexes>
+      <index name="mdl_gradgradhist_act_ix" columns="action"/>
+      <index name="mdl_gradgradhist_old_ix" columns="oldid"/>
+      <index name="mdl_gradgradhist_ite_ix" columns="itemid"/>
+      <index name="mdl_gradgradhist_use_ix" columns="userid"/>
+      <index name="mdl_gradgradhist_raw_ix" columns="rawscaleid"/>
+      <index name="mdl_gradgradhist_use2_ix" columns="usermodified"/>
+      <index name="mdl_gradgradhist_log_ix" columns="loggeduser"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="action" type="bigint" column="action" nullable="false"/>
+    <field name="oldid" type="bigint" column="oldid" nullable="false"/>
+    <field name="source" type="string" column="source" length="255" nullable="true"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="true"/>
+    <field name="loggeduser" type="bigint" column="loggeduser" nullable="true"/>
+    <field name="itemid" type="bigint" column="itemid" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="rawgrade" type="decimal" column="rawgrade" precision="10" scale="5" nullable="true"/>
+    <field name="rawgrademax" type="decimal" column="rawgrademax" precision="10" scale="5" nullable="false"/>
+    <field name="rawgrademin" type="decimal" column="rawgrademin" precision="10" scale="5" nullable="false"/>
+    <field name="rawscaleid" type="bigint" column="rawscaleid" nullable="true"/>
+    <field name="usermodified" type="bigint" column="usermodified" nullable="true"/>
+    <field name="finalgrade" type="decimal" column="finalgrade" precision="10" scale="5" nullable="true"/>
+    <field name="hidden" type="bigint" column="hidden" nullable="false"/>
+    <field name="locked" type="bigint" column="locked" nullable="false"/>
+    <field name="locktime" type="bigint" column="locktime" nullable="false"/>
+    <field name="exported" type="bigint" column="exported" nullable="false"/>
+    <field name="overridden" type="bigint" column="overridden" nullable="false"/>
+    <field name="excluded" type="bigint" column="excluded" nullable="false"/>
+    <field name="feedback" type="text" column="feedback" nullable="true"/>
+    <field name="feedbackformat" type="bigint" column="feedbackformat" nullable="false"/>
+    <field name="information" type="text" column="information" nullable="true"/>
+    <field name="informationformat" type="bigint" column="informationformat" nullable="false"/>
+  </entity>
+</doctrine-mapping>

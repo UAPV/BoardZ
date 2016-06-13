@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlLog" table="mdl_log">
+    <indexes>
+      <index name="mdl_log_coumodact_ix" columns="course,module,action"/>
+      <index name="mdl_log_tim_ix" columns="time"/>
+      <index name="mdl_log_act_ix" columns="action"/>
+      <index name="mdl_log_usecou_ix" columns="userid,course"/>
+      <index name="mdl_log_cmi_ix" columns="cmid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="time" type="bigint" column="time" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="ip" type="string" column="ip" length="45" nullable="false"/>
+    <field name="course" type="bigint" column="course" nullable="false"/>
+    <field name="module" type="string" column="module" length="20" nullable="false"/>
+    <field name="cmid" type="bigint" column="cmid" nullable="false"/>
+    <field name="action" type="string" column="action" length="40" nullable="false"/>
+    <field name="url" type="string" column="url" length="100" nullable="false"/>
+    <field name="info" type="string" column="info" length="255" nullable="false"/>
+  </entity>
+</doctrine-mapping>

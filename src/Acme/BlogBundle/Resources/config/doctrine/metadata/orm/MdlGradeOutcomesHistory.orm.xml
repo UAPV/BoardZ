@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlGradeOutcomesHistory" table="mdl_grade_outcomes_history">
+    <indexes>
+      <index name="mdl_gradoutchist_act_ix" columns="action"/>
+      <index name="mdl_gradoutchist_old_ix" columns="oldid"/>
+      <index name="mdl_gradoutchist_cou_ix" columns="courseid"/>
+      <index name="mdl_gradoutchist_sca_ix" columns="scaleid"/>
+      <index name="mdl_gradoutchist_log_ix" columns="loggeduser"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="action" type="bigint" column="action" nullable="false"/>
+    <field name="oldid" type="bigint" column="oldid" nullable="false"/>
+    <field name="source" type="string" column="source" length="255" nullable="true"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="true"/>
+    <field name="loggeduser" type="bigint" column="loggeduser" nullable="true"/>
+    <field name="courseid" type="bigint" column="courseid" nullable="true"/>
+    <field name="shortname" type="string" column="shortname" length="255" nullable="false"/>
+    <field name="fullname" type="text" column="fullname" nullable="false"/>
+    <field name="scaleid" type="bigint" column="scaleid" nullable="true"/>
+    <field name="description" type="text" column="description" nullable="true"/>
+    <field name="descriptionformat" type="boolean" column="descriptionformat" nullable="false"/>
+  </entity>
+</doctrine-mapping>

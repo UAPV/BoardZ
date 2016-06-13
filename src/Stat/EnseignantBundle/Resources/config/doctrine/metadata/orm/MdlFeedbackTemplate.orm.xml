@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlFeedbackTemplate" table="mdl_feedback_template">
+    <indexes>
+      <index name="mdl_feedtemp_cou_ix" columns="course"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="course" type="bigint" column="course" nullable="false"/>
+    <field name="ispublic" type="boolean" column="ispublic" nullable="false"/>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+  </entity>
+</doctrine-mapping>

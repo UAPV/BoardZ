@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlAssignmentSubmissions" table="mdl_assignment_submissions">
+    <indexes>
+      <index name="mdl_assisubm_use_ix" columns="userid"/>
+      <index name="mdl_assisubm_mai_ix" columns="mailed"/>
+      <index name="mdl_assisubm_tim_ix" columns="timemarked"/>
+      <index name="mdl_assisubm_ass_ix" columns="assignment"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="assignment" type="bigint" column="assignment" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="numfiles" type="bigint" column="numfiles" nullable="false"/>
+    <field name="data1" type="text" column="data1" nullable="true"/>
+    <field name="data2" type="text" column="data2" nullable="true"/>
+    <field name="grade" type="bigint" column="grade" nullable="false"/>
+    <field name="submissioncomment" type="text" column="submissioncomment" nullable="false"/>
+    <field name="format" type="smallint" column="format" nullable="false"/>
+    <field name="teacher" type="bigint" column="teacher" nullable="false"/>
+    <field name="timemarked" type="bigint" column="timemarked" nullable="false"/>
+    <field name="mailed" type="boolean" column="mailed" nullable="false"/>
+  </entity>
+</doctrine-mapping>

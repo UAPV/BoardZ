@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlReferentielEtablissement" table="mdl_referentiel_etablissement">
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="numEtablissement" type="string" column="num_etablissement" length="20" nullable="true"/>
+    <field name="nomEtablissement" type="string" column="nom_etablissement" length="80" nullable="true"/>
+    <field name="adresseEtablissement" type="string" column="adresse_etablissement" length="255" nullable="true"/>
+    <field name="logoEtablissement" type="text" column="logo_etablissement" nullable="true"/>
+  </entity>
+</doctrine-mapping>

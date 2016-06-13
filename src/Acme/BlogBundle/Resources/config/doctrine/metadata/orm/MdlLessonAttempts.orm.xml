@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlLessonAttempts" table="mdl_lesson_attempts">
+    <indexes>
+      <index name="mdl_lessatte_use_ix" columns="userid"/>
+      <index name="mdl_lessatte_les_ix" columns="lessonid"/>
+      <index name="mdl_lessatte_pag_ix" columns="pageid"/>
+      <index name="mdl_lessatte_ans_ix" columns="answerid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="lessonid" type="bigint" column="lessonid" nullable="false"/>
+    <field name="pageid" type="bigint" column="pageid" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="answerid" type="bigint" column="answerid" nullable="false"/>
+    <field name="retry" type="smallint" column="retry" nullable="false"/>
+    <field name="correct" type="bigint" column="correct" nullable="false"/>
+    <field name="useranswer" type="text" column="useranswer" nullable="true"/>
+    <field name="timeseen" type="bigint" column="timeseen" nullable="false"/>
+  </entity>
+</doctrine-mapping>

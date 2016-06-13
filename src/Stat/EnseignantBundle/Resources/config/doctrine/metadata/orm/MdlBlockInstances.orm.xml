@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlBlockInstances" table="mdl_block_instances">
+    <indexes>
+      <index name="mdl_blocinst_parshopagsub_ix" columns="parentcontextid,showinsubcontexts,pagetypepattern,subpagepattern"/>
+      <index name="mdl_blocinst_par_ix" columns="parentcontextid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="blockname" type="string" column="blockname" length="40" nullable="false"/>
+    <field name="parentcontextid" type="bigint" column="parentcontextid" nullable="false"/>
+    <field name="showinsubcontexts" type="smallint" column="showinsubcontexts" nullable="false"/>
+    <field name="pagetypepattern" type="string" column="pagetypepattern" length="64" nullable="false"/>
+    <field name="subpagepattern" type="string" column="subpagepattern" length="16" nullable="true"/>
+    <field name="defaultregion" type="string" column="defaultregion" length="16" nullable="false"/>
+    <field name="defaultweight" type="bigint" column="defaultweight" nullable="false"/>
+    <field name="configdata" type="text" column="configdata" nullable="true"/>
+  </entity>
+</doctrine-mapping>

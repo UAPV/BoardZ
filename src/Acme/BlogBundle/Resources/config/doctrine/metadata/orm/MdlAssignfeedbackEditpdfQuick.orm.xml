@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlAssignfeedbackEditpdfQuick" table="mdl_assignfeedback_editpdf_quick">
+    <indexes>
+      <index name="mdl_assieditquic_use_ix" columns="userid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="rawtext" type="text" column="rawtext" nullable="false"/>
+    <field name="width" type="bigint" column="width" nullable="false"/>
+    <field name="colour" type="string" column="colour" length="10" nullable="true"/>
+  </entity>
+</doctrine-mapping>

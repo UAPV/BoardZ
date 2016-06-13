@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlWorkshopSubmissions" table="mdl_workshop_submissions">
+    <indexes>
+      <index name="mdl_worksubm_wor_ix" columns="workshopid"/>
+      <index name="mdl_worksubm_gra_ix" columns="gradeoverby"/>
+      <index name="mdl_worksubm_aut_ix" columns="authorid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="workshopid" type="bigint" column="workshopid" nullable="false"/>
+    <field name="example" type="boolean" column="example" nullable="true"/>
+    <field name="authorid" type="bigint" column="authorid" nullable="false"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="title" type="string" column="title" length="255" nullable="false"/>
+    <field name="content" type="text" column="content" nullable="true"/>
+    <field name="contentformat" type="smallint" column="contentformat" nullable="false"/>
+    <field name="contenttrust" type="smallint" column="contenttrust" nullable="false"/>
+    <field name="attachment" type="boolean" column="attachment" nullable="true"/>
+    <field name="grade" type="decimal" column="grade" precision="10" scale="5" nullable="true"/>
+    <field name="gradeover" type="decimal" column="gradeover" precision="10" scale="5" nullable="true"/>
+    <field name="gradeoverby" type="bigint" column="gradeoverby" nullable="true"/>
+    <field name="feedbackauthor" type="text" column="feedbackauthor" nullable="true"/>
+    <field name="feedbackauthorformat" type="smallint" column="feedbackauthorformat" nullable="true"/>
+    <field name="timegraded" type="bigint" column="timegraded" nullable="true"/>
+    <field name="published" type="boolean" column="published" nullable="true"/>
+    <field name="late" type="boolean" column="late" nullable="false"/>
+  </entity>
+</doctrine-mapping>

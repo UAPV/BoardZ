@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlQuestionNumericalOptions" table="mdl_question_numerical_options">
+    <indexes>
+      <index name="mdl_quesnumeopti_que_ix" columns="question"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="question" type="bigint" column="question" nullable="false"/>
+    <field name="showunits" type="smallint" column="showunits" nullable="false"/>
+    <field name="unitsleft" type="smallint" column="unitsleft" nullable="false"/>
+    <field name="unitgradingtype" type="smallint" column="unitgradingtype" nullable="false"/>
+    <field name="unitpenalty" type="decimal" column="unitpenalty" precision="12" scale="7" nullable="false"/>
+  </entity>
+</doctrine-mapping>

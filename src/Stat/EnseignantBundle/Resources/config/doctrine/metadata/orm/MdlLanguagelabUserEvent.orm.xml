@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlLanguagelabUserEvent" table="mdl_languagelab_user_event">
+    <indexes>
+      <index name="mdl_langusereven_lan_ix" columns="languagelab"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="languagelab" type="bigint" column="languagelab" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="type" type="text" column="type" nullable="false"/>
+    <field name="data" type="text" column="data" nullable="false"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+  </entity>
+</doctrine-mapping>

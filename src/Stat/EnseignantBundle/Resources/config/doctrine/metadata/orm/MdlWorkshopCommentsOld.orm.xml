@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlWorkshopCommentsOld" table="mdl_workshop_comments_old">
+    <indexes>
+      <index name="mdl_workcommold_use_ix" columns="userid"/>
+      <index name="mdl_workcommold_mai_ix" columns="mailed"/>
+      <index name="mdl_workcommold_wor_ix" columns="workshopid"/>
+      <index name="mdl_workcommold_ass_ix" columns="assessmentid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="workshopid" type="bigint" column="workshopid" nullable="false"/>
+    <field name="assessmentid" type="bigint" column="assessmentid" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="mailed" type="boolean" column="mailed" nullable="false"/>
+    <field name="comments" type="text" column="comments" nullable="false"/>
+    <field name="newplugin" type="string" column="newplugin" length="28" nullable="true"/>
+    <field name="newid" type="bigint" column="newid" nullable="true"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlQuestionCategories" table="mdl_question_categories">
+    <indexes>
+      <index name="mdl_quescate_con_ix" columns="contextid"/>
+      <index name="mdl_quescate_par_ix" columns="parent"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="contextid" type="bigint" column="contextid" nullable="false"/>
+    <field name="info" type="text" column="info" nullable="false"/>
+    <field name="infoformat" type="boolean" column="infoformat" nullable="false"/>
+    <field name="stamp" type="string" column="stamp" length="255" nullable="false"/>
+    <field name="parent" type="bigint" column="parent" nullable="false"/>
+    <field name="sortorder" type="bigint" column="sortorder" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlLessonTimer" table="mdl_lesson_timer">
+    <indexes>
+      <index name="mdl_lesstime_use_ix" columns="userid"/>
+      <index name="mdl_lesstime_les_ix" columns="lessonid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="lessonid" type="bigint" column="lessonid" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="starttime" type="bigint" column="starttime" nullable="false"/>
+    <field name="lessontime" type="bigint" column="lessontime" nullable="false"/>
+  </entity>
+</doctrine-mapping>

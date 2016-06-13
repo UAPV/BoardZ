@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlWorkshop" table="mdl_workshop">
+    <indexes>
+      <index name="mdl_work_cou_ix" columns="course"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="course" type="bigint" column="course" nullable="false"/>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="intro" type="text" column="intro" nullable="true"/>
+    <field name="introformat" type="smallint" column="introformat" nullable="false"/>
+    <field name="instructauthors" type="text" column="instructauthors" nullable="true"/>
+    <field name="instructauthorsformat" type="smallint" column="instructauthorsformat" nullable="false"/>
+    <field name="instructreviewers" type="text" column="instructreviewers" nullable="true"/>
+    <field name="instructreviewersformat" type="smallint" column="instructreviewersformat" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="phase" type="smallint" column="phase" nullable="true"/>
+    <field name="useexamples" type="boolean" column="useexamples" nullable="true"/>
+    <field name="usepeerassessment" type="boolean" column="usepeerassessment" nullable="true"/>
+    <field name="useselfassessment" type="boolean" column="useselfassessment" nullable="true"/>
+    <field name="grade" type="decimal" column="grade" precision="10" scale="5" nullable="true"/>
+    <field name="gradinggrade" type="decimal" column="gradinggrade" precision="10" scale="5" nullable="true"/>
+    <field name="strategy" type="string" column="strategy" length="30" nullable="false"/>
+    <field name="evaluation" type="string" column="evaluation" length="30" nullable="false"/>
+    <field name="gradedecimals" type="smallint" column="gradedecimals" nullable="true"/>
+    <field name="nattachments" type="smallint" column="nattachments" nullable="true"/>
+    <field name="latesubmissions" type="boolean" column="latesubmissions" nullable="true"/>
+    <field name="maxbytes" type="bigint" column="maxbytes" nullable="true"/>
+    <field name="examplesmode" type="smallint" column="examplesmode" nullable="true"/>
+    <field name="submissionstart" type="bigint" column="submissionstart" nullable="true"/>
+    <field name="submissionend" type="bigint" column="submissionend" nullable="true"/>
+    <field name="assessmentstart" type="bigint" column="assessmentstart" nullable="true"/>
+    <field name="assessmentend" type="bigint" column="assessmentend" nullable="true"/>
+  </entity>
+</doctrine-mapping>

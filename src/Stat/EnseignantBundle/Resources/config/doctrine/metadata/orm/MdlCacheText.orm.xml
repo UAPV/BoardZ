@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlCacheText" table="mdl_cache_text">
+    <indexes>
+      <index name="mdl_cachtext_md5_ix" columns="md5key"/>
+      <index name="mdl_cachtext_tim_ix" columns="timemodified"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="md5key" type="string" column="md5key" length="32" nullable="false"/>
+    <field name="formattedtext" type="text" column="formattedtext" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+  </entity>
+</doctrine-mapping>

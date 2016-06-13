@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlFeedbackValuetmp" table="mdl_feedback_valuetmp">
+    <indexes>
+      <index name="mdl_feedvalu_cou2_ix" columns="course_id"/>
+      <index name="mdl_feedvalu_ite2_ix" columns="item"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="courseId" type="bigint" column="course_id" nullable="false"/>
+    <field name="item" type="bigint" column="item" nullable="false"/>
+    <field name="completed" type="bigint" column="completed" nullable="false"/>
+    <field name="tmpCompleted" type="bigint" column="tmp_completed" nullable="false"/>
+    <field name="value" type="text" column="value" nullable="false"/>
+  </entity>
+</doctrine-mapping>

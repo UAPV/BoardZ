@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlForum" table="mdl_forum">
+    <indexes>
+      <index name="mdl_foru_cou_ix" columns="course"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="course" type="bigint" column="course" nullable="false"/>
+    <field name="type" type="string" column="type" length="20" nullable="false"/>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="intro" type="text" column="intro" nullable="false"/>
+    <field name="introformat" type="smallint" column="introformat" nullable="false"/>
+    <field name="assessed" type="bigint" column="assessed" nullable="false"/>
+    <field name="assesstimestart" type="bigint" column="assesstimestart" nullable="false"/>
+    <field name="assesstimefinish" type="bigint" column="assesstimefinish" nullable="false"/>
+    <field name="scale" type="bigint" column="scale" nullable="false"/>
+    <field name="maxbytes" type="bigint" column="maxbytes" nullable="false"/>
+    <field name="maxattachments" type="bigint" column="maxattachments" nullable="false"/>
+    <field name="forcesubscribe" type="boolean" column="forcesubscribe" nullable="false"/>
+    <field name="trackingtype" type="boolean" column="trackingtype" nullable="false"/>
+    <field name="rsstype" type="boolean" column="rsstype" nullable="false"/>
+    <field name="rssarticles" type="boolean" column="rssarticles" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="warnafter" type="bigint" column="warnafter" nullable="false"/>
+    <field name="blockafter" type="bigint" column="blockafter" nullable="false"/>
+    <field name="blockperiod" type="bigint" column="blockperiod" nullable="false"/>
+    <field name="completiondiscussions" type="integer" column="completiondiscussions" nullable="false"/>
+    <field name="completionreplies" type="integer" column="completionreplies" nullable="false"/>
+    <field name="completionposts" type="integer" column="completionposts" nullable="false"/>
+  </entity>
+</doctrine-mapping>

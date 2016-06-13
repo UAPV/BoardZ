@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlTimezone" table="mdl_timezone">
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="name" type="string" column="name" length="100" nullable="false"/>
+    <field name="year" type="bigint" column="year" nullable="false"/>
+    <field name="tzrule" type="string" column="tzrule" length="20" nullable="false"/>
+    <field name="gmtoff" type="bigint" column="gmtoff" nullable="false"/>
+    <field name="dstoff" type="bigint" column="dstoff" nullable="false"/>
+    <field name="dstMonth" type="boolean" column="dst_month" nullable="false"/>
+    <field name="dstStartday" type="smallint" column="dst_startday" nullable="false"/>
+    <field name="dstWeekday" type="smallint" column="dst_weekday" nullable="false"/>
+    <field name="dstSkipweeks" type="smallint" column="dst_skipweeks" nullable="false"/>
+    <field name="dstTime" type="string" column="dst_time" length="6" nullable="false"/>
+    <field name="stdMonth" type="boolean" column="std_month" nullable="false"/>
+    <field name="stdStartday" type="smallint" column="std_startday" nullable="false"/>
+    <field name="stdWeekday" type="smallint" column="std_weekday" nullable="false"/>
+    <field name="stdSkipweeks" type="smallint" column="std_skipweeks" nullable="false"/>
+    <field name="stdTime" type="string" column="std_time" length="6" nullable="false"/>
+  </entity>
+</doctrine-mapping>

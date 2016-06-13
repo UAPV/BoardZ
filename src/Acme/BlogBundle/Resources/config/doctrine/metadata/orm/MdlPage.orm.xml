@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlPage" table="mdl_page">
+    <indexes>
+      <index name="mdl_page_cou_ix" columns="course"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="course" type="bigint" column="course" nullable="false"/>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="intro" type="text" column="intro" nullable="true"/>
+    <field name="introformat" type="smallint" column="introformat" nullable="false"/>
+    <field name="content" type="text" column="content" nullable="true"/>
+    <field name="contentformat" type="smallint" column="contentformat" nullable="false"/>
+    <field name="legacyfiles" type="smallint" column="legacyfiles" nullable="false"/>
+    <field name="legacyfileslast" type="bigint" column="legacyfileslast" nullable="true"/>
+    <field name="display" type="smallint" column="display" nullable="false"/>
+    <field name="displayoptions" type="text" column="displayoptions" nullable="true"/>
+    <field name="revision" type="bigint" column="revision" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+  </entity>
+</doctrine-mapping>

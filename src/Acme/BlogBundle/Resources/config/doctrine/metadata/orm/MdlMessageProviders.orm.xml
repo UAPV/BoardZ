@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlMessageProviders" table="mdl_message_providers">
+    <unique-constraints>
+      <unique-constraint name="mdl_messprov_comnam_uix" columns="component,name"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="name" type="string" column="name" length="100" nullable="false"/>
+    <field name="component" type="string" column="component" length="200" nullable="false"/>
+    <field name="capability" type="string" column="capability" length="255" nullable="true"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlMnetHost" table="mdl_mnet_host">
+    <indexes>
+      <index name="mdl_mnethost_app_ix" columns="applicationid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="deleted" type="boolean" column="deleted" nullable="false"/>
+    <field name="wwwroot" type="string" column="wwwroot" length="255" nullable="false"/>
+    <field name="ipAddress" type="string" column="ip_address" length="45" nullable="false"/>
+    <field name="name" type="string" column="name" length="80" nullable="false"/>
+    <field name="publicKey" type="text" column="public_key" nullable="false"/>
+    <field name="publicKeyExpires" type="bigint" column="public_key_expires" nullable="false"/>
+    <field name="transport" type="boolean" column="transport" nullable="false"/>
+    <field name="portno" type="integer" column="portno" nullable="false"/>
+    <field name="lastConnectTime" type="bigint" column="last_connect_time" nullable="false"/>
+    <field name="lastLogId" type="bigint" column="last_log_id" nullable="false"/>
+    <field name="forceTheme" type="boolean" column="force_theme" nullable="false"/>
+    <field name="theme" type="string" column="theme" length="100" nullable="true"/>
+    <field name="applicationid" type="bigint" column="applicationid" nullable="false"/>
+  </entity>
+</doctrine-mapping>

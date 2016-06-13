@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlUserLastaccess" table="mdl_user_lastaccess">
+    <indexes>
+      <index name="mdl_userlast_use_ix" columns="userid"/>
+      <index name="mdl_userlast_cou_ix" columns="courseid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_userlast_usecou_uix" columns="userid,courseid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="courseid" type="bigint" column="courseid" nullable="false"/>
+    <field name="timeaccess" type="bigint" column="timeaccess" nullable="false"/>
+  </entity>
+</doctrine-mapping>

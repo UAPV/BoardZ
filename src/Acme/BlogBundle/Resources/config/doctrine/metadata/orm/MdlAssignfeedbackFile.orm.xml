@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlAssignfeedbackFile" table="mdl_assignfeedback_file">
+    <indexes>
+      <index name="mdl_assifile_ass2_ix" columns="assignment"/>
+      <index name="mdl_assifile_gra_ix" columns="grade"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="assignment" type="bigint" column="assignment" nullable="false"/>
+    <field name="grade" type="bigint" column="grade" nullable="false"/>
+    <field name="numfiles" type="bigint" column="numfiles" nullable="false"/>
+  </entity>
+</doctrine-mapping>

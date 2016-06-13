@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlExternalServicesUsers" table="mdl_external_services_users">
+    <indexes>
+      <index name="mdl_exteservuser_ext_ix" columns="externalserviceid"/>
+      <index name="mdl_exteservuser_use_ix" columns="userid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="externalserviceid" type="bigint" column="externalserviceid" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="iprestriction" type="string" column="iprestriction" length="255" nullable="true"/>
+    <field name="validuntil" type="bigint" column="validuntil" nullable="true"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="true"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlAssignsubmissionOnlinetext" table="mdl_assignsubmission_onlinetext">
+    <indexes>
+      <index name="mdl_assionli_ass_ix" columns="assignment"/>
+      <index name="mdl_assionli_sub_ix" columns="submission"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="assignment" type="bigint" column="assignment" nullable="false"/>
+    <field name="submission" type="bigint" column="submission" nullable="false"/>
+    <field name="onlinetext" type="text" column="onlinetext" nullable="true"/>
+    <field name="onlineformat" type="smallint" column="onlineformat" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlAssignment" table="mdl_assignment">
+    <indexes>
+      <index name="mdl_assi_cou_ix" columns="course"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="course" type="bigint" column="course" nullable="false"/>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="intro" type="text" column="intro" nullable="false"/>
+    <field name="introformat" type="smallint" column="introformat" nullable="false"/>
+    <field name="assignmenttype" type="string" column="assignmenttype" length="50" nullable="false"/>
+    <field name="resubmit" type="boolean" column="resubmit" nullable="false"/>
+    <field name="preventlate" type="boolean" column="preventlate" nullable="false"/>
+    <field name="emailteachers" type="boolean" column="emailteachers" nullable="false"/>
+    <field name="var1" type="bigint" column="var1" nullable="true"/>
+    <field name="var2" type="bigint" column="var2" nullable="true"/>
+    <field name="var3" type="bigint" column="var3" nullable="true"/>
+    <field name="var4" type="bigint" column="var4" nullable="true"/>
+    <field name="var5" type="bigint" column="var5" nullable="true"/>
+    <field name="maxbytes" type="bigint" column="maxbytes" nullable="false"/>
+    <field name="timedue" type="bigint" column="timedue" nullable="false"/>
+    <field name="timeavailable" type="bigint" column="timeavailable" nullable="false"/>
+    <field name="grade" type="bigint" column="grade" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+  </entity>
+</doctrine-mapping>

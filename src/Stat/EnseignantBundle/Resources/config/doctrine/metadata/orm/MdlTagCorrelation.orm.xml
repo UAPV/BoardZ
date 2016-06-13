@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlTagCorrelation" table="mdl_tag_correlation">
+    <indexes>
+      <index name="mdl_tagcorr_tag_ix" columns="tagid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="tagid" type="bigint" column="tagid" nullable="false"/>
+    <field name="correlatedtags" type="text" column="correlatedtags" nullable="false"/>
+  </entity>
+</doctrine-mapping>

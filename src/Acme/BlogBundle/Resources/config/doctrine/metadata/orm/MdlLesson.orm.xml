@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlLesson" table="mdl_lesson">
+    <indexes>
+      <index name="mdl_less_cou_ix" columns="course"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="course" type="bigint" column="course" nullable="false"/>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="practice" type="smallint" column="practice" nullable="false"/>
+    <field name="modattempts" type="smallint" column="modattempts" nullable="false"/>
+    <field name="usepassword" type="smallint" column="usepassword" nullable="false"/>
+    <field name="password" type="string" column="password" length="32" nullable="false"/>
+    <field name="dependency" type="bigint" column="dependency" nullable="false"/>
+    <field name="conditions" type="text" column="conditions" nullable="false"/>
+    <field name="grade" type="smallint" column="grade" nullable="false"/>
+    <field name="custom" type="smallint" column="custom" nullable="false"/>
+    <field name="ongoing" type="smallint" column="ongoing" nullable="false"/>
+    <field name="usemaxgrade" type="smallint" column="usemaxgrade" nullable="false"/>
+    <field name="maxanswers" type="smallint" column="maxanswers" nullable="false"/>
+    <field name="maxattempts" type="smallint" column="maxattempts" nullable="false"/>
+    <field name="review" type="smallint" column="review" nullable="false"/>
+    <field name="nextpagedefault" type="smallint" column="nextpagedefault" nullable="false"/>
+    <field name="feedback" type="smallint" column="feedback" nullable="false"/>
+    <field name="minquestions" type="smallint" column="minquestions" nullable="false"/>
+    <field name="maxpages" type="smallint" column="maxpages" nullable="false"/>
+    <field name="timed" type="smallint" column="timed" nullable="false"/>
+    <field name="maxtime" type="bigint" column="maxtime" nullable="false"/>
+    <field name="retake" type="smallint" column="retake" nullable="false"/>
+    <field name="activitylink" type="bigint" column="activitylink" nullable="false"/>
+    <field name="mediafile" type="string" column="mediafile" length="255" nullable="false"/>
+    <field name="mediaheight" type="bigint" column="mediaheight" nullable="false"/>
+    <field name="mediawidth" type="bigint" column="mediawidth" nullable="false"/>
+    <field name="mediaclose" type="smallint" column="mediaclose" nullable="false"/>
+    <field name="slideshow" type="smallint" column="slideshow" nullable="false"/>
+    <field name="width" type="bigint" column="width" nullable="false"/>
+    <field name="height" type="bigint" column="height" nullable="false"/>
+    <field name="bgcolor" type="string" column="bgcolor" length="7" nullable="false"/>
+    <field name="displayleft" type="smallint" column="displayleft" nullable="false"/>
+    <field name="displayleftif" type="smallint" column="displayleftif" nullable="false"/>
+    <field name="progressbar" type="smallint" column="progressbar" nullable="false"/>
+    <field name="highscores" type="smallint" column="highscores" nullable="false"/>
+    <field name="maxhighscores" type="bigint" column="maxhighscores" nullable="false"/>
+    <field name="available" type="bigint" column="available" nullable="false"/>
+    <field name="deadline" type="bigint" column="deadline" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+  </entity>
+</doctrine-mapping>

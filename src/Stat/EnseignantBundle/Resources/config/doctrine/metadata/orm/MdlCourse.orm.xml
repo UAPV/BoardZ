@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlCourse" table="mdl_course">
+    <indexes>
+      <index name="mdl_cour_cat_ix" columns="category"/>
+      <index name="mdl_cour_idn_ix" columns="idnumber"/>
+      <index name="mdl_cour_sho_ix" columns="shortname"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="category" type="bigint" column="category" nullable="false"/>
+    <field name="sortorder" type="bigint" column="sortorder" nullable="false"/>
+    <field name="fullname" type="string" column="fullname" length="254" nullable="false"/>
+    <field name="shortname" type="string" column="shortname" length="255" nullable="false"/>
+    <field name="idnumber" type="string" column="idnumber" length="100" nullable="false"/>
+    <field name="summary" type="text" column="summary" nullable="true"/>
+    <field name="summaryformat" type="boolean" column="summaryformat" nullable="false"/>
+    <field name="format" type="string" column="format" length="10" nullable="false"/>
+    <field name="showgrades" type="boolean" column="showgrades" nullable="false"/>
+    <field name="modinfo" type="text" column="modinfo" nullable="true"/>
+    <field name="newsitems" type="integer" column="newsitems" nullable="false"/>
+    <field name="startdate" type="bigint" column="startdate" nullable="false"/>
+    <field name="numsections" type="integer" column="numsections" nullable="false"/>
+    <field name="marker" type="bigint" column="marker" nullable="false"/>
+    <field name="maxbytes" type="bigint" column="maxbytes" nullable="false"/>
+    <field name="legacyfiles" type="smallint" column="legacyfiles" nullable="false"/>
+    <field name="showreports" type="smallint" column="showreports" nullable="false"/>
+    <field name="visible" type="boolean" column="visible" nullable="false"/>
+    <field name="visibleold" type="boolean" column="visibleold" nullable="false"/>
+    <field name="hiddensections" type="boolean" column="hiddensections" nullable="false"/>
+    <field name="groupmode" type="smallint" column="groupmode" nullable="false"/>
+    <field name="groupmodeforce" type="smallint" column="groupmodeforce" nullable="false"/>
+    <field name="defaultgroupingid" type="bigint" column="defaultgroupingid" nullable="false"/>
+    <field name="lang" type="string" column="lang" length="30" nullable="false"/>
+    <field name="theme" type="string" column="theme" length="50" nullable="false"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="requested" type="boolean" column="requested" nullable="false"/>
+    <field name="restrictmodules" type="boolean" column="restrictmodules" nullable="false"/>
+    <field name="enablecompletion" type="boolean" column="enablecompletion" nullable="false"/>
+    <field name="completionstartonenrol" type="boolean" column="completionstartonenrol" nullable="false"/>
+    <field name="completionnotify" type="boolean" column="completionnotify" nullable="false"/>
+  </entity>
+</doctrine-mapping>

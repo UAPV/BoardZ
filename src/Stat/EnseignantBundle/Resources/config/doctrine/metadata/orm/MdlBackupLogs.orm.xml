@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlBackupLogs" table="mdl_backup_logs">
+    <indexes>
+      <index name="mdl_backlogs_bac_ix" columns="backupid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_backlogs_bacid_uix" columns="backupid,id"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="backupid" type="string" column="backupid" length="32" nullable="false"/>
+    <field name="loglevel" type="smallint" column="loglevel" nullable="false"/>
+    <field name="message" type="string" column="message" length="255" nullable="false"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,10 @@
+dosi_auth:
+    resource: "@DosiAuthBundle/Resources/config/routing.xml"
+    prefix:   /
+
+stat_enseignant:
+    resource: "@StatEnseignantBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+

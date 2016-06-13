@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlPost" table="mdl_post">
+    <indexes>
+      <index name="mdl_post_las_ix" columns="lastmodified"/>
+      <index name="mdl_post_mod_ix" columns="module"/>
+      <index name="mdl_post_sub_ix" columns="subject"/>
+      <index name="mdl_post_use_ix" columns="usermodified"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_post_iduse_uix" columns="id,userid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="module" type="string" column="module" length="20" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="courseid" type="bigint" column="courseid" nullable="false"/>
+    <field name="groupid" type="bigint" column="groupid" nullable="false"/>
+    <field name="moduleid" type="bigint" column="moduleid" nullable="false"/>
+    <field name="coursemoduleid" type="bigint" column="coursemoduleid" nullable="false"/>
+    <field name="subject" type="string" column="subject" length="128" nullable="false"/>
+    <field name="summary" type="text" column="summary" nullable="true"/>
+    <field name="content" type="text" column="content" nullable="true"/>
+    <field name="uniquehash" type="string" column="uniquehash" length="255" nullable="false"/>
+    <field name="rating" type="bigint" column="rating" nullable="false"/>
+    <field name="format" type="bigint" column="format" nullable="false"/>
+    <field name="summaryformat" type="boolean" column="summaryformat" nullable="false"/>
+    <field name="attachment" type="string" column="attachment" length="100" nullable="true"/>
+    <field name="publishstate" type="string" column="publishstate" length="20" nullable="false"/>
+    <field name="lastmodified" type="bigint" column="lastmodified" nullable="false"/>
+    <field name="created" type="bigint" column="created" nullable="false"/>
+    <field name="usermodified" type="bigint" column="usermodified" nullable="true"/>
+  </entity>
+</doctrine-mapping>

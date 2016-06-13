@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlQuestion" table="mdl_question">
+    <indexes>
+      <index name="mdl_ques_cat_ix" columns="category"/>
+      <index name="mdl_ques_par_ix" columns="parent"/>
+      <index name="mdl_ques_cre_ix" columns="createdby"/>
+      <index name="mdl_ques_mod_ix" columns="modifiedby"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="category" type="bigint" column="category" nullable="false"/>
+    <field name="parent" type="bigint" column="parent" nullable="false"/>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="questiontext" type="text" column="questiontext" nullable="false"/>
+    <field name="questiontextformat" type="boolean" column="questiontextformat" nullable="false"/>
+    <field name="generalfeedback" type="text" column="generalfeedback" nullable="false"/>
+    <field name="generalfeedbackformat" type="boolean" column="generalfeedbackformat" nullable="false"/>
+    <field name="defaultmark" type="decimal" column="defaultmark" precision="12" scale="7" nullable="false"/>
+    <field name="penalty" type="decimal" column="penalty" precision="12" scale="7" nullable="false"/>
+    <field name="qtype" type="string" column="qtype" length="20" nullable="false"/>
+    <field name="length" type="bigint" column="length" nullable="false"/>
+    <field name="stamp" type="string" column="stamp" length="255" nullable="false"/>
+    <field name="version" type="string" column="version" length="255" nullable="false"/>
+    <field name="hidden" type="boolean" column="hidden" nullable="false"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="createdby" type="bigint" column="createdby" nullable="true"/>
+    <field name="modifiedby" type="bigint" column="modifiedby" nullable="true"/>
+  </entity>
+</doctrine-mapping>

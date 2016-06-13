@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlLanguagelab" table="mdl_languagelab">
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="course" type="bigint" column="course" nullable="false"/>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="description" type="text" column="description" nullable="true"/>
+    <field name="contentformat" type="boolean" column="contentformat" nullable="true"/>
+    <field name="timedue" type="bigint" column="timedue" nullable="false"/>
+    <field name="timeavailable" type="bigint" column="timeavailable" nullable="false"/>
+    <field name="grade" type="bigint" column="grade" nullable="false"/>
+    <field name="recordingTimelimit" type="bigint" column="recording_timelimit" nullable="false"/>
+    <field name="attempts" type="boolean" column="attempts" nullable="false"/>
+    <field name="video" type="boolean" column="video" nullable="true"/>
+    <field name="useGradeBook" type="boolean" column="use_grade_book" nullable="true"/>
+    <field name="groupType" type="boolean" column="group_type" nullable="true"/>
+    <field name="masterTrack" type="string" column="master_track" length="255" nullable="true"/>
+    <field name="masterTrackRecording" type="string" column="master_track_recording" length="255" nullable="true"/>
+    <field name="useMp3" type="boolean" column="use_mp3" nullable="true"/>
+    <field name="studentDeleteRecordings" type="boolean" column="student_delete_recordings" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlWorkshopformNumerrors" table="mdl_workshopform_numerrors">
+    <indexes>
+      <index name="mdl_worknume_wor_ix" columns="workshopid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="workshopid" type="bigint" column="workshopid" nullable="false"/>
+    <field name="sort" type="bigint" column="sort" nullable="true"/>
+    <field name="description" type="text" column="description" nullable="true"/>
+    <field name="descriptionformat" type="smallint" column="descriptionformat" nullable="true"/>
+    <field name="descriptiontrust" type="bigint" column="descriptiontrust" nullable="true"/>
+    <field name="grade0" type="string" column="grade0" length="50" nullable="true"/>
+    <field name="grade1" type="string" column="grade1" length="50" nullable="true"/>
+    <field name="weight" type="integer" column="weight" nullable="true"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{% block title %} Stats Moodle{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('bundles/statenseignant/css/style.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/statenseignant/css/bootstrap.min.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/statenseignant/css/menu.css') }}" type="text/css" media="all" />
+    {% endblock %}
+    <script src="{{ asset('bundles/statenseignant/js/jquery-1.11.0.min.js') }}"></script>
+    <script src="{{ asset('bundles/statenseignant/js/highcharts.js') }}"></script>
+    <script src="{{ asset('bundles/statenseignant/js/highcharts-more.js') }}"></script>
+    <script src="{{ asset('bundles/statenseignant/js/exporting.js') }}"></script>
+    <script src="{{ asset('bundles/statenseignant/js/fonction.js') }}"></script>
+    <script src="{{ asset('bundles/statenseignant/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/statenseignant/js/modernizr.custom.js') }}"></script>
+</head>
+<body>
+
+<div class="wrapper">
+    <div id="header">
+      <span id="logo">
+          <a href="http://www.univ-avignon.fr/"><img src="{{ asset('bundles/statenseignant/images/logo_uapv.gif') }}" /></a>
+      </span>
+      <div id="header_banniere"></div>
+
+      <span id='banniere'></span>
+      <div id="title_page">
+        <span class="tagline">Statistiques Plateforme pédagogique</span>
+      </div>
+    </div>
+    <div id="toolbar">
+        <ul id="menu">
+            {% block menu %}
+            {% endblock %}
+        </ul>
+    </div>
+    <div id="content">
+      {% block body %}
+      {% endblock %}
+    </div>
+</div>
+
+<div id="footer">
+  <p>Utilisation de la libraire <a href="http://www.highcharts.com" target="_blank">hightcharts.com</a></p>
+</div>
+{% block javascripts %}
+    <script>
+        $(document).ready(function () {
+            {% block documentReady %}{% endblock documentReady %}
+        });
+    </script>
+{% endblock %}
+<script src="{{ asset('bundles/statenseignant/js/ytmenu.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlExternalServicesFunctions" table="mdl_external_services_functions">
+    <indexes>
+      <index name="mdl_exteservfunc_ext_ix" columns="externalserviceid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="externalserviceid" type="bigint" column="externalserviceid" nullable="false"/>
+    <field name="functionname" type="string" column="functionname" length="200" nullable="false"/>
+  </entity>
+</doctrine-mapping>

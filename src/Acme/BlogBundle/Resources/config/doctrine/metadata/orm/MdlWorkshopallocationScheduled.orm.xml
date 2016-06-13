@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlWorkshopallocationScheduled" table="mdl_workshopallocation_scheduled">
+    <unique-constraints>
+      <unique-constraint name="mdl_worksche_wor_uix" columns="workshopid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="workshopid" type="bigint" column="workshopid" nullable="false"/>
+    <field name="enabled" type="boolean" column="enabled" nullable="false"/>
+    <field name="submissionend" type="bigint" column="submissionend" nullable="false"/>
+    <field name="timeallocated" type="bigint" column="timeallocated" nullable="true"/>
+    <field name="settings" type="text" column="settings" nullable="true"/>
+    <field name="resultstatus" type="bigint" column="resultstatus" nullable="true"/>
+    <field name="resultmessage" type="string" column="resultmessage" length="1333" nullable="true"/>
+    <field name="resultlog" type="text" column="resultlog" nullable="true"/>
+  </entity>
+</doctrine-mapping>

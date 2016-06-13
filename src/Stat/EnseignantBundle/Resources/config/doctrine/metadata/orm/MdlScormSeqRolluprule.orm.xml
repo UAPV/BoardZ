@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlScormSeqRolluprule" table="mdl_scorm_seq_rolluprule">
+    <indexes>
+      <index name="mdl_scorseqroll_sco_ix" columns="scoid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_scorseqroll_scoid_uix" columns="scoid,id"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="scoid" type="bigint" column="scoid" nullable="false"/>
+    <field name="childactivityset" type="string" column="childactivityset" length="15" nullable="false"/>
+    <field name="minimumcount" type="bigint" column="minimumcount" nullable="false"/>
+    <field name="minimumpercent" type="float" column="minimumpercent" precision="11" scale="4" nullable="false"/>
+    <field name="conditioncombination" type="string" column="conditioncombination" length="3" nullable="false"/>
+    <field name="action" type="string" column="action" length="15" nullable="false"/>
+  </entity>
+</doctrine-mapping>

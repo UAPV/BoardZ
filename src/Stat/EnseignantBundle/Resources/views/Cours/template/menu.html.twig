@@ -1,0 +1,42 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.dr-menu > ul').hide(100);
+
+        $('.dr-label').on('click', function(){
+            if($('.dr-menu > ul').is(':hidden')){
+                $('.dr-menu > ul').css('display', 'block');
+            }
+        });
+
+        $('.dr-icon-menu').on('click', function(){
+          if($('.dr-menu > ul').is(':hidden')){
+              $('.dr-menu > ul').css('display', 'block');
+            }
+          else
+              $('.dr-menu > ul').hide(100);
+        });
+    })
+</script>
+
+<div class="side">
+  <nav class="dr-menu">
+    <div class="dr-trigger"><span class="dr-icon dr-icon-menu"></span><a class="dr-label">Menu</a></div>
+    <ul>
+      <li><a class="dr-icon dr-icon-home" href="{{ path('stat_enseignant_homepage') }}">Accueil</a></li>
+      {% if enseignant > 0 %}
+        <li><a class="dr-icon dr-icon-books" href="{{ path('stat_enseignant_homepage') }}#tabMesCoursEnseignant">Vue "enseignant"</a></li>
+      {% endif %}
+      {% if student > 0 %}
+        <li><a class="dr-icon dr-icon-profile" href="{{ path('stat_enseignant_homepage') }}#tabMesCoursEtudiant">Vue "étudiant"</a></li>
+      {% endif %}
+      {% if responsable == true %}
+        <li><a class="dr-icon dr-icon-users" href="{{ path('stat_enseignant_homepage') }}#tabResponsableFormation">Vue "responsable"</a></li>
+      {% endif %}
+      {% if labelisation == true %}
+        <li><a class="dr-icon dr-icon-trophy" href="{{ path('stat_labelisation_homepage') }}">Vue "labelisation"</a></li>
+      {% endif %}
+      <li><a class="dr-icon dr-icon-equalizer" href="{{ path('stat_administration_homepage') }}">Administration</a></li>
+      <li><a class="dr-icon dr-icon-switch" href="{{ app.request.getBaseURL() }}/logout">Déconnexion</a></li>
+    </ul>
+  </nav>
+</div>

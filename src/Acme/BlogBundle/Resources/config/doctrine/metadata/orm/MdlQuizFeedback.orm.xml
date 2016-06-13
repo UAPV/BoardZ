@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlQuizFeedback" table="mdl_quiz_feedback">
+    <indexes>
+      <index name="mdl_quizfeed_qui_ix" columns="quizid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="quizid" type="bigint" column="quizid" nullable="false"/>
+    <field name="feedbacktext" type="text" column="feedbacktext" nullable="false"/>
+    <field name="feedbacktextformat" type="boolean" column="feedbacktextformat" nullable="false"/>
+    <field name="mingrade" type="decimal" column="mingrade" precision="10" scale="5" nullable="false"/>
+    <field name="maxgrade" type="decimal" column="maxgrade" precision="10" scale="5" nullable="false"/>
+  </entity>
+</doctrine-mapping>

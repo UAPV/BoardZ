@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlPortfolioLog" table="mdl_portfolio_log">
+    <indexes>
+      <index name="mdl_portlog_use_ix" columns="userid"/>
+      <index name="mdl_portlog_por_ix" columns="portfolio"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="time" type="bigint" column="time" nullable="false"/>
+    <field name="portfolio" type="bigint" column="portfolio" nullable="false"/>
+    <field name="callerClass" type="string" column="caller_class" length="150" nullable="false"/>
+    <field name="callerFile" type="string" column="caller_file" length="255" nullable="false"/>
+    <field name="callerSha1" type="string" column="caller_sha1" length="255" nullable="false"/>
+    <field name="tempdataid" type="bigint" column="tempdataid" nullable="false"/>
+    <field name="returnurl" type="string" column="returnurl" length="255" nullable="false"/>
+    <field name="continueurl" type="string" column="continueurl" length="255" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlBlockCommunity" table="mdl_block_community">
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="coursename" type="string" column="coursename" length="255" nullable="false"/>
+    <field name="coursedescription" type="text" column="coursedescription" nullable="true"/>
+    <field name="courseurl" type="string" column="courseurl" length="255" nullable="false"/>
+    <field name="imageurl" type="string" column="imageurl" length="255" nullable="false"/>
+  </entity>
+</doctrine-mapping>

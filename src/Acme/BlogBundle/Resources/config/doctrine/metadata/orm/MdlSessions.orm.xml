@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlSessions" table="mdl_sessions">
+    <indexes>
+      <index name="mdl_sess_sta_ix" columns="state"/>
+      <index name="mdl_sess_tim_ix" columns="timecreated"/>
+      <index name="mdl_sess_tim2_ix" columns="timemodified"/>
+      <index name="mdl_sess_use_ix" columns="userid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_sess_sid_uix" columns="sid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="state" type="bigint" column="state" nullable="false"/>
+    <field name="sid" type="string" column="sid" length="128" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="sessdata" type="text" column="sessdata" nullable="true"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="firstip" type="string" column="firstip" length="45" nullable="true"/>
+    <field name="lastip" type="string" column="lastip" length="45" nullable="true"/>
+  </entity>
+</doctrine-mapping>

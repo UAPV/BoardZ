@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="dosi.auth.factory.class">Dosi\AuthBundle\Sso\Factory</parameter>
+        <parameter key="dosi.auth.client.class">Dosi\AuthBundle\Buzz\AdaptiveClient</parameter>
+        <parameter key="dosi.auth.client.option.curlopt_ssl_verifypeer.key">64</parameter>
+        <parameter key="dosi.auth.client.option.curlopt_ssl_verifypeer.value">TRUE</parameter>
+    </parameters>
+
+    <services>
+        <service id="dosi.auth.client" class="%dosi.auth.client.class%">
+            <argument type="collection">
+                <argument key="%dosi.auth.client.option.curlopt_ssl_verifypeer.key%">%dosi.auth.client.option.curlopt_ssl_verifypeer.value%</argument>
+            </argument>
+        </service>
+
+        <service id="dosi.auth.factory" class="%dosi.auth.factory.class%">
+            <argument type="service" id="service_container" />
+            <argument type="service" id="dosi.auth.client" />
+        </service>
+    </services>
+</container>

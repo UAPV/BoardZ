@@ -1,0 +1,90 @@
+{% extends "StatEnseignantBundle::layout.html.twig" %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var max = 20;
+            $('.graph').each(function()
+            {
+                id = $(this).attr('id');
+                if($('#'+id+'_debut') != undefined && $('#'+id+'_fin') != undefined)
+                {
+                    debut = $('#'+id+'_debut').val();
+                    fin = $('#'+id+'_fin').val();
+                }
+                else
+                {
+                    debut = null;
+                    fin = null;
+                }
+                getGraph($('#'+id+'_type').val(), id,$('#'+id+'_titre').val(),$('#'+id+'_data').val(),max,debut, fin);
+            });
+        })
+    </script>
+{% endblock %}
+
+{% block title %}{{ parent() }} - {{ title }} {% endblock %}
+
+{% block body %}
+
+    <h1>{{ title }} : {{ porteur }}</h1>
+
+    <div>
+        {% for code,infos in data %}
+            <div class="uce">
+               <div style="width: 20%;" class="left">
+                   <p class="nomUE">{{ code }}<br/>{{ infos.infos.nom }}</p>
+                   {% if(infos.feedback == false) %}
+                       <p class="feedback error">
+                           <img src="{{ asset('bundles/statenseignant/images/red.png') }}" class="epingle" />
+                   {% else %}
+                       <p class="feedback ok">
+                           <img src="{{ asset('bundles/statenseignant/images/green.png') }}" class="epingle" />
+                   {% endif %}
+                       <span>Feedback</span>
+                   </p>
+
+                   {% if(infos.score < 30) %}
+                       <p class="score error">
+                           <img src="{{ asset('bundles/statenseignant/images/red.png') }}" class="epingle" />
+                   {% elseif infos.score < 100 %}
+                       <p class="score moyen">
+                           <img src="{{ asset('bundles/statenseignant/images/red.png') }}" class="epingle" />
+                   {% else %}
+                       <p class="score ok">
+                           <img src="{{ asset('bundles/statenseignant/images/green.png') }}" class="epingle" />
+                   {% endif %}
+                       <span>Score TICE </span><br/>
+                       <span class="scoreNumber">{{ infos.score }}</span>
+                   </p>
+               </div>
+               <div class="left" style="width: 60%;">
+                   {% for tab in infos.data %}
+                       {% for cle,val in tab %}
+                            <div id="{{ 'container_' ~ loop.index ~ '_' ~ loop.parent.loop.index }}" class="graph"></div>
+                            <input id="{{ 'container_' ~ loop.index ~ '_' ~ loop.parent.loop.index ~ '_data' }}" type="hidden" value="{{ tab[cle]['nb']|json_encode }}" />
+                            <input id="{{ 'container_' ~ loop.index ~ '_' ~ loop.parent.loop.index ~ '_titre' }}" type="hidden" value="{{ cle }}" />
+                            <input id="{{ 'container_' ~ loop.index ~ '_' ~ loop.parent.loop.index ~ '_type' }}" type="hidden" value="{{ tab[cle]['type'] }}" />
+                       {% endfor %}
+                    {% endfor %}
+               </div>
+               <div class="right infosUE" style="width: 10%;">
+                   <p>
+                      {% if infos.infos.ects != null %}{{ infos.infos.ects }}
+                      {% else %} ?
+                      {% endif %} ECTS
+                   </p>
+                   <p>
+                       {% if infos.infos.volh != null %}{{ infos.infos.volh }}
+                       {% else %} ?
+                       {% endif %} Heures
+                   </p>
+                   <p>{{ infos.pourcentage }} % d'étudiants inscrits</p>
+                   <p>{{ infos.studentInscrit }}</p>
+               </div>
+               <div style="clear: both;"></div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

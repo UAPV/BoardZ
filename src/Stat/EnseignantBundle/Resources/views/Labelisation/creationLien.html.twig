@@ -1,0 +1,159 @@
+{% extends "StatEnseignantBundle::layout.html.twig" %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            //On change la composante, on charge la filiere
+            $('#composantes').on('change', function(){
+                $('#filieres').empty();
+                $('#diplomes').empty();
+                $('#matieres').empty();
+                $(this).find('#vide').attr('selected','selected');
+                composante = $('#composantes option:selected').val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('stat_labelisation_filiere_ajax') }}",
+                    data: { composante: composante }
+                }).done(function(data) {
+                   $.each( data, function( id, filiere ) {
+                      $('#filieres').append('<option value="'+id+'">'+filiere+'</option>')
+                   })
+                })
+            })
+
+            //On change la filiere, on charge le diplome
+            $('#filieres').on('change', function(){
+                $('#diplomes').empty();
+                $('#matieres').empty();
+                filiere = $('#filieres option:selected').val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('stat_labelisation_diplome_ajax') }}",
+                    data: { filiere: filiere }
+                }).done(function(data) {
+                   $.each( data, function( id, diplome ) {
+                      $('#diplomes').append('<option value="'+id+'">'+diplome+'</option>')
+                   })
+                })
+            })
+
+            //On change le diplôme, on charge les matières
+            $('#diplomes').on('change', function(){
+                $('#matieres').empty();
+                diplome = $('#diplomes option:selected').val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('stat_labelisation_matiere_ajax') }}",
+                    data: { diplome: diplome }
+                }).done(function(data) {
+                   $.each( data, function( id, matiere ) {
+                      $('#matieres').append('<input type="checkbox" value="'+id+'"> ('+id+')  '+matiere+'<br/>');
+                      $('#matieres').append('<input type="hidden" id="'+id+'_hidden" value="'+matiere+'">');
+                   })
+                })
+            })
+
+            $('#inserer').on('click', function(){
+              //On récupère les ue/uce sélectionnées
+              var valeurs = [];
+              $('#matieres input:checked').each(function() {
+                id = $(this).val();
+                matiere = $("#"+id+"_hidden").val();
+
+                $('#listeMatieres').append('<input type="checkbox" value="'+id+'"> ('+id+')  '+matiere+'<br/>');
+              });
+
+              $('#addCours').modal('hide');
+            })
+
+            $('#save').on('click', function(){
+                nom = $('#nomSemestre').val();
+                porteur = $('#porteur').val();
+                cours = new Array();
+                $.each($('#listeMatieres input'), function(){
+                  cours.push($(this).val());
+                })
+
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('stat_labelisation_add_lien') }}",
+                    data: { nom: nom, porteur: porteur, cours: cours }
+                }).done(function() {
+                   window.location.href = "{{ path('stat_labelisation_homepage') }}"
+                })
+            })
+        })
+    </script>
+{% endblock %}
+
+{% block title %}{{ parent() }} - Création d'un lien "labélisation" {% endblock %}
+
+{% block body %}
+
+    <h1>Création d'un lien</h1>
+
+    <div class="blocLabelisation">
+        <form role="form">
+            <div class="form-group">
+                <label for="nomSemestre">Nom du semestre</label>
+                <input type="text" class="form-control" id="nomSemestre" placeholder="Nom du semestre">
+            </div>
+            <div class="form-group">
+                <label for="porteur">Porteur du projet</label>
+                <select class="form-control" id="porteur">
+                  {% for id, nom in enseignants %}
+                      <option value="{{ id }}">{{ nom }}</option>
+                  {% endfor %}
+                </select>
+            </div>
+            <div class="left" id="listeMatieres"></div>
+            <div class="right">
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#addCours" style="margin-bottom: -10px;">Ajouter des cours</button>
+            </div>
+            <div style="clear: both;"></div>
+        </form>
+        <button  id="save" class="btn btn-info">Enregistrer</button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addCours" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Ajouter des cours</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="composantes">Composantes </label>
+                        <select class="form-control" id="composantes">
+                            <option id="vide"></option>
+                            {% for id,lib in composantes %}
+                                <option value="{{ id }}">{{ lib }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="filieres">Filieres </label>
+                        <select class="form-control" id="filieres"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="diplomes">Diplômes </label>
+                        <select class="form-control" id="diplomes"></select>
+                    </div>
+                    <div>
+                        <label for="matieres">Matieres </label>
+                        <div id="matieres"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" id="inserer">Insérer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlQuestionDatasetDefinitions" table="mdl_question_dataset_definitions">
+    <indexes>
+      <index name="mdl_quesdatadefi_cat_ix" columns="category"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="category" type="bigint" column="category" nullable="false"/>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="type" type="bigint" column="type" nullable="false"/>
+    <field name="options" type="string" column="options" length="255" nullable="false"/>
+    <field name="itemcount" type="bigint" column="itemcount" nullable="false"/>
+  </entity>
+</doctrine-mapping>

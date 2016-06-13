@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlDataContent" table="mdl_data_content">
+    <indexes>
+      <index name="mdl_datacont_rec_ix" columns="recordid"/>
+      <index name="mdl_datacont_fie_ix" columns="fieldid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="fieldid" type="bigint" column="fieldid" nullable="false"/>
+    <field name="recordid" type="bigint" column="recordid" nullable="false"/>
+    <field name="content" type="text" column="content" nullable="true"/>
+    <field name="content1" type="text" column="content1" nullable="true"/>
+    <field name="content2" type="text" column="content2" nullable="true"/>
+    <field name="content3" type="text" column="content3" nullable="true"/>
+    <field name="content4" type="text" column="content4" nullable="true"/>
+  </entity>
+</doctrine-mapping>

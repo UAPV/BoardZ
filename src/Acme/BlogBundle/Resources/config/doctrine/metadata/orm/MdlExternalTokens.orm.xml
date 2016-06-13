@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlExternalTokens" table="mdl_external_tokens">
+    <indexes>
+      <index name="mdl_extetoke_use_ix" columns="userid"/>
+      <index name="mdl_extetoke_ext_ix" columns="externalserviceid"/>
+      <index name="mdl_extetoke_con_ix" columns="contextid"/>
+      <index name="mdl_extetoke_cre_ix" columns="creatorid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="token" type="string" column="token" length="128" nullable="false"/>
+    <field name="tokentype" type="smallint" column="tokentype" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="externalserviceid" type="bigint" column="externalserviceid" nullable="false"/>
+    <field name="sid" type="string" column="sid" length="128" nullable="true"/>
+    <field name="contextid" type="bigint" column="contextid" nullable="false"/>
+    <field name="creatorid" type="bigint" column="creatorid" nullable="false"/>
+    <field name="iprestriction" type="string" column="iprestriction" length="255" nullable="true"/>
+    <field name="validuntil" type="bigint" column="validuntil" nullable="true"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="lastaccess" type="bigint" column="lastaccess" nullable="true"/>
+  </entity>
+</doctrine-mapping>

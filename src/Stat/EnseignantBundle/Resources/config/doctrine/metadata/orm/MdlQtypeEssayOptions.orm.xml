@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlQtypeEssayOptions" table="mdl_qtype_essay_options">
+    <unique-constraints>
+      <unique-constraint name="mdl_qtypessaopti_que_uix" columns="questionid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="questionid" type="bigint" column="questionid" nullable="false"/>
+    <field name="responseformat" type="string" column="responseformat" length="16" nullable="false"/>
+    <field name="responsefieldlines" type="smallint" column="responsefieldlines" nullable="false"/>
+    <field name="attachments" type="smallint" column="attachments" nullable="false"/>
+    <field name="graderinfo" type="text" column="graderinfo" nullable="true"/>
+    <field name="graderinfoformat" type="smallint" column="graderinfoformat" nullable="false"/>
+  </entity>
+</doctrine-mapping>

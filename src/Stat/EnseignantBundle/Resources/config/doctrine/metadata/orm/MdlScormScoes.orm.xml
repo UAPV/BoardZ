@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlScormScoes" table="mdl_scorm_scoes">
+    <indexes>
+      <index name="mdl_scorscoe_sco_ix" columns="scorm"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="scorm" type="bigint" column="scorm" nullable="false"/>
+    <field name="manifest" type="string" column="manifest" length="255" nullable="false"/>
+    <field name="organization" type="string" column="organization" length="255" nullable="false"/>
+    <field name="parent" type="string" column="parent" length="255" nullable="false"/>
+    <field name="identifier" type="string" column="identifier" length="255" nullable="false"/>
+    <field name="launch" type="text" column="launch" nullable="false"/>
+    <field name="scormtype" type="string" column="scormtype" length="5" nullable="false"/>
+    <field name="title" type="string" column="title" length="255" nullable="false"/>
+  </entity>
+</doctrine-mapping>

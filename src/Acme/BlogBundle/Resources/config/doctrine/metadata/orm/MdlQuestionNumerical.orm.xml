@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlQuestionNumerical" table="mdl_question_numerical">
+    <indexes>
+      <index name="mdl_quesnume_ans_ix" columns="answer"/>
+      <index name="mdl_quesnume_que_ix" columns="question"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="question" type="bigint" column="question" nullable="false"/>
+    <field name="answer" type="bigint" column="answer" nullable="false"/>
+    <field name="tolerance" type="string" column="tolerance" length="255" nullable="false"/>
+  </entity>
+</doctrine-mapping>

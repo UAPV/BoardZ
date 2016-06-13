@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlReferentielReferentiel" table="mdl_referentiel_referentiel">
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="name" type="string" column="name" length="80" nullable="false"/>
+    <field name="codeReferentiel" type="string" column="code_referentiel" length="20" nullable="false"/>
+    <field name="mailAuteurReferentiel" type="string" column="mail_auteur_referentiel" length="255" nullable="false"/>
+    <field name="cleReferentiel" type="string" column="cle_referentiel" length="255" nullable="false"/>
+    <field name="passReferentiel" type="string" column="pass_referentiel" length="255" nullable="false"/>
+    <field name="descriptionReferentiel" type="text" column="description_referentiel" nullable="false"/>
+    <field name="urlReferentiel" type="string" column="url_referentiel" length="255" nullable="false"/>
+    <field name="seuilCertificat" type="float" column="seuil_certificat" precision="10" scale="0" nullable="false"/>
+    <field name="minimaCertificat" type="bigint" column="minima_certificat" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="nbDomaines" type="boolean" column="nb_domaines" nullable="false"/>
+    <field name="listeCodesCompetence" type="text" column="liste_codes_competence" nullable="false"/>
+    <field name="listeEmpreintesCompetence" type="text" column="liste_empreintes_competence" nullable="false"/>
+    <field name="listePoidsCompetence" type="text" column="liste_poids_competence" nullable="false"/>
+    <field name="local" type="bigint" column="local" nullable="false"/>
+    <field name="logoReferentiel" type="string" column="logo_referentiel" length="255" nullable="false"/>
+    <field name="config" type="string" column="config" length="255" nullable="false"/>
+    <field name="configImpression" type="string" column="config_impression" length="255" nullable="false"/>
+    <field name="labelDomaine" type="string" column="label_domaine" length="80" nullable="true"/>
+    <field name="labelCompetence" type="string" column="label_competence" length="80" nullable="true"/>
+    <field name="labelItem" type="string" column="label_item" length="80" nullable="true"/>
+  </entity>
+</doctrine-mapping>

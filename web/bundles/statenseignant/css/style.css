@@ -1,0 +1,397 @@
+
+/** Structure de la page **/
+html, body {
+  background: none repeat scroll 0 0 #F2EDE7 !important;
+  margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 16px !important;
+    font-style: italic !important;
+    text-align: center !important;
+    text-decoration:underline !important;
+    color: #666666 !important;
+    font-weight: bold !important;
+    text-shadow: 1px 1px 1px #FFFFFF !important;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+#header {
+    height: 100px;
+    padding: 0;
+    position: relative;
+}
+
+#header_banniere {
+    background-color: #F2EDE7;
+    border: 1px solid #CCCCCC;
+    height: 20px;
+    left: 0;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.wrapper {
+    box-shadow: 0 1px 10px #8A7E6B;
+    height: auto;
+    margin-bottom: 20px;
+    min-height: 600px;
+    overflow-x: hidden;
+    overflow-y: visible;
+    width: 70%;
+    margin: 0 auto;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 10px;
+}
+
+#content {
+    color: #38332C;
+    font-family: Arial;
+    font-size: 0.95em;
+}
+
+#logo {
+    box-shadow: 1px 1px 12px #555555;
+    float: left;
+    margin-left: 20px;
+    margin-top: 5px;
+    position: absolute;
+}
+
+a:visited, a {
+    color: #1E52A1;
+}
+
+#logo img {
+    border: medium none;
+}
+
+#banniere {
+    float: right;
+}
+
+#title_page {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.4);
+    color: #FFFFFF;
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: 17%;
+    padding: 20px 20px;
+    text-shadow: 3px 3px 4px #3D3936;
+    width: 100%;
+    background-color: #F6F6F6;
+}
+
+#toolbar {
+    background: -moz-linear-gradient(center top , #D3D1CF 0%, #F7F7F7 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-bottom: 1px solid #CCCCCC;
+    border-top: 1px solid #CCCCCC;
+    height: 35px;
+}
+
+#toolbar ul {
+    float: left;
+    margin: 0 0 0 30%;
+    padding: 0.6em;
+}
+
+ul#menu li:first-child {
+    margin-left: 0;
+}
+
+ul#menu li {
+    display: inline;
+    list-style: none outside none;
+    margin-left: 0;
+    padding-right: 15px;
+}
+
+ul#menu li a {
+    color: #666666;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #FFFFFF;
+}
+
+.tableCours {
+  float: left;
+  margin-top: 20px;
+}
+
+.tableCours th {
+  border-right: 1px solid #DDDDDD;
+  background-color: #F7FDFF;
+  width: 25%;
+}
+
+#titrePage {
+    color: #b3b3b3;
+    margin-left: 200px;
+    padding: 5px;
+    border-bottom: 1px dashed #ccc;
+    margin-top: 30px;
+}
+
+#footer {
+    color: #75726F;
+    left: 0;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.spider {
+    min-width: 400px;
+    max-width: 600px;
+    height: 250px;
+    margin: 0 auto;
+}
+
+.btnDetailsCours {
+    float: right;
+    margin-right: 50px;
+}
+
+.descriptionCours {
+    font-style: italic;
+    font-size: 12px;
+    color: #BBBEBF;
+    font-weight: normal;
+    text-align: justify;
+    padding: 3px;
+}
+
+.titreCours {
+    padding: 5px;
+    color: #39B3D7;
+}
+
+/** ALERTES **/
+
+.alerte {
+    margin-top: 50px;
+    border: 1px solid #ccc;
+    float: right;
+    padding: 8px;
+    background: #ffffff;
+}
+.textAlerte {
+    font-size: 10px;
+    float: right;
+    margin-bottom: 10px;
+    text-align: right;
+    width: 100px;
+}
+
+.feuAlerte {
+    border-radius:50%;
+    width:10px;
+    height:10px;
+    float: left;
+    margin-right: 10px;
+}
+
+.feuAlerte a {
+    color: #6d869f;
+}
+
+.alerteOneCours {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-right: 10px;
+    background: #F7FDFF;
+}
+
+.textAlerteOneCours {
+   float: none;
+   width: 100%;
+   text-align: center;
+   font-style: italic;
+   font-size: 12px;
+   margin-bottom: 0px;
+}
+
+.highcharts-axis-labels > span {
+  left: 30px !important;
+}
+
+.headerTableIndex {
+  background-color: #F6F6F6 !important;
+  color: #656869;
+}
+
+.vueIndex {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.vueIndex li {
+  display: inline;
+  margin-right: 40px;
+  font-weight: bold;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.vueIndex li a {
+  color: #898C8D;
+}
+
+.vueIndex li a:hover {
+  text-decoration: none;
+}
+
+#tabMesCoursEnseignant {
+  margin-top: 10px;
+}
+
+#tabVueResponsable {
+  margin-top: 100px;
+}
+
+#tabResponsableFormation {
+ margin-top: 20px;
+}
+
+
+/*** Pages de labelisation ***/
+
+.blocLabelisation {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.blocLabelisation th{
+    text-align: center;
+}
+
+.blocLabelisation form {
+    width: 50%;
+    margin-left: 50px;
+    text-align: left;
+}
+
+#creerLien {
+    float: right;
+    margin-top: 30px;
+    margin-right: 50px;
+}
+
+.uce {
+    border: 1px solid #ccc;
+    margin: 10px 10px 20px 10px;
+    border-collapse:collapse;
+}
+
+.nomUE,.infosUE {
+    padding: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.nomUE {
+    color: #5BA0D4;
+}
+
+.infosUE {
+    color: #626C72;
+}
+
+.epingle {
+    width: 30px;
+    margin-top: -20px;
+    margin-left: 10px;
+}
+
+.feedback, .score {
+    margin-left: 20px;
+    margin-right: 30px;
+    text-align: left;
+}
+
+.error {
+    border: 1px solid #DB2B31;
+}
+
+.ok {
+    border: 1px solid #C8C56C;
+}
+
+.moyen {
+    border: 1px solid #F2A757;
+}
+
+.scoreNumber {
+    margin-left: 45px;
+    font-weight: bold;
+}
+
+#indicateurs {
+    margin-top: 50px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #C4C2C0;
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+#indicateurs .left {
+    margin-left: 50px;
+}
+
+#indicateurs .left, #indicateurs .right {
+    width: 50%;
+    padding: 30px;
+    border: 10px solid #F6F6F6;
+    border-radius: 125px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    height: 230px;
+    padding: 30px;
+    width: 230px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#indicateurs .left:hover, #indicateurs .right:hover {
+    border-color: #666666;
+    z-index: 999;
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    color: #000;
+    text-shadow: 0px 0px 1px #000;
+    -webkit-animation: moveFromBottom 300ms ease;
+    -moz-animation: moveFromBottom 300ms ease;
+    -ms-animation: moveFromBottom 300ms ease;
+}
+
+#indicateurs .left .labelIndic, #indicateurs .right .labelIndic {
+    display: block;
+}
+
+#indicateurs .left:hover .labelIndic, #indicateurs .right:hover .labelIndic {
+    color: #666666;
+    text-shadow: none;
+    transform: scale(1,1);
+}
+
+.chiffre {
+    font-size: 26px;
+    color: #A5A3A1;
+}
+
+.highcharts-container {
+    z-index: 0;
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlScormSeqMapinfo" table="mdl_scorm_seq_mapinfo">
+    <indexes>
+      <index name="mdl_scorseqmapi_sco_ix" columns="scoid"/>
+      <index name="mdl_scorseqmapi_obj_ix" columns="objectiveid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_scorseqmapi_scoidobj_uix" columns="scoid,id,objectiveid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="scoid" type="bigint" column="scoid" nullable="false"/>
+    <field name="objectiveid" type="bigint" column="objectiveid" nullable="false"/>
+    <field name="targetobjectiveid" type="bigint" column="targetobjectiveid" nullable="false"/>
+    <field name="readsatisfiedstatus" type="boolean" column="readsatisfiedstatus" nullable="false"/>
+    <field name="readnormalizedmeasure" type="boolean" column="readnormalizedmeasure" nullable="false"/>
+    <field name="writesatisfiedstatus" type="boolean" column="writesatisfiedstatus" nullable="false"/>
+    <field name="writenormalizedmeasure" type="boolean" column="writenormalizedmeasure" nullable="false"/>
+  </entity>
+</doctrine-mapping>

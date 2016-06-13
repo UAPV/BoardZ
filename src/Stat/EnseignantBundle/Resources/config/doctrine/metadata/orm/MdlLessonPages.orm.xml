@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlLessonPages" table="mdl_lesson_pages">
+    <indexes>
+      <index name="mdl_lesspage_les_ix" columns="lessonid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="lessonid" type="bigint" column="lessonid" nullable="false"/>
+    <field name="prevpageid" type="bigint" column="prevpageid" nullable="false"/>
+    <field name="nextpageid" type="bigint" column="nextpageid" nullable="false"/>
+    <field name="qtype" type="smallint" column="qtype" nullable="false"/>
+    <field name="qoption" type="smallint" column="qoption" nullable="false"/>
+    <field name="layout" type="smallint" column="layout" nullable="false"/>
+    <field name="display" type="smallint" column="display" nullable="false"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="title" type="string" column="title" length="255" nullable="false"/>
+    <field name="contents" type="text" column="contents" nullable="false"/>
+    <field name="contentsformat" type="boolean" column="contentsformat" nullable="false"/>
+  </entity>
+</doctrine-mapping>

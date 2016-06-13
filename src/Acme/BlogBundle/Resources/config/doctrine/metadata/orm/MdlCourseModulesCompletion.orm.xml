@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlCourseModulesCompletion" table="mdl_course_modules_completion">
+    <indexes>
+      <index name="mdl_courmoducomp_cou_ix" columns="coursemoduleid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_courmoducomp_usecou_uix" columns="userid,coursemoduleid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="coursemoduleid" type="bigint" column="coursemoduleid" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="completionstate" type="boolean" column="completionstate" nullable="false"/>
+    <field name="viewed" type="boolean" column="viewed" nullable="true"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+  </entity>
+</doctrine-mapping>

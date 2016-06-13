@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlCourseCompletionCritCompl" table="mdl_course_completion_crit_compl">
+    <indexes>
+      <index name="mdl_courcompcritcomp_use_ix" columns="userid"/>
+      <index name="mdl_courcompcritcomp_cou_ix" columns="course"/>
+      <index name="mdl_courcompcritcomp_cri_ix" columns="criteriaid"/>
+      <index name="mdl_courcompcritcomp_tim_ix" columns="timecompleted"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="course" type="bigint" column="course" nullable="false"/>
+    <field name="criteriaid" type="bigint" column="criteriaid" nullable="false"/>
+    <field name="gradefinal" type="decimal" column="gradefinal" precision="10" scale="5" nullable="true"/>
+    <field name="unenroled" type="bigint" column="unenroled" nullable="true"/>
+    <field name="deleted" type="boolean" column="deleted" nullable="true"/>
+    <field name="timecompleted" type="bigint" column="timecompleted" nullable="true"/>
+  </entity>
+</doctrine-mapping>

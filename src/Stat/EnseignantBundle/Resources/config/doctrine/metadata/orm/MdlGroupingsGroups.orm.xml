@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlGroupingsGroups" table="mdl_groupings_groups">
+    <indexes>
+      <index name="mdl_grougrou_gro_ix" columns="groupingid"/>
+      <index name="mdl_grougrou_gro2_ix" columns="groupid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="groupingid" type="bigint" column="groupingid" nullable="false"/>
+    <field name="groupid" type="bigint" column="groupid" nullable="false"/>
+    <field name="timeadded" type="bigint" column="timeadded" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlCourseModules" table="mdl_course_modules">
+    <indexes>
+      <index name="mdl_courmodu_vis_ix" columns="visible"/>
+      <index name="mdl_courmodu_cou_ix" columns="course"/>
+      <index name="mdl_courmodu_mod_ix" columns="module"/>
+      <index name="mdl_courmodu_ins_ix" columns="instance"/>
+      <index name="mdl_courmodu_idncou_ix" columns="idnumber,course"/>
+      <index name="mdl_courmodu_gro_ix" columns="groupingid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="course" type="bigint" column="course" nullable="false"/>
+    <field name="module" type="bigint" column="module" nullable="false"/>
+    <field name="instance" type="bigint" column="instance" nullable="false"/>
+    <field name="section" type="bigint" column="section" nullable="false"/>
+    <field name="idnumber" type="string" column="idnumber" length="100" nullable="true"/>
+    <field name="added" type="bigint" column="added" nullable="false"/>
+    <field name="score" type="smallint" column="score" nullable="false"/>
+    <field name="indent" type="integer" column="indent" nullable="false"/>
+    <field name="visible" type="boolean" column="visible" nullable="false"/>
+    <field name="visibleold" type="boolean" column="visibleold" nullable="false"/>
+    <field name="groupmode" type="smallint" column="groupmode" nullable="false"/>
+    <field name="groupingid" type="bigint" column="groupingid" nullable="false"/>
+    <field name="groupmembersonly" type="smallint" column="groupmembersonly" nullable="false"/>
+    <field name="completion" type="boolean" column="completion" nullable="false"/>
+    <field name="completiongradeitemnumber" type="bigint" column="completiongradeitemnumber" nullable="true"/>
+    <field name="completionview" type="boolean" column="completionview" nullable="false"/>
+    <field name="completionexpected" type="bigint" column="completionexpected" nullable="false"/>
+    <field name="availablefrom" type="bigint" column="availablefrom" nullable="false"/>
+    <field name="availableuntil" type="bigint" column="availableuntil" nullable="false"/>
+    <field name="showavailability" type="boolean" column="showavailability" nullable="false"/>
+    <field name="showdescription" type="boolean" column="showdescription" nullable="false"/>
+  </entity>
+</doctrine-mapping>

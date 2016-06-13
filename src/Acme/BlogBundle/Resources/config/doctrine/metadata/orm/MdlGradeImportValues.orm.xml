@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlGradeImportValues" table="mdl_grade_import_values">
+    <indexes>
+      <index name="mdl_gradimpovalu_ite_ix" columns="itemid"/>
+      <index name="mdl_gradimpovalu_new_ix" columns="newgradeitem"/>
+      <index name="mdl_gradimpovalu_imp_ix" columns="importer"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="itemid" type="bigint" column="itemid" nullable="true"/>
+    <field name="newgradeitem" type="bigint" column="newgradeitem" nullable="true"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="finalgrade" type="decimal" column="finalgrade" precision="10" scale="5" nullable="true"/>
+    <field name="feedback" type="text" column="feedback" nullable="true"/>
+    <field name="importcode" type="bigint" column="importcode" nullable="false"/>
+    <field name="importer" type="bigint" column="importer" nullable="true"/>
+  </entity>
+</doctrine-mapping>

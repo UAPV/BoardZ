@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlCacheFilters" table="mdl_cache_filters">
+    <indexes>
+      <index name="mdl_cachfilt_filmd5_ix" columns="filter,md5key"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="filter" type="string" column="filter" length="32" nullable="false"/>
+    <field name="version" type="bigint" column="version" nullable="false"/>
+    <field name="md5key" type="string" column="md5key" length="32" nullable="false"/>
+    <field name="rawtext" type="text" column="rawtext" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+  </entity>
+</doctrine-mapping>

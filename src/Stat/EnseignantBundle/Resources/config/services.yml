@@ -1,0 +1,13 @@
+parameters:
+    stat_enseignant.fonctions.class: Stat\EnseignantBundle\Modules\Fonctions
+
+services:
+  stat_enseignant.modules:
+    class: %stat_enseignant.fonctions.class%
+    calls:
+      - [setEntityManager, ["@doctrine.orm.moodle_entity_manager"]]
+    arguments: ["@service_container"]
+  stat.twig.stat_extension:
+    class: Stat\EnseignantBundle\Twig\StatExtension
+    tags:
+      - { name: twig.extension }

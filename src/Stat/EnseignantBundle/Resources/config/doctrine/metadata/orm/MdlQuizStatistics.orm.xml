@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlQuizStatistics" table="mdl_quiz_statistics">
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="quizid" type="bigint" column="quizid" nullable="false"/>
+    <field name="groupid" type="bigint" column="groupid" nullable="false"/>
+    <field name="allattempts" type="smallint" column="allattempts" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="firstattemptscount" type="bigint" column="firstattemptscount" nullable="false"/>
+    <field name="allattemptscount" type="bigint" column="allattemptscount" nullable="false"/>
+    <field name="firstattemptsavg" type="decimal" column="firstattemptsavg" precision="15" scale="5" nullable="true"/>
+    <field name="allattemptsavg" type="decimal" column="allattemptsavg" precision="15" scale="5" nullable="true"/>
+    <field name="median" type="decimal" column="median" precision="15" scale="5" nullable="true"/>
+    <field name="standarddeviation" type="decimal" column="standarddeviation" precision="15" scale="5" nullable="true"/>
+    <field name="skewness" type="decimal" column="skewness" precision="15" scale="10" nullable="true"/>
+    <field name="kurtosis" type="decimal" column="kurtosis" precision="15" scale="5" nullable="true"/>
+    <field name="cic" type="decimal" column="cic" precision="15" scale="10" nullable="true"/>
+    <field name="errorratio" type="decimal" column="errorratio" precision="15" scale="10" nullable="true"/>
+    <field name="standarderror" type="decimal" column="standarderror" precision="15" scale="10" nullable="true"/>
+  </entity>
+</doctrine-mapping>

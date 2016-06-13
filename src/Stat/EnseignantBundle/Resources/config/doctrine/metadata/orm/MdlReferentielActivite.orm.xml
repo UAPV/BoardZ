@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlReferentielActivite" table="mdl_referentiel_activite">
+    <indexes>
+      <index name="mdl_refeacti_use_ix" columns="userid"/>
+      <index name="mdl_refeacti_ref_ix" columns="ref_instance"/>
+      <index name="mdl_refeacti_ref2_ix" columns="ref_referentiel"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="typeActivite" type="string" column="type_activite" length="255" nullable="false"/>
+    <field name="descriptionActivite" type="text" column="description_activite" nullable="false"/>
+    <field name="competencesActivite" type="text" column="competences_activite" nullable="false"/>
+    <field name="commentaireActivite" type="text" column="commentaire_activite" nullable="false"/>
+    <field name="refInstance" type="bigint" column="ref_instance" nullable="false"/>
+    <field name="refReferentiel" type="bigint" column="ref_referentiel" nullable="false"/>
+    <field name="refCourse" type="bigint" column="ref_course" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="teacherid" type="bigint" column="teacherid" nullable="false"/>
+    <field name="dateCreation" type="bigint" column="date_creation" nullable="false"/>
+    <field name="dateModifStudent" type="bigint" column="date_modif_student" nullable="false"/>
+    <field name="dateModif" type="bigint" column="date_modif" nullable="false"/>
+    <field name="approved" type="smallint" column="approved" nullable="false"/>
+    <field name="refTask" type="bigint" column="ref_task" nullable="false"/>
+    <field name="mailed" type="boolean" column="mailed" nullable="false"/>
+    <field name="mailnow" type="bigint" column="mailnow" nullable="false"/>
+  </entity>
+</doctrine-mapping>

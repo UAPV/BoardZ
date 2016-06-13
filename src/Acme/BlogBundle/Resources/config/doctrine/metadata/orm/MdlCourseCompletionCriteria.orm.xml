@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlCourseCompletionCriteria" table="mdl_course_completion_criteria">
+    <indexes>
+      <index name="mdl_courcompcrit_cou_ix" columns="course"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="course" type="bigint" column="course" nullable="false"/>
+    <field name="criteriatype" type="bigint" column="criteriatype" nullable="false"/>
+    <field name="module" type="string" column="module" length="100" nullable="true"/>
+    <field name="moduleinstance" type="bigint" column="moduleinstance" nullable="true"/>
+    <field name="courseinstance" type="bigint" column="courseinstance" nullable="true"/>
+    <field name="enrolperiod" type="bigint" column="enrolperiod" nullable="true"/>
+    <field name="timeend" type="bigint" column="timeend" nullable="true"/>
+    <field name="gradepass" type="decimal" column="gradepass" precision="10" scale="5" nullable="true"/>
+    <field name="role" type="bigint" column="role" nullable="true"/>
+  </entity>
+</doctrine-mapping>

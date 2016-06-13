@@ -1,0 +1,38 @@
+{% extends "StatEnseignantBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Accueil vue labelisation {% endblock %}
+
+{% block body %}
+
+    <h1>Accueil Espace Labelisation</h1>
+
+    <a href="{{ path('stat_labelisation_creation') }}">
+        <button type="button" id="creerLien" class="btn btn-info">Créer un lien</button>
+    </a>
+    <div style="clear:both;"></div>
+
+    <div class="blocLabelisation">
+        {% if liens|length > 0 %}
+            <table id="tabLien" class="table">
+                <thead>
+                    <tr  style="text-align: center;">
+                        <th>Nom</th>
+                        <th>Porteur</th>
+                        <th>URL</th>
+                    </tr>
+                </thead>
+               {% for url, infos in liens %}
+                    <tr>
+                       <td>{{ infos.nom }}</td>
+                       <td>{{ infos.porteur }}</td>
+                       <td>
+                           <a href="{{ path('stat_labelisation_voir') }}?{{ url }}">{{ url }}</a>
+                       </td>
+                    </tr>
+               {% endfor %}
+            </table>
+        {% else %}
+            <span>Aucun(s) lien(s) créé(s)</span>
+        {% endif %}
+    </div>
+{% endblock %}

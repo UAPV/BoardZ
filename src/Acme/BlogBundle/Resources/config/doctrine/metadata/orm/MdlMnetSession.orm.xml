@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlMnetSession" table="mdl_mnet_session">
+    <unique-constraints>
+      <unique-constraint name="mdl_mnetsess_tok_uix" columns="token"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="username" type="string" column="username" length="100" nullable="false"/>
+    <field name="token" type="string" column="token" length="40" nullable="false"/>
+    <field name="mnethostid" type="bigint" column="mnethostid" nullable="false"/>
+    <field name="useragent" type="string" column="useragent" length="40" nullable="false"/>
+    <field name="confirmTimeout" type="bigint" column="confirm_timeout" nullable="false"/>
+    <field name="sessionId" type="string" column="session_id" length="40" nullable="false"/>
+    <field name="expires" type="bigint" column="expires" nullable="false"/>
+  </entity>
+</doctrine-mapping>

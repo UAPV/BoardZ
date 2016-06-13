@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlQuestionMatch" table="mdl_question_match">
+    <indexes>
+      <index name="mdl_quesmatc_que_ix" columns="question"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="question" type="bigint" column="question" nullable="false"/>
+    <field name="subquestions" type="string" column="subquestions" length="255" nullable="false"/>
+    <field name="shuffleanswers" type="smallint" column="shuffleanswers" nullable="false"/>
+    <field name="correctfeedback" type="text" column="correctfeedback" nullable="false"/>
+    <field name="correctfeedbackformat" type="boolean" column="correctfeedbackformat" nullable="false"/>
+    <field name="partiallycorrectfeedback" type="text" column="partiallycorrectfeedback" nullable="false"/>
+    <field name="partiallycorrectfeedbackformat" type="boolean" column="partiallycorrectfeedbackformat" nullable="false"/>
+    <field name="incorrectfeedback" type="text" column="incorrectfeedback" nullable="false"/>
+    <field name="incorrectfeedbackformat" type="boolean" column="incorrectfeedbackformat" nullable="false"/>
+    <field name="shownumcorrect" type="boolean" column="shownumcorrect" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlPortfolioInstanceConfig" table="mdl_portfolio_instance_config">
+    <indexes>
+      <index name="mdl_portinstconf_nam_ix" columns="name"/>
+      <index name="mdl_portinstconf_ins_ix" columns="instance"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="instance" type="bigint" column="instance" nullable="false"/>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="value" type="text" column="value" nullable="true"/>
+  </entity>
+</doctrine-mapping>

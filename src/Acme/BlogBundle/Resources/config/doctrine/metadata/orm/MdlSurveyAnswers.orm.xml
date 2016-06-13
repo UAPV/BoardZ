@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlSurveyAnswers" table="mdl_survey_answers">
+    <indexes>
+      <index name="mdl_survansw_use_ix" columns="userid"/>
+      <index name="mdl_survansw_sur_ix" columns="survey"/>
+      <index name="mdl_survansw_que_ix" columns="question"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="survey" type="bigint" column="survey" nullable="false"/>
+    <field name="question" type="bigint" column="question" nullable="false"/>
+    <field name="time" type="bigint" column="time" nullable="false"/>
+    <field name="answer1" type="text" column="answer1" nullable="false"/>
+    <field name="answer2" type="text" column="answer2" nullable="false"/>
+  </entity>
+</doctrine-mapping>

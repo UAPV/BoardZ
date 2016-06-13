@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlQtypeRandomsamatchOptions" table="mdl_qtype_randomsamatch_options">
+    <unique-constraints>
+      <unique-constraint name="mdl_qtyprandopti_que_uix" columns="questionid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="questionid" type="bigint" column="questionid" nullable="false"/>
+    <field name="choose" type="bigint" column="choose" nullable="false"/>
+    <field name="subcats" type="boolean" column="subcats" nullable="false"/>
+    <field name="correctfeedback" type="text" column="correctfeedback" nullable="false"/>
+    <field name="correctfeedbackformat" type="boolean" column="correctfeedbackformat" nullable="false"/>
+    <field name="partiallycorrectfeedback" type="text" column="partiallycorrectfeedback" nullable="false"/>
+    <field name="partiallycorrectfeedbackformat" type="boolean" column="partiallycorrectfeedbackformat" nullable="false"/>
+    <field name="incorrectfeedback" type="text" column="incorrectfeedback" nullable="false"/>
+    <field name="incorrectfeedbackformat" type="boolean" column="incorrectfeedbackformat" nullable="false"/>
+    <field name="shownumcorrect" type="boolean" column="shownumcorrect" nullable="false"/>
+  </entity>
+</doctrine-mapping>

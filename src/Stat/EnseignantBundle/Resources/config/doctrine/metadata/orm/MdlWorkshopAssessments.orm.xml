@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlWorkshopAssessments" table="mdl_workshop_assessments">
+    <indexes>
+      <index name="mdl_workasse_sub_ix" columns="submissionid"/>
+      <index name="mdl_workasse_gra_ix" columns="gradinggradeoverby"/>
+      <index name="mdl_workasse_rev_ix" columns="reviewerid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="submissionid" type="bigint" column="submissionid" nullable="false"/>
+    <field name="reviewerid" type="bigint" column="reviewerid" nullable="false"/>
+    <field name="weight" type="bigint" column="weight" nullable="false"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="true"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="true"/>
+    <field name="grade" type="decimal" column="grade" precision="10" scale="5" nullable="true"/>
+    <field name="gradinggrade" type="decimal" column="gradinggrade" precision="10" scale="5" nullable="true"/>
+    <field name="gradinggradeover" type="decimal" column="gradinggradeover" precision="10" scale="5" nullable="true"/>
+    <field name="gradinggradeoverby" type="bigint" column="gradinggradeoverby" nullable="true"/>
+    <field name="feedbackauthor" type="text" column="feedbackauthor" nullable="true"/>
+    <field name="feedbackauthorformat" type="smallint" column="feedbackauthorformat" nullable="true"/>
+    <field name="feedbackreviewer" type="text" column="feedbackreviewer" nullable="true"/>
+    <field name="feedbackreviewerformat" type="smallint" column="feedbackreviewerformat" nullable="true"/>
+  </entity>
+</doctrine-mapping>

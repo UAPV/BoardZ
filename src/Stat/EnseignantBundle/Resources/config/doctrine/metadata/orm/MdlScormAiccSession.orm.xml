@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlScormAiccSession" table="mdl_scorm_aicc_session">
+    <indexes>
+      <index name="mdl_scoraiccsess_sco_ix" columns="scormid"/>
+      <index name="mdl_scoraiccsess_use_ix" columns="userid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="scormid" type="bigint" column="scormid" nullable="false"/>
+    <field name="hacpsession" type="string" column="hacpsession" length="255" nullable="false"/>
+    <field name="scoid" type="bigint" column="scoid" nullable="true"/>
+    <field name="scormmode" type="string" column="scormmode" length="50" nullable="true"/>
+    <field name="scormstatus" type="string" column="scormstatus" length="255" nullable="true"/>
+    <field name="attempt" type="bigint" column="attempt" nullable="true"/>
+    <field name="lessonstatus" type="string" column="lessonstatus" length="255" nullable="true"/>
+    <field name="sessiontime" type="string" column="sessiontime" length="255" nullable="true"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="dosi_ldap.security.user.provider.class">Dosi\AuthBundle\Security\Core\Authentication\Provider\LdapUserProvider</parameter>
+    <parameter key="dosi_ldap.ldap_connection.class">Dosi\AuthBundle\Ldap\Manager\LdapConnection</parameter>
+    <parameter key="dosi_ldap.ldap_manager.class">Dosi\AuthBundle\Ldap\Manager\LdapManagerUser</parameter>
+    <parameter key="dosi_ldap.security.authentication.provider.class">Dosi\AuthBundle\Security\Authentication\Provider\SsoAuthenticationProvider</parameter>
+    <parameter key="dosi_ldap.security.authentication.listener.class">Dosi\AuthBundle\EventListener\LdapListener</parameter>
+    <parameter key="dosi_ldap.security.authentication.form_entry_point.class">Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint</parameter>
+  </parameters>
+
+  <services>
+
+    <service id="dosi_ldap.security.authentication.form_entry_point" class="%dosi_ldap.security.authentication.form_entry_point.class%" public="false" abstract="true">
+      <argument type="service" id="http_kernel" />
+    </service>
+
+    <service id="dosi_ldap.security.user.provider" class="%dosi_ldap.security.user.provider.class%">
+      <argument type="service" id="dosi_ldap.ldap_manager" />
+      <argument>%dosi_ldap.authentication.bind_username_before%</argument>
+    </service>
+
+    <service id="dosi_ldap.ldap_connection" class="%dosi_ldap.ldap_connection.class%" public="false">
+      <argument>%dosi_ldap.ldap_connection.params%</argument>
+      <tag name="monolog.logger" channel="ldap_connection" />
+      <argument type="service" id="logger" />
+    </service>
+
+    <service id="dosi_ldap.ldap_manager" class="%dosi_ldap.ldap_manager.class%">
+      <argument type="service" id="dosi_ldap.ldap_connection" />
+    </service>
+
+    <service id="dosi_ldap.security.authentication.provider" class="%dosi_ldap.security.authentication.provider.class%">
+      <argument /> <!-- User Provider -->
+      <argument /> <!-- Dao Provider -->
+      <argument type="service" id="dosi_ldap.ldap_manager" />
+      <argument type="service" id="event_dispatcher" on-invalid="null" />
+      <argument /> <!-- Provider-key -->
+      <argument>%security.authentication.hide_user_not_found%</argument>
+    </service>
+
+    <service id="dosi_ldap.security.authentication.listener" class="%dosi_ldap.security.authentication.listener.class%" public="false">
+      <tag name="monolog.logger" channel="security" />
+      <argument type="service" id="security.context" />
+      <argument type="service" id="security.authentication.manager" />
+      <argument type="service" id="security.authentication.session_strategy" />
+      <argument type="service" id="security.http_utils" />
+      <argument />
+      <argument type="service" id="ldap.authentication.success_handler" on-invalid="null" />
+      <argument type="service" id="ldap.authentication.failure_handler" on-invalid="null" />
+      <argument type="collection"></argument>
+      <argument type="service" id="logger" on-invalid="null" />
+      <argument type="service" id="event_dispatcher" on-invalid="null" />
+    </service>
+
+    <service id="ldap.authentication.success_handler" parent="security.authentication.success_handler"/>
+    <service id="ldap.authentication.failure_handler" parent="security.authentication.failure_handler"/>
+  </services>
+</container>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlEphorusDocument" table="mdl_ephorus_document">
+    <indexes>
+      <index name="mdl_ephodocu_gui_ix" columns="guid"/>
+      <index name="mdl_ephodocu_fil_ix" columns="fileid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="guid" type="string" column="guid" length="36" nullable="false"/>
+    <field name="fileid" type="bigint" column="fileid" nullable="false"/>
+    <field name="filename" type="string" column="filename" length="255" nullable="false"/>
+    <field name="contenthash" type="string" column="contenthash" length="55" nullable="false"/>
+    <field name="studentName" type="string" column="student_name" length="60" nullable="false"/>
+    <field name="studentNumber" type="string" column="student_number" length="25" nullable="false"/>
+    <field name="subject" type="string" column="subject" length="255" nullable="true"/>
+    <field name="comment" type="text" column="comment" nullable="true"/>
+    <field name="date" type="string" column="date" length="25" nullable="true"/>
+    <field name="percentage" type="bigint" column="percentage" nullable="true"/>
+    <field name="duplicateOriginalGuid" type="string" column="duplicate_original_guid" length="36" nullable="true"/>
+    <field name="duplicateOriginalStudentname" type="string" column="duplicate_original_studentname" length="60" nullable="true"/>
+    <field name="duplicateOriginalStudentnumber" type="string" column="duplicate_original_studentnumber" length="25" nullable="true"/>
+    <field name="status" type="boolean" column="status" nullable="false"/>
+    <field name="statusDescription" type="string" column="status_description" length="255" nullable="true"/>
+    <field name="profile" type="string" column="profile" length="255" nullable="true"/>
+    <field name="summary" type="text" column="summary" nullable="true"/>
+    <field name="visible" type="boolean" column="visible" nullable="false"/>
+    <field name="processtype" type="boolean" column="processtype" nullable="false"/>
+    <field name="submission" type="bigint" column="submission" nullable="true"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlBackupIdsTemplate" table="mdl_backup_ids_template">
+    <indexes>
+      <index name="mdl_backidstemp_bacitepar_ix" columns="backupid,itemname,parentitemid"/>
+      <index name="mdl_backidstemp_bacitenew_ix" columns="backupid,itemname,newitemid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_backidstemp_baciteite_uix" columns="backupid,itemname,itemid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="backupid" type="string" column="backupid" length="32" nullable="false"/>
+    <field name="itemname" type="string" column="itemname" length="160" nullable="false"/>
+    <field name="itemid" type="bigint" column="itemid" nullable="false"/>
+    <field name="newitemid" type="bigint" column="newitemid" nullable="false"/>
+    <field name="parentitemid" type="bigint" column="parentitemid" nullable="true"/>
+    <field name="info" type="text" column="info" nullable="true"/>
+  </entity>
+</doctrine-mapping>

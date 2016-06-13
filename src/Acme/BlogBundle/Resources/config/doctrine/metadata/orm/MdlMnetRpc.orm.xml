@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlMnetRpc" table="mdl_mnet_rpc">
+    <indexes>
+      <index name="mdl_mnetrpc_enaxml_ix" columns="enabled,xmlrpcpath"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="functionname" type="string" column="functionname" length="40" nullable="false"/>
+    <field name="xmlrpcpath" type="string" column="xmlrpcpath" length="80" nullable="false"/>
+    <field name="plugintype" type="string" column="plugintype" length="20" nullable="false"/>
+    <field name="pluginname" type="string" column="pluginname" length="20" nullable="false"/>
+    <field name="enabled" type="boolean" column="enabled" nullable="false"/>
+    <field name="help" type="text" column="help" nullable="false"/>
+    <field name="profile" type="text" column="profile" nullable="false"/>
+    <field name="filename" type="string" column="filename" length="100" nullable="false"/>
+    <field name="classname" type="string" column="classname" length="150" nullable="true"/>
+    <field name="static" type="boolean" column="static" nullable="true"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlUserInfoField" table="mdl_user_info_field">
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="shortname" type="string" column="shortname" length="255" nullable="false"/>
+    <field name="name" type="text" column="name" nullable="false"/>
+    <field name="datatype" type="string" column="datatype" length="255" nullable="false"/>
+    <field name="description" type="text" column="description" nullable="true"/>
+    <field name="descriptionformat" type="boolean" column="descriptionformat" nullable="false"/>
+    <field name="categoryid" type="bigint" column="categoryid" nullable="false"/>
+    <field name="sortorder" type="bigint" column="sortorder" nullable="false"/>
+    <field name="required" type="boolean" column="required" nullable="false"/>
+    <field name="locked" type="boolean" column="locked" nullable="false"/>
+    <field name="visible" type="smallint" column="visible" nullable="false"/>
+    <field name="forceunique" type="boolean" column="forceunique" nullable="false"/>
+    <field name="signup" type="boolean" column="signup" nullable="false"/>
+    <field name="defaultdata" type="text" column="defaultdata" nullable="true"/>
+    <field name="defaultdataformat" type="boolean" column="defaultdataformat" nullable="false"/>
+    <field name="param1" type="text" column="param1" nullable="true"/>
+    <field name="param2" type="text" column="param2" nullable="true"/>
+    <field name="param3" type="text" column="param3" nullable="true"/>
+    <field name="param4" type="text" column="param4" nullable="true"/>
+    <field name="param5" type="text" column="param5" nullable="true"/>
+  </entity>
+</doctrine-mapping>

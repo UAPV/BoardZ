@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlScormSeqRulecond" table="mdl_scorm_seq_rulecond">
+    <indexes>
+      <index name="mdl_scorseqrule_sco2_ix" columns="scoid"/>
+      <index name="mdl_scorseqrule_rul_ix" columns="ruleconditionsid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_scorseqrule_idscorul_uix" columns="id,scoid,ruleconditionsid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="scoid" type="bigint" column="scoid" nullable="false"/>
+    <field name="ruleconditionsid" type="bigint" column="ruleconditionsid" nullable="false"/>
+    <field name="refrencedobjective" type="string" column="refrencedobjective" length="255" nullable="false"/>
+    <field name="measurethreshold" type="float" column="measurethreshold" precision="11" scale="4" nullable="false"/>
+    <field name="operator" type="string" column="operator" length="5" nullable="false"/>
+    <field name="cond" type="string" column="cond" length="30" nullable="false"/>
+  </entity>
+</doctrine-mapping>

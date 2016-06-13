@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlReferentielTask" table="mdl_referentiel_task">
+    <indexes>
+      <index name="mdl_refetask_ref_ix" columns="ref_instance"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="typeTask" type="string" column="type_task" length="255" nullable="false"/>
+    <field name="descriptionTask" type="text" column="description_task" nullable="false"/>
+    <field name="competencesTask" type="text" column="competences_task" nullable="false"/>
+    <field name="criteresEvaluation" type="text" column="criteres_evaluation" nullable="false"/>
+    <field name="refInstance" type="bigint" column="ref_instance" nullable="false"/>
+    <field name="refReferentiel" type="bigint" column="ref_referentiel" nullable="false"/>
+    <field name="refCourse" type="bigint" column="ref_course" nullable="false"/>
+    <field name="auteurid" type="bigint" column="auteurid" nullable="false"/>
+    <field name="dateCreation" type="bigint" column="date_creation" nullable="false"/>
+    <field name="dateModif" type="bigint" column="date_modif" nullable="false"/>
+    <field name="dateDebut" type="bigint" column="date_debut" nullable="false"/>
+    <field name="dateFin" type="bigint" column="date_fin" nullable="false"/>
+    <field name="cleSouscription" type="string" column="cle_souscription" length="255" nullable="false"/>
+    <field name="souscriptionLibre" type="smallint" column="souscription_libre" nullable="false"/>
+    <field name="mailed" type="boolean" column="mailed" nullable="false"/>
+    <field name="mailnow" type="bigint" column="mailnow" nullable="false"/>
+    <field name="tacheMasquee" type="smallint" column="tache_masquee" nullable="false"/>
+  </entity>
+</doctrine-mapping>

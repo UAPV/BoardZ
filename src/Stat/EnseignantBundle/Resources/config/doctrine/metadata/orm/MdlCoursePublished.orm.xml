@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlCoursePublished" table="mdl_course_published">
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="huburl" type="string" column="huburl" length="255" nullable="true"/>
+    <field name="courseid" type="bigint" column="courseid" nullable="false"/>
+    <field name="timepublished" type="bigint" column="timepublished" nullable="false"/>
+    <field name="enrollable" type="boolean" column="enrollable" nullable="false"/>
+    <field name="hubcourseid" type="bigint" column="hubcourseid" nullable="false"/>
+    <field name="status" type="boolean" column="status" nullable="true"/>
+    <field name="timechecked" type="bigint" column="timechecked" nullable="true"/>
+  </entity>
+</doctrine-mapping>

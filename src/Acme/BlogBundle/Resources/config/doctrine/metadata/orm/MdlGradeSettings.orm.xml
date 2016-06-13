@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlGradeSettings" table="mdl_grade_settings">
+    <indexes>
+      <index name="mdl_gradsett_cou_ix" columns="courseid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_gradsett_counam_uix" columns="courseid,name"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="courseid" type="bigint" column="courseid" nullable="false"/>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="value" type="text" column="value" nullable="true"/>
+  </entity>
+</doctrine-mapping>

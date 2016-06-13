@@ -1,0 +1,43 @@
+{% extends "StatEnseignantBundle::layout.html.twig" %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+
+    </script>
+{% endblock %}
+
+{% block title %}{{ parent() }} - Vue administration{% endblock %}
+
+{% block body %}
+    <h1>Indicateurs de la plateforme Moodle</h1>
+
+    <div id="indicateurs">
+        <div class="left">
+            <div class="labelIndic">
+                Nombre d'espaces de cours <br /><span class="chiffre">{{ nbEspaces }}</span>
+            </div>
+        </div>
+        <div class="left">
+            <div class="labelIndic">
+                Nombre de cours sans enseignants <br /><span class="chiffre">{{ nbCoursSansEns }}</span>
+            </div>
+        </div>
+        <div class="right">
+            <div class="labelIndic">
+                Nombre de cours sans étudiants <br /><span class="chiffre">{{ nbCoursSansEtd }}</span>
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="left">
+            <div class="labelIndic">
+                Nombre de cours pauvres <br /><span class="chiffre">{{ nbPoor }}</span>
+            </div>
+        </div>
+        <div class="right">
+            <div class="labelIndic">
+                Nombre de cours labelisables <br /><span class="chiffre">{{ nbLabelisation }}</span>
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+{% endblock %}

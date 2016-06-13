@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlEventsHandlers" table="mdl_events_handlers">
+    <unique-constraints>
+      <unique-constraint name="mdl_evenhand_evecom_uix" columns="eventname,component"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="eventname" type="string" column="eventname" length="166" nullable="false"/>
+    <field name="component" type="string" column="component" length="166" nullable="false"/>
+    <field name="handlerfile" type="string" column="handlerfile" length="255" nullable="false"/>
+    <field name="handlerfunction" type="text" column="handlerfunction" nullable="true"/>
+    <field name="schedule" type="string" column="schedule" length="255" nullable="true"/>
+    <field name="status" type="bigint" column="status" nullable="false"/>
+    <field name="internal" type="boolean" column="internal" nullable="false"/>
+  </entity>
+</doctrine-mapping>

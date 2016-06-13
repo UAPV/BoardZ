@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlUser" table="mdl_user">
+    <indexes>
+      <index name="mdl_user_del_ix" columns="deleted"/>
+      <index name="mdl_user_con_ix" columns="confirmed"/>
+      <index name="mdl_user_fir_ix" columns="firstname"/>
+      <index name="mdl_user_las_ix" columns="lastname"/>
+      <index name="mdl_user_cit_ix" columns="city"/>
+      <index name="mdl_user_cou_ix" columns="country"/>
+      <index name="mdl_user_las2_ix" columns="lastaccess"/>
+      <index name="mdl_user_ema_ix" columns="email"/>
+      <index name="mdl_user_aut_ix" columns="auth"/>
+      <index name="mdl_user_idn_ix" columns="idnumber"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_user_mneuse_uix" columns="mnethostid,username"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="auth" type="string" column="auth" length="20" nullable="false"/>
+    <field name="confirmed" type="boolean" column="confirmed" nullable="false"/>
+    <field name="policyagreed" type="boolean" column="policyagreed" nullable="false"/>
+    <field name="deleted" type="boolean" column="deleted" nullable="false"/>
+    <field name="suspended" type="boolean" column="suspended" nullable="false"/>
+    <field name="mnethostid" type="bigint" column="mnethostid" nullable="false"/>
+    <field name="username" type="string" column="username" length="100" nullable="false"/>
+    <field name="password" type="string" column="password" length="32" nullable="false"/>
+    <field name="idnumber" type="string" column="idnumber" length="255" nullable="false"/>
+    <field name="firstname" type="string" column="firstname" length="100" nullable="false"/>
+    <field name="lastname" type="string" column="lastname" length="100" nullable="false"/>
+    <field name="email" type="string" column="email" length="100" nullable="false"/>
+    <field name="emailstop" type="boolean" column="emailstop" nullable="false"/>
+    <field name="icq" type="string" column="icq" length="15" nullable="false"/>
+    <field name="skype" type="string" column="skype" length="50" nullable="false"/>
+    <field name="yahoo" type="string" column="yahoo" length="50" nullable="false"/>
+    <field name="aim" type="string" column="aim" length="50" nullable="false"/>
+    <field name="msn" type="string" column="msn" length="50" nullable="false"/>
+    <field name="phone1" type="string" column="phone1" length="20" nullable="false"/>
+    <field name="phone2" type="string" column="phone2" length="20" nullable="false"/>
+    <field name="institution" type="string" column="institution" length="40" nullable="false"/>
+    <field name="department" type="string" column="department" length="30" nullable="false"/>
+    <field name="address" type="string" column="address" length="70" nullable="false"/>
+    <field name="city" type="string" column="city" length="120" nullable="false"/>
+    <field name="country" type="string" column="country" length="2" nullable="false"/>
+    <field name="lang" type="string" column="lang" length="30" nullable="false"/>
+    <field name="theme" type="string" column="theme" length="50" nullable="false"/>
+    <field name="timezone" type="string" column="timezone" length="100" nullable="false"/>
+    <field name="firstaccess" type="bigint" column="firstaccess" nullable="false"/>
+    <field name="lastaccess" type="bigint" column="lastaccess" nullable="false"/>
+    <field name="lastlogin" type="bigint" column="lastlogin" nullable="false"/>
+    <field name="currentlogin" type="bigint" column="currentlogin" nullable="false"/>
+    <field name="lastip" type="string" column="lastip" length="45" nullable="false"/>
+    <field name="secret" type="string" column="secret" length="15" nullable="false"/>
+    <field name="picture" type="boolean" column="picture" nullable="false"/>
+    <field name="url" type="string" column="url" length="255" nullable="false"/>
+    <field name="description" type="text" column="description" nullable="true"/>
+    <field name="descriptionformat" type="boolean" column="descriptionformat" nullable="false"/>
+    <field name="mailformat" type="boolean" column="mailformat" nullable="false"/>
+    <field name="maildigest" type="boolean" column="maildigest" nullable="false"/>
+    <field name="maildisplay" type="boolean" column="maildisplay" nullable="false"/>
+    <field name="htmleditor" type="boolean" column="htmleditor" nullable="false"/>
+    <field name="ajax" type="boolean" column="ajax" nullable="false"/>
+    <field name="autosubscribe" type="boolean" column="autosubscribe" nullable="false"/>
+    <field name="trackforums" type="boolean" column="trackforums" nullable="false"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="trustbitmask" type="bigint" column="trustbitmask" nullable="false"/>
+    <field name="imagealt" type="string" column="imagealt" length="255" nullable="true"/>
+    <field name="screenreader" type="boolean" column="screenreader" nullable="false"/>
+  </entity>
+</doctrine-mapping>

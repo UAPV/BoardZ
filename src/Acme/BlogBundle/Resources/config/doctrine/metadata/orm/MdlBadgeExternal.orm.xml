@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlBadgeExternal" table="mdl_badge_external">
+    <indexes>
+      <index name="mdl_badgexte_bac_ix" columns="backpackid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="backpackid" type="bigint" column="backpackid" nullable="false"/>
+    <field name="collectionid" type="bigint" column="collectionid" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,80 @@
+{% extends "StatEnseignantBundle::layout.html.twig" %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+          var max = 20;
+
+          if (window.location.hash != '') {
+            $.scrollTo(window.location.hash || 0, 2000);
+          }
+
+          $('.graph').each(function()
+          {
+            id = $(this).attr('id');
+            if($('#'+id+'_debut') != undefined && $('#'+id+'_fin') != undefined)
+            {
+              debut = $('#'+id+'_debut').val();
+              fin = $('#'+id+'_fin').val();
+            }
+            else
+            {
+              debut = null;
+              fin = null;
+            }
+            getGraph($('#'+id+'_type').val(), id,$('#'+id+'_titre').val(),$('#'+id+'_data').val(),max,debut, fin);
+          });
+        })
+    </script>
+{% endblock %}
+
+{% block title %}{{ parent() }} - Vue Formation {% endblock %}
+
+{% block body %}
+    {% if(data is defined) %}
+        <table id="tabVueResponsable" class="table tableCours">
+            <tr>
+                <th class="headerTableIndex" colspan="2">Enseignement(s) dans la formation "{{ name }}"</th>
+            </tr>
+            {% for id,cours in data %}
+                <tr>
+                    <th>
+                        <p class="titreCours">{{ cours['fullname'] }}</p>
+                        <p class="descriptionCours">
+                            {% if cours['desc'] is defined %} {{ cours['desc']|raw }}
+                            {% endif %}
+                        </p>
+                        {% if cours['alertes'][id] is defined %}
+                            <div class="alerte">
+                                {% for alerte in cours['alertes'][id] %}
+                                    {% if alerte is defined %}
+                                        <span class="textAlerte" style="color: {{ alerte['couleur'] }}">
+                                    {% if alerte['message'] is defined %}
+                                        {{ alerte['message'] }}
+                                    {% endif %}
+                                  </span>
+                                        <div class="feuAlerte" style="background: {{ alerte['couleur'] }}"></div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </th>
+                    {% for indicateur,tab in cours['donnees'] %}
+                        <td>
+                            <div id="{{ 'container_' ~ loop.index ~ '_' ~ loop.parent.loop.index }}" class="graph"></div>
+                            {% if loop.index == 1 or loop.index == 2 %}
+                                <a href="{{ url('stat_enseignant_details', { 'id': id | titreCours, 'type' : loop.index }) }}">
+                                    <button type="button" class="btn btn-info btn-xs btnDetailsCours">Détails</button>
+                                </a>
+                            {%  endif %}
+                        </td>
+                        <input id="{{ 'container_' ~ loop.index ~ '_' ~ loop.parent.loop.index ~ '_data' }}" type="hidden" value="{{ tab['data']|json_encode }}" />
+                        <input id="{{ 'container_' ~ loop.index ~ '_' ~ loop.parent.loop.index ~ '_titre' }}" type="hidden" value="{{ indicateur }}" />
+                        <input id="{{ 'container_' ~ loop.index ~ '_' ~ loop.parent.loop.index ~ '_type' }}" type="hidden" value="{{ tab['type'] }}" />
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}

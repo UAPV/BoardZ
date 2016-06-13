@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlMessageRead" table="mdl_message_read">
+    <indexes>
+      <index name="mdl_messread_use_ix" columns="useridfrom"/>
+      <index name="mdl_messread_use2_ix" columns="useridto"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="useridfrom" type="bigint" column="useridfrom" nullable="false"/>
+    <field name="useridto" type="bigint" column="useridto" nullable="false"/>
+    <field name="subject" type="text" column="subject" nullable="true"/>
+    <field name="fullmessage" type="text" column="fullmessage" nullable="true"/>
+    <field name="fullmessageformat" type="smallint" column="fullmessageformat" nullable="true"/>
+    <field name="fullmessagehtml" type="text" column="fullmessagehtml" nullable="true"/>
+    <field name="smallmessage" type="text" column="smallmessage" nullable="true"/>
+    <field name="notification" type="boolean" column="notification" nullable="true"/>
+    <field name="contexturl" type="text" column="contexturl" nullable="true"/>
+    <field name="contexturlname" type="text" column="contexturlname" nullable="true"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="timeread" type="bigint" column="timeread" nullable="false"/>
+  </entity>
+</doctrine-mapping>

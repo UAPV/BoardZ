@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlResourceOld" table="mdl_resource_old">
+    <indexes>
+      <index name="mdl_resoold_cmi_ix" columns="cmid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_resoold_old_uix" columns="oldid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="course" type="bigint" column="course" nullable="false"/>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="type" type="string" column="type" length="30" nullable="false"/>
+    <field name="reference" type="string" column="reference" length="255" nullable="false"/>
+    <field name="intro" type="text" column="intro" nullable="true"/>
+    <field name="introformat" type="smallint" column="introformat" nullable="false"/>
+    <field name="alltext" type="text" column="alltext" nullable="false"/>
+    <field name="popup" type="text" column="popup" nullable="false"/>
+    <field name="options" type="string" column="options" length="255" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="oldid" type="bigint" column="oldid" nullable="false"/>
+    <field name="cmid" type="bigint" column="cmid" nullable="true"/>
+    <field name="newmodule" type="string" column="newmodule" length="50" nullable="true"/>
+    <field name="newid" type="bigint" column="newid" nullable="true"/>
+    <field name="migrated" type="bigint" column="migrated" nullable="false"/>
+  </entity>
+</doctrine-mapping>

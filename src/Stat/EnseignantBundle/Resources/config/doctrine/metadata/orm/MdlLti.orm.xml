@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlLti" table="mdl_lti">
+    <indexes>
+      <index name="mdl_lti_cou_ix" columns="course"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="course" type="bigint" column="course" nullable="false"/>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="intro" type="text" column="intro" nullable="true"/>
+    <field name="introformat" type="smallint" column="introformat" nullable="true"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="typeid" type="bigint" column="typeid" nullable="true"/>
+    <field name="toolurl" type="text" column="toolurl" nullable="false"/>
+    <field name="securetoolurl" type="text" column="securetoolurl" nullable="true"/>
+    <field name="instructorchoicesendname" type="boolean" column="instructorchoicesendname" nullable="true"/>
+    <field name="instructorchoicesendemailaddr" type="boolean" column="instructorchoicesendemailaddr" nullable="true"/>
+    <field name="instructorchoiceallowroster" type="boolean" column="instructorchoiceallowroster" nullable="true"/>
+    <field name="instructorchoiceallowsetting" type="boolean" column="instructorchoiceallowsetting" nullable="true"/>
+    <field name="instructorcustomparameters" type="string" column="instructorcustomparameters" length="255" nullable="true"/>
+    <field name="instructorchoiceacceptgrades" type="boolean" column="instructorchoiceacceptgrades" nullable="true"/>
+    <field name="grade" type="decimal" column="grade" precision="10" scale="5" nullable="false"/>
+    <field name="launchcontainer" type="boolean" column="launchcontainer" nullable="false"/>
+    <field name="resourcekey" type="string" column="resourcekey" length="255" nullable="true"/>
+    <field name="password" type="string" column="password" length="255" nullable="true"/>
+    <field name="debuglaunch" type="boolean" column="debuglaunch" nullable="false"/>
+    <field name="showtitlelaunch" type="boolean" column="showtitlelaunch" nullable="false"/>
+    <field name="showdescriptionlaunch" type="boolean" column="showdescriptionlaunch" nullable="false"/>
+    <field name="servicesalt" type="string" column="servicesalt" length="40" nullable="true"/>
+    <field name="icon" type="text" column="icon" nullable="true"/>
+    <field name="secureicon" type="text" column="secureicon" nullable="true"/>
+  </entity>
+</doctrine-mapping>

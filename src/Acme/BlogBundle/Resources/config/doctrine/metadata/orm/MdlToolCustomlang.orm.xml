@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlToolCustomlang" table="mdl_tool_customlang">
+    <indexes>
+      <index name="mdl_toolcust_com_ix" columns="componentid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_toolcust_lancomstr_uix" columns="lang,componentid,stringid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="lang" type="string" column="lang" length="20" nullable="false"/>
+    <field name="componentid" type="bigint" column="componentid" nullable="false"/>
+    <field name="stringid" type="string" column="stringid" length="255" nullable="false"/>
+    <field name="original" type="text" column="original" nullable="false"/>
+    <field name="master" type="text" column="master" nullable="true"/>
+    <field name="local" type="text" column="local" nullable="true"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="timecustomized" type="bigint" column="timecustomized" nullable="true"/>
+    <field name="outdated" type="smallint" column="outdated" nullable="true"/>
+    <field name="modified" type="smallint" column="modified" nullable="true"/>
+  </entity>
+</doctrine-mapping>

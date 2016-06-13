@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlEventsQueueHandlers" table="mdl_events_queue_handlers">
+    <indexes>
+      <index name="mdl_evenqueuhand_que_ix" columns="queuedeventid"/>
+      <index name="mdl_evenqueuhand_han_ix" columns="handlerid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="queuedeventid" type="bigint" column="queuedeventid" nullable="false"/>
+    <field name="handlerid" type="bigint" column="handlerid" nullable="false"/>
+    <field name="status" type="bigint" column="status" nullable="true"/>
+    <field name="errormessage" type="text" column="errormessage" nullable="true"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+  </entity>
+</doctrine-mapping>

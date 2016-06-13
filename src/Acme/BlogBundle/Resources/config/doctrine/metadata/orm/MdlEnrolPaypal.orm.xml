@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlEnrolPaypal" table="mdl_enrol_paypal">
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="business" type="string" column="business" length="255" nullable="false"/>
+    <field name="receiverEmail" type="string" column="receiver_email" length="255" nullable="false"/>
+    <field name="receiverId" type="string" column="receiver_id" length="255" nullable="false"/>
+    <field name="itemName" type="string" column="item_name" length="255" nullable="false"/>
+    <field name="courseid" type="bigint" column="courseid" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="instanceid" type="bigint" column="instanceid" nullable="false"/>
+    <field name="memo" type="string" column="memo" length="255" nullable="false"/>
+    <field name="tax" type="string" column="tax" length="255" nullable="false"/>
+    <field name="optionName1" type="string" column="option_name1" length="255" nullable="false"/>
+    <field name="optionSelection1X" type="string" column="option_selection1_x" length="255" nullable="false"/>
+    <field name="optionName2" type="string" column="option_name2" length="255" nullable="false"/>
+    <field name="optionSelection2X" type="string" column="option_selection2_x" length="255" nullable="false"/>
+    <field name="paymentStatus" type="string" column="payment_status" length="255" nullable="false"/>
+    <field name="pendingReason" type="string" column="pending_reason" length="255" nullable="false"/>
+    <field name="reasonCode" type="string" column="reason_code" length="30" nullable="false"/>
+    <field name="txnId" type="string" column="txn_id" length="255" nullable="false"/>
+    <field name="parentTxnId" type="string" column="parent_txn_id" length="255" nullable="false"/>
+    <field name="paymentType" type="string" column="payment_type" length="30" nullable="false"/>
+    <field name="timeupdated" type="bigint" column="timeupdated" nullable="false"/>
+  </entity>
+</doctrine-mapping>

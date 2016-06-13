@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlReferentielItemCompetence" table="mdl_referentiel_item_competence">
+    <unique-constraints>
+      <unique-constraint name="mdl_refeitemcomp_codref_uix" columns="code_item,ref_competence"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="codeItem" type="string" column="code_item" length="20" nullable="false"/>
+    <field name="descriptionItem" type="text" column="description_item" nullable="false"/>
+    <field name="refReferentiel" type="bigint" column="ref_referentiel" nullable="false"/>
+    <field name="refCompetence" type="bigint" column="ref_competence" nullable="false"/>
+    <field name="typeItem" type="string" column="type_item" length="20" nullable="false"/>
+    <field name="poidsItem" type="float" column="poids_item" precision="10" scale="0" nullable="false"/>
+    <field name="empreinteItem" type="smallint" column="empreinte_item" nullable="false"/>
+    <field name="numItem" type="boolean" column="num_item" nullable="false"/>
+  </entity>
+</doctrine-mapping>

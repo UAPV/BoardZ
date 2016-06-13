@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlCourseCompletionAggrMethd" table="mdl_course_completion_aggr_methd">
+    <indexes>
+      <index name="mdl_courcompaggrmeth_cou_ix" columns="course"/>
+      <index name="mdl_courcompaggrmeth_cri_ix" columns="criteriatype"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="course" type="bigint" column="course" nullable="false"/>
+    <field name="criteriatype" type="bigint" column="criteriatype" nullable="true"/>
+    <field name="method" type="boolean" column="method" nullable="false"/>
+    <field name="value" type="decimal" column="value" precision="10" scale="5" nullable="true"/>
+  </entity>
+</doctrine-mapping>

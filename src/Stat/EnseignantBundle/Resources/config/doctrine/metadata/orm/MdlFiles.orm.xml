@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlFiles" table="mdl_files">
+    <indexes>
+      <index name="mdl_file_comfilconite_ix" columns="component,filearea,contextid,itemid"/>
+      <index name="mdl_file_con_ix" columns="contenthash"/>
+      <index name="mdl_file_con2_ix" columns="contextid"/>
+      <index name="mdl_file_use_ix" columns="userid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_file_pat_uix" columns="pathnamehash"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="contenthash" type="string" column="contenthash" length="40" nullable="false"/>
+    <field name="pathnamehash" type="string" column="pathnamehash" length="40" nullable="false"/>
+    <field name="contextid" type="bigint" column="contextid" nullable="false"/>
+    <field name="component" type="string" column="component" length="100" nullable="false"/>
+    <field name="filearea" type="string" column="filearea" length="50" nullable="false"/>
+    <field name="itemid" type="bigint" column="itemid" nullable="false"/>
+    <field name="filepath" type="string" column="filepath" length="255" nullable="false"/>
+    <field name="filename" type="string" column="filename" length="255" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="true"/>
+    <field name="filesize" type="bigint" column="filesize" nullable="false"/>
+    <field name="mimetype" type="string" column="mimetype" length="100" nullable="true"/>
+    <field name="status" type="bigint" column="status" nullable="false"/>
+    <field name="source" type="text" column="source" nullable="true"/>
+    <field name="author" type="string" column="author" length="255" nullable="true"/>
+    <field name="license" type="string" column="license" length="255" nullable="true"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="sortorder" type="bigint" column="sortorder" nullable="false"/>
+  </entity>
+</doctrine-mapping>

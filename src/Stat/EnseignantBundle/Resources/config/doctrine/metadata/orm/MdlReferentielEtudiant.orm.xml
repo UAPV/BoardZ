@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlReferentielEtudiant" table="mdl_referentiel_etudiant">
+    <unique-constraints>
+      <unique-constraint name="mdl_refeetud_use_uix" columns="userid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="numEtudiant" type="string" column="num_etudiant" length="20" nullable="true"/>
+    <field name="ddnEtudiant" type="string" column="ddn_etudiant" length="14" nullable="true"/>
+    <field name="lieuNaissance" type="string" column="lieu_naissance" length="255" nullable="true"/>
+    <field name="departementNaissance" type="string" column="departement_naissance" length="255" nullable="true"/>
+    <field name="adresseEtudiant" type="string" column="adresse_etudiant" length="255" nullable="true"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="refEtablissement" type="bigint" column="ref_etablissement" nullable="true"/>
+  </entity>
+</doctrine-mapping>

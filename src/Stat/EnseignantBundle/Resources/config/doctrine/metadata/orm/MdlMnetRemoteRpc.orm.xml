@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlMnetRemoteRpc" table="mdl_mnet_remote_rpc">
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="functionname" type="string" column="functionname" length="40" nullable="false"/>
+    <field name="xmlrpcpath" type="string" column="xmlrpcpath" length="80" nullable="false"/>
+    <field name="plugintype" type="string" column="plugintype" length="20" nullable="false"/>
+    <field name="pluginname" type="string" column="pluginname" length="20" nullable="false"/>
+    <field name="enabled" type="boolean" column="enabled" nullable="false"/>
+  </entity>
+</doctrine-mapping>

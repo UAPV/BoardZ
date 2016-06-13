@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlBlockPositions" table="mdl_block_positions">
+    <indexes>
+      <index name="mdl_blocposi_blo_ix" columns="blockinstanceid"/>
+      <index name="mdl_blocposi_con_ix" columns="contextid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_blocposi_bloconpagsub_uix" columns="blockinstanceid,contextid,pagetype,subpage"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="blockinstanceid" type="bigint" column="blockinstanceid" nullable="false"/>
+    <field name="contextid" type="bigint" column="contextid" nullable="false"/>
+    <field name="pagetype" type="string" column="pagetype" length="64" nullable="false"/>
+    <field name="subpage" type="string" column="subpage" length="16" nullable="false"/>
+    <field name="visible" type="smallint" column="visible" nullable="false"/>
+    <field name="region" type="string" column="region" length="16" nullable="false"/>
+    <field name="weight" type="bigint" column="weight" nullable="false"/>
+  </entity>
+</doctrine-mapping>

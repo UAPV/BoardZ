@@ -1,0 +1,63 @@
+stat_enseignant_homepage:
+    pattern:  /accueil
+    defaults: { _controller: StatEnseignantBundle:Cours:index }
+
+stat_enseignant_homepage:
+    pattern:  /
+    defaults: { _controller: StatEnseignantBundle:Cours:index }
+
+stat_enseignant_details:
+    pattern:  /details/{id}/{type}
+    defaults: { _controller: StatEnseignantBundle:Cours:details }
+
+stat_enseignant_responsable_formation:
+    pattern:  /formation/{id}
+    defaults: { _controller: StatEnseignantBundle:Cours:responsable }
+
+stat_enseignant_etudiant_global:
+    pattern:  /etudiants/{id}
+    defaults: { _controller: StatEnseignantBundle:Cours:global }
+
+stat_enseignant_ressource_global:
+    pattern:  /ressources/{id}
+    defaults: { _controller: StatEnseignantBundle:Cours:globalRessource }
+
+stat_enseignant_devoir_global:
+    pattern:  /devoirs/{id}
+    defaults: { _controller: StatEnseignantBundle:Cours:globalDevoir }
+
+stat_enseignant_etudiant_detail:
+    pattern:  /etudiants/detail/{cours}/{name}
+    defaults: { _controller: StatEnseignantBundle:Cours:detailsEtudiant, name: 1, cours: 1 }
+
+stat_labelisation_homepage:
+    pattern:  /labelisation
+    defaults: { _controller: StatEnseignantBundle:Cours:labelisation }
+
+stat_labelisation_creation:
+    pattern:  /labelisation/creation
+    defaults: { _controller: StatEnseignantBundle:Cours:creationLien }
+
+stat_labelisation_filiere_ajax:
+    pattern:  /labelisation/getFiliere
+    defaults: { _controller: StatEnseignantBundle:Cours:getFiliereAjax }
+
+stat_labelisation_diplome_ajax:
+    pattern:  /labelisation/getDiplome
+    defaults: { _controller: StatEnseignantBundle:Cours:getDiplomeAjax }
+
+stat_labelisation_matiere_ajax:
+    pattern:  /labelisation/getMatiere
+    defaults: { _controller: StatEnseignantBundle:Cours:getMatiereAjax }
+
+stat_labelisation_add_lien:
+    pattern:  /labelisation/addLien
+    defaults: { _controller: StatEnseignantBundle:Cours:addLien }
+
+stat_labelisation_voir:
+    pattern:  /labelisation/voir
+    defaults: { _controller: StatEnseignantBundle:Cours:voir }
+
+stat_administration_homepage:
+    pattern:  /admin
+    defaults: { _controller: StatEnseignantBundle:Cours:administration }

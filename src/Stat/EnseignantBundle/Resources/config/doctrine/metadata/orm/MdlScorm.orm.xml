@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlScorm" table="mdl_scorm">
+    <indexes>
+      <index name="mdl_scor_cou_ix" columns="course"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="course" type="bigint" column="course" nullable="false"/>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="scormtype" type="string" column="scormtype" length="50" nullable="false"/>
+    <field name="reference" type="string" column="reference" length="255" nullable="false"/>
+    <field name="intro" type="text" column="intro" nullable="false"/>
+    <field name="introformat" type="smallint" column="introformat" nullable="false"/>
+    <field name="version" type="string" column="version" length="9" nullable="false"/>
+    <field name="maxgrade" type="float" column="maxgrade" precision="10" scale="0" nullable="false"/>
+    <field name="grademethod" type="boolean" column="grademethod" nullable="false"/>
+    <field name="whatgrade" type="bigint" column="whatgrade" nullable="false"/>
+    <field name="maxattempt" type="bigint" column="maxattempt" nullable="false"/>
+    <field name="forcecompleted" type="boolean" column="forcecompleted" nullable="false"/>
+    <field name="forcenewattempt" type="boolean" column="forcenewattempt" nullable="false"/>
+    <field name="lastattemptlock" type="boolean" column="lastattemptlock" nullable="false"/>
+    <field name="displayattemptstatus" type="boolean" column="displayattemptstatus" nullable="false"/>
+    <field name="displaycoursestructure" type="boolean" column="displaycoursestructure" nullable="false"/>
+    <field name="updatefreq" type="boolean" column="updatefreq" nullable="false"/>
+    <field name="sha1hash" type="string" column="sha1hash" length="40" nullable="true"/>
+    <field name="md5hash" type="string" column="md5hash" length="32" nullable="false"/>
+    <field name="revision" type="bigint" column="revision" nullable="false"/>
+    <field name="launch" type="bigint" column="launch" nullable="false"/>
+    <field name="skipview" type="boolean" column="skipview" nullable="false"/>
+    <field name="hidebrowse" type="boolean" column="hidebrowse" nullable="false"/>
+    <field name="hidetoc" type="boolean" column="hidetoc" nullable="false"/>
+    <field name="hidenav" type="boolean" column="hidenav" nullable="false"/>
+    <field name="auto" type="boolean" column="auto" nullable="false"/>
+    <field name="popup" type="boolean" column="popup" nullable="false"/>
+    <field name="options" type="string" column="options" length="255" nullable="false"/>
+    <field name="width" type="bigint" column="width" nullable="false"/>
+    <field name="height" type="bigint" column="height" nullable="false"/>
+    <field name="timeopen" type="bigint" column="timeopen" nullable="false"/>
+    <field name="timeclose" type="bigint" column="timeclose" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+  </entity>
+</doctrine-mapping>

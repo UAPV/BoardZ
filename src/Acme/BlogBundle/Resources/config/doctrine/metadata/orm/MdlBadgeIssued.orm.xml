@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlBadgeIssued" table="mdl_badge_issued">
+    <indexes>
+      <index name="mdl_badgissu_bad_ix" columns="badgeid"/>
+      <index name="mdl_badgissu_use_ix" columns="userid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_badgissu_baduse_uix" columns="badgeid,userid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="badgeid" type="bigint" column="badgeid" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="uniquehash" type="text" column="uniquehash" nullable="false"/>
+    <field name="dateissued" type="bigint" column="dateissued" nullable="false"/>
+    <field name="dateexpire" type="bigint" column="dateexpire" nullable="true"/>
+    <field name="visible" type="boolean" column="visible" nullable="false"/>
+    <field name="issuernotified" type="bigint" column="issuernotified" nullable="true"/>
+  </entity>
+</doctrine-mapping>

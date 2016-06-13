@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlUserPrivateKey" table="mdl_user_private_key">
+    <indexes>
+      <index name="mdl_userprivkey_scrval_ix" columns="script,value"/>
+      <index name="mdl_userprivkey_use_ix" columns="userid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="script" type="string" column="script" length="128" nullable="false"/>
+    <field name="value" type="string" column="value" length="128" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="instance" type="bigint" column="instance" nullable="true"/>
+    <field name="iprestriction" type="string" column="iprestriction" length="255" nullable="true"/>
+    <field name="validuntil" type="bigint" column="validuntil" nullable="true"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="true"/>
+  </entity>
+</doctrine-mapping>

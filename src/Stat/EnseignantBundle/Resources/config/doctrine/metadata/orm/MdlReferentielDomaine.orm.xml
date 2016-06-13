@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlReferentielDomaine" table="mdl_referentiel_domaine">
+    <unique-constraints>
+      <unique-constraint name="mdl_refedoma_codref_uix" columns="code_domaine,ref_referentiel"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="codeDomaine" type="string" column="code_domaine" length="20" nullable="false"/>
+    <field name="descriptionDomaine" type="text" column="description_domaine" nullable="false"/>
+    <field name="refReferentiel" type="bigint" column="ref_referentiel" nullable="false"/>
+    <field name="numDomaine" type="boolean" column="num_domaine" nullable="false"/>
+    <field name="nbCompetences" type="boolean" column="nb_competences" nullable="false"/>
+    <field name="typeDomaine" type="string" column="type_domaine" length="10" nullable="false"/>
+    <field name="seuilDomaine" type="string" column="seuil_domaine" length="10" nullable="false"/>
+    <field name="minimaDomaine" type="string" column="minima_domaine" length="10" nullable="false"/>
+  </entity>
+</doctrine-mapping>

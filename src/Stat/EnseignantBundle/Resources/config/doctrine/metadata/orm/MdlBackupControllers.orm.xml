@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlBackupControllers" table="mdl_backup_controllers">
+    <indexes>
+      <index name="mdl_backcont_typite_ix" columns="type,itemid"/>
+      <index name="mdl_backcont_use_ix" columns="userid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_backcont_bac_uix" columns="backupid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="backupid" type="string" column="backupid" length="32" nullable="false"/>
+    <field name="operation" type="string" column="operation" length="20" nullable="false"/>
+    <field name="type" type="string" column="type" length="10" nullable="false"/>
+    <field name="itemid" type="bigint" column="itemid" nullable="false"/>
+    <field name="format" type="string" column="format" length="20" nullable="false"/>
+    <field name="interactive" type="smallint" column="interactive" nullable="false"/>
+    <field name="purpose" type="smallint" column="purpose" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="status" type="smallint" column="status" nullable="false"/>
+    <field name="execution" type="smallint" column="execution" nullable="false"/>
+    <field name="executiontime" type="bigint" column="executiontime" nullable="false"/>
+    <field name="checksum" type="string" column="checksum" length="32" nullable="false"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="controller" type="text" column="controller" nullable="false"/>
+  </entity>
+</doctrine-mapping>

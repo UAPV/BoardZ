@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlRoleAssignments" table="mdl_role_assignments">
+    <indexes>
+      <index name="mdl_roleassi_sor_ix" columns="sortorder"/>
+      <index name="mdl_roleassi_rol_ix" columns="roleid"/>
+      <index name="mdl_roleassi_con_ix" columns="contextid"/>
+      <index name="mdl_roleassi_use_ix" columns="userid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="roleid" type="bigint" column="roleid" nullable="false"/>
+    <field name="contextid" type="bigint" column="contextid" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="modifierid" type="bigint" column="modifierid" nullable="false"/>
+    <field name="component" type="string" column="component" length="100" nullable="false"/>
+    <field name="itemid" type="bigint" column="itemid" nullable="false"/>
+    <field name="sortorder" type="bigint" column="sortorder" nullable="false"/>
+  </entity>
+</doctrine-mapping>

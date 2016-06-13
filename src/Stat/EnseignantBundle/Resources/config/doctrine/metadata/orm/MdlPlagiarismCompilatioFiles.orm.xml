@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlPlagiarismCompilatioFiles" table="mdl_plagiarism_compilatio_files">
+    <indexes>
+      <index name="mdl_plagcompfile_cm_ix" columns="cm"/>
+      <index name="mdl_plagcompfile_use_ix" columns="userid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="cm" type="bigint" column="cm" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="identifier" type="string" column="identifier" length="255" nullable="false"/>
+    <field name="filename" type="string" column="filename" length="255" nullable="false"/>
+    <field name="externalid" type="string" column="externalid" length="255" nullable="true"/>
+    <field name="reporturl" type="string" column="reporturl" length="255" nullable="true"/>
+    <field name="statuscode" type="string" column="statuscode" length="10" nullable="true"/>
+    <field name="similarityscore" type="integer" column="similarityscore" nullable="false"/>
+    <field name="attempt" type="integer" column="attempt" nullable="false"/>
+    <field name="errorresponse" type="text" column="errorresponse" nullable="true"/>
+    <field name="timesubmitted" type="bigint" column="timesubmitted" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlContext" table="mdl_context">
+    <indexes>
+      <index name="mdl_cont_ins_ix" columns="instanceid"/>
+      <index name="mdl_cont_pat_ix" columns="path"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_cont_conins_uix" columns="contextlevel,instanceid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="contextlevel" type="bigint" column="contextlevel" nullable="false"/>
+    <field name="instanceid" type="bigint" column="instanceid" nullable="false"/>
+    <field name="path" type="string" column="path" length="255" nullable="true"/>
+    <field name="depth" type="boolean" column="depth" nullable="false"/>
+  </entity>
+</doctrine-mapping>

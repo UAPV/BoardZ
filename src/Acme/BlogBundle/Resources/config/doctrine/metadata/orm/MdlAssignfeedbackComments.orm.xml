@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlAssignfeedbackComments" table="mdl_assignfeedback_comments">
+    <indexes>
+      <index name="mdl_assicomm_ass_ix" columns="assignment"/>
+      <index name="mdl_assicomm_gra_ix" columns="grade"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="assignment" type="bigint" column="assignment" nullable="false"/>
+    <field name="grade" type="bigint" column="grade" nullable="false"/>
+    <field name="commenttext" type="text" column="commenttext" nullable="true"/>
+    <field name="commentformat" type="smallint" column="commentformat" nullable="false"/>
+  </entity>
+</doctrine-mapping>

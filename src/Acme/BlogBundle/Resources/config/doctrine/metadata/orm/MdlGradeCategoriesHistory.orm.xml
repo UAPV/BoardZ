@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlGradeCategoriesHistory" table="mdl_grade_categories_history">
+    <indexes>
+      <index name="mdl_gradcatehist_act_ix" columns="action"/>
+      <index name="mdl_gradcatehist_old_ix" columns="oldid"/>
+      <index name="mdl_gradcatehist_cou_ix" columns="courseid"/>
+      <index name="mdl_gradcatehist_par_ix" columns="parent"/>
+      <index name="mdl_gradcatehist_log_ix" columns="loggeduser"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="action" type="bigint" column="action" nullable="false"/>
+    <field name="oldid" type="bigint" column="oldid" nullable="false"/>
+    <field name="source" type="string" column="source" length="255" nullable="true"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="true"/>
+    <field name="loggeduser" type="bigint" column="loggeduser" nullable="true"/>
+    <field name="courseid" type="bigint" column="courseid" nullable="false"/>
+    <field name="parent" type="bigint" column="parent" nullable="true"/>
+    <field name="depth" type="bigint" column="depth" nullable="false"/>
+    <field name="path" type="string" column="path" length="255" nullable="true"/>
+    <field name="fullname" type="string" column="fullname" length="255" nullable="false"/>
+    <field name="aggregation" type="bigint" column="aggregation" nullable="false"/>
+    <field name="keephigh" type="bigint" column="keephigh" nullable="false"/>
+    <field name="droplow" type="bigint" column="droplow" nullable="false"/>
+    <field name="aggregateonlygraded" type="boolean" column="aggregateonlygraded" nullable="false"/>
+    <field name="aggregateoutcomes" type="boolean" column="aggregateoutcomes" nullable="false"/>
+    <field name="aggregatesubcats" type="boolean" column="aggregatesubcats" nullable="false"/>
+    <field name="hidden" type="boolean" column="hidden" nullable="false"/>
+  </entity>
+</doctrine-mapping>

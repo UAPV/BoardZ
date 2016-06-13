@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlWorkshopRubricsOld" table="mdl_workshop_rubrics_old">
+    <indexes>
+      <index name="mdl_workrubrold_wor_ix" columns="workshopid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="workshopid" type="bigint" column="workshopid" nullable="false"/>
+    <field name="elementno" type="bigint" column="elementno" nullable="false"/>
+    <field name="rubricno" type="smallint" column="rubricno" nullable="false"/>
+    <field name="description" type="text" column="description" nullable="false"/>
+    <field name="newplugin" type="string" column="newplugin" length="28" nullable="true"/>
+    <field name="newid" type="bigint" column="newid" nullable="true"/>
+  </entity>
+</doctrine-mapping>

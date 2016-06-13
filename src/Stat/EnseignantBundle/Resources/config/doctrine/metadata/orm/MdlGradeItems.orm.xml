@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlGradeItems" table="mdl_grade_items">
+    <indexes>
+      <index name="mdl_graditem_locloc_ix" columns="locked,locktime"/>
+      <index name="mdl_graditem_itenee_ix" columns="itemtype,needsupdate"/>
+      <index name="mdl_graditem_gra_ix" columns="gradetype"/>
+      <index name="mdl_graditem_idncou_ix" columns="idnumber,courseid"/>
+      <index name="mdl_graditem_cou_ix" columns="courseid"/>
+      <index name="mdl_graditem_cat_ix" columns="categoryid"/>
+      <index name="mdl_graditem_sca_ix" columns="scaleid"/>
+      <index name="mdl_graditem_out_ix" columns="outcomeid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="courseid" type="bigint" column="courseid" nullable="true"/>
+    <field name="categoryid" type="bigint" column="categoryid" nullable="true"/>
+    <field name="itemname" type="string" column="itemname" length="255" nullable="true"/>
+    <field name="itemtype" type="string" column="itemtype" length="30" nullable="false"/>
+    <field name="itemmodule" type="string" column="itemmodule" length="30" nullable="true"/>
+    <field name="iteminstance" type="bigint" column="iteminstance" nullable="true"/>
+    <field name="itemnumber" type="bigint" column="itemnumber" nullable="true"/>
+    <field name="iteminfo" type="text" column="iteminfo" nullable="true"/>
+    <field name="idnumber" type="string" column="idnumber" length="255" nullable="true"/>
+    <field name="calculation" type="text" column="calculation" nullable="true"/>
+    <field name="gradetype" type="smallint" column="gradetype" nullable="false"/>
+    <field name="grademax" type="decimal" column="grademax" precision="10" scale="5" nullable="false"/>
+    <field name="grademin" type="decimal" column="grademin" precision="10" scale="5" nullable="false"/>
+    <field name="scaleid" type="bigint" column="scaleid" nullable="true"/>
+    <field name="outcomeid" type="bigint" column="outcomeid" nullable="true"/>
+    <field name="gradepass" type="decimal" column="gradepass" precision="10" scale="5" nullable="false"/>
+    <field name="multfactor" type="decimal" column="multfactor" precision="10" scale="5" nullable="false"/>
+    <field name="plusfactor" type="decimal" column="plusfactor" precision="10" scale="5" nullable="false"/>
+    <field name="aggregationcoef" type="decimal" column="aggregationcoef" precision="10" scale="5" nullable="false"/>
+    <field name="sortorder" type="bigint" column="sortorder" nullable="false"/>
+    <field name="display" type="bigint" column="display" nullable="false"/>
+    <field name="decimals" type="boolean" column="decimals" nullable="true"/>
+    <field name="hidden" type="bigint" column="hidden" nullable="false"/>
+    <field name="locked" type="bigint" column="locked" nullable="false"/>
+    <field name="locktime" type="bigint" column="locktime" nullable="false"/>
+    <field name="needsupdate" type="bigint" column="needsupdate" nullable="false"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="true"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="true"/>
+  </entity>
+</doctrine-mapping>

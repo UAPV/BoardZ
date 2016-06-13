@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlQuizQuestionResponseStats" table="mdl_quiz_question_response_stats">
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="quizstatisticsid" type="bigint" column="quizstatisticsid" nullable="false"/>
+    <field name="questionid" type="bigint" column="questionid" nullable="false"/>
+    <field name="subqid" type="bigint" column="subqid" nullable="false"/>
+    <field name="aid" type="bigint" column="aid" nullable="true"/>
+    <field name="response" type="text" column="response" nullable="true"/>
+    <field name="rcount" type="bigint" column="rcount" nullable="true"/>
+    <field name="credit" type="decimal" column="credit" precision="15" scale="5" nullable="false"/>
+  </entity>
+</doctrine-mapping>

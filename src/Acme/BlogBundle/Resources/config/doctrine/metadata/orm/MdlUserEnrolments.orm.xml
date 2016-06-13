@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlUserEnrolments" table="mdl_user_enrolments">
+    <indexes>
+      <index name="mdl_userenro_enr_ix" columns="enrolid"/>
+      <index name="mdl_userenro_use_ix" columns="userid"/>
+      <index name="mdl_userenro_mod_ix" columns="modifierid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_userenro_enruse_uix" columns="enrolid,userid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="status" type="bigint" column="status" nullable="false"/>
+    <field name="enrolid" type="bigint" column="enrolid" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="timestart" type="bigint" column="timestart" nullable="false"/>
+    <field name="timeend" type="bigint" column="timeend" nullable="false"/>
+    <field name="modifierid" type="bigint" column="modifierid" nullable="false"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+  </entity>
+</doctrine-mapping>

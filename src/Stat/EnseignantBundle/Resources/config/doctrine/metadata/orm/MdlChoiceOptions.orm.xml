@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlChoiceOptions" table="mdl_choice_options">
+    <indexes>
+      <index name="mdl_choiopti_cho_ix" columns="choiceid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="choiceid" type="bigint" column="choiceid" nullable="false"/>
+    <field name="text" type="text" column="text" nullable="true"/>
+    <field name="maxanswers" type="bigint" column="maxanswers" nullable="true"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+  </entity>
+</doctrine-mapping>

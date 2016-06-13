@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlGradingformGuideCriteria" table="mdl_gradingform_guide_criteria">
+    <indexes>
+      <index name="mdl_gradguidcrit_def_ix" columns="definitionid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="definitionid" type="bigint" column="definitionid" nullable="false"/>
+    <field name="sortorder" type="bigint" column="sortorder" nullable="false"/>
+    <field name="shortname" type="string" column="shortname" length="255" nullable="false"/>
+    <field name="description" type="text" column="description" nullable="true"/>
+    <field name="descriptionformat" type="boolean" column="descriptionformat" nullable="true"/>
+    <field name="descriptionmarkers" type="text" column="descriptionmarkers" nullable="true"/>
+    <field name="descriptionmarkersformat" type="boolean" column="descriptionmarkersformat" nullable="true"/>
+    <field name="maxscore" type="decimal" column="maxscore" precision="10" scale="5" nullable="false"/>
+  </entity>
+</doctrine-mapping>

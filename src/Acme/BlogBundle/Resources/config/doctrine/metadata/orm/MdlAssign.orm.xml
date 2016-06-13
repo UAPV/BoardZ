@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlAssign" table="mdl_assign">
+    <indexes>
+      <index name="mdl_assi_cou_ix" columns="course"/>
+      <index name="mdl_assi_tea_ix" columns="teamsubmissiongroupingid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="course" type="bigint" column="course" nullable="false"/>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="intro" type="text" column="intro" nullable="false"/>
+    <field name="introformat" type="smallint" column="introformat" nullable="false"/>
+    <field name="alwaysshowdescription" type="boolean" column="alwaysshowdescription" nullable="false"/>
+    <field name="nosubmissions" type="boolean" column="nosubmissions" nullable="false"/>
+    <field name="submissiondrafts" type="boolean" column="submissiondrafts" nullable="false"/>
+    <field name="sendnotifications" type="boolean" column="sendnotifications" nullable="false"/>
+    <field name="sendlatenotifications" type="boolean" column="sendlatenotifications" nullable="false"/>
+    <field name="duedate" type="bigint" column="duedate" nullable="false"/>
+    <field name="allowsubmissionsfromdate" type="bigint" column="allowsubmissionsfromdate" nullable="false"/>
+    <field name="grade" type="bigint" column="grade" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="requiresubmissionstatement" type="boolean" column="requiresubmissionstatement" nullable="false"/>
+    <field name="completionsubmit" type="boolean" column="completionsubmit" nullable="false"/>
+    <field name="cutoffdate" type="bigint" column="cutoffdate" nullable="false"/>
+    <field name="teamsubmission" type="boolean" column="teamsubmission" nullable="false"/>
+    <field name="requireallteammemberssubmit" type="boolean" column="requireallteammemberssubmit" nullable="false"/>
+    <field name="teamsubmissiongroupingid" type="bigint" column="teamsubmissiongroupingid" nullable="false"/>
+    <field name="blindmarking" type="boolean" column="blindmarking" nullable="false"/>
+    <field name="revealidentities" type="boolean" column="revealidentities" nullable="false"/>
+    <field name="attemptreopenmethod" type="string" column="attemptreopenmethod" length="10" nullable="false"/>
+    <field name="maxattempts" type="integer" column="maxattempts" nullable="false"/>
+    <field name="markingworkflow" type="boolean" column="markingworkflow" nullable="false"/>
+    <field name="markingallocation" type="boolean" column="markingallocation" nullable="false"/>
+  </entity>
+</doctrine-mapping>

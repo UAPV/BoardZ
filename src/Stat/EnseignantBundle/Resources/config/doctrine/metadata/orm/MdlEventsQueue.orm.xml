@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlEventsQueue" table="mdl_events_queue">
+    <indexes>
+      <index name="mdl_evenqueu_use_ix" columns="userid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="eventdata" type="text" column="eventdata" nullable="false"/>
+    <field name="stackdump" type="text" column="stackdump" nullable="true"/>
+    <field name="userid" type="bigint" column="userid" nullable="true"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+  </entity>
+</doctrine-mapping>

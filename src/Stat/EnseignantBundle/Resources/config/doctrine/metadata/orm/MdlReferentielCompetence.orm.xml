@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlReferentielCompetence" table="mdl_referentiel_competence">
+    <unique-constraints>
+      <unique-constraint name="mdl_refecomp_codref_uix" columns="code_competence,ref_domaine"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="codeCompetence" type="string" column="code_competence" length="20" nullable="false"/>
+    <field name="descriptionCompetence" type="text" column="description_competence" nullable="false"/>
+    <field name="refDomaine" type="bigint" column="ref_domaine" nullable="false"/>
+    <field name="numCompetence" type="boolean" column="num_competence" nullable="false"/>
+    <field name="nbItemCompetences" type="boolean" column="nb_item_competences" nullable="false"/>
+    <field name="typeCompetence" type="string" column="type_competence" length="10" nullable="false"/>
+    <field name="seuilCompetence" type="string" column="seuil_competence" length="10" nullable="false"/>
+    <field name="minimaCompetence" type="string" column="minima_competence" length="10" nullable="false"/>
+  </entity>
+</doctrine-mapping>

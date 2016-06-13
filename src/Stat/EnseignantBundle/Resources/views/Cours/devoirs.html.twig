@@ -1,0 +1,55 @@
+{% extends "StatEnseignantBundle::layout.html.twig" %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $('.stackedBar').each(function()
+            {
+                id = $(this).attr('id');
+                idCours = $('#idCours').val();
+                url = $('#url').val();
+                getBasicBarChart(id,$('#'+id+'_data').val(), null, "Consultation des devoirs");
+            });
+        })
+    </script>
+{% endblock %}
+
+{% block title %}{{ parent() }} - Détails de la vue devoirs pour le cours {% endblock %}
+{% block menu %}
+    <li>
+        <a href="{{ url('stat_enseignant_homepage') }}">
+            Vue générale
+        </a>
+    </li>
+    <li style="margin-left: 50px;">
+        <a style="color: #1f1f1f;" href="{{ url('stat_enseignant_devoir_global', { 'id': id | titreCours }) }}">
+            Vue devoirs
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('stat_enseignant_etudiant_global', { 'id': id | titreCours }) }}">
+            Vue étudiants
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('stat_enseignant_ressource_global', { 'id': id | titreCours }) }}">
+            Vue ressource
+        </a>
+    </li>
+{% endblock %}
+{% block body %}
+    {% include 'StatEnseignantBundle:Cours:template/menu.html.twig' with {'enseignant': autres['teacher']|length, 'student':autres['student']|length, responsable: responsable, labelisation: labelisation  } only %}
+
+    <div style='clear: both;'></div>
+    <h3 id="titrePage">Chiffre pour le cours <span style="color: #626262; font-style: italic;">"{{ nomCours }}"</span></h3>
+    <table id="tabDetailCours" class="table tableCours">
+        <tr>
+            <td>
+                <div id="container" class="stackedBar"></div>
+            </td>
+            <input id="container_data" type="hidden" value="{{ data|json_encode }}" />
+            <input id="idCours" type="hidden" value="{{ id }}" />
+        </tr>
+    </table>
+{% endblock %}

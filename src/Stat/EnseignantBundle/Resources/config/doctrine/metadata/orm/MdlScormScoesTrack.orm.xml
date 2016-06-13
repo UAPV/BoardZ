@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlScormScoesTrack" table="mdl_scorm_scoes_track">
+    <indexes>
+      <index name="mdl_scorscoetrac_use_ix" columns="userid"/>
+      <index name="mdl_scorscoetrac_ele_ix" columns="element"/>
+      <index name="mdl_scorscoetrac_sco_ix" columns="scormid"/>
+      <index name="mdl_scorscoetrac_sco2_ix" columns="scoid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_scorscoetrac_usescosco_uix" columns="userid,scormid,scoid,attempt,element"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="scormid" type="bigint" column="scormid" nullable="false"/>
+    <field name="scoid" type="bigint" column="scoid" nullable="false"/>
+    <field name="attempt" type="bigint" column="attempt" nullable="false"/>
+    <field name="element" type="string" column="element" length="255" nullable="false"/>
+    <field name="value" type="text" column="value" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+  </entity>
+</doctrine-mapping>

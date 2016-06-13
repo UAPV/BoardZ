@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlTag" table="mdl_tag">
+    <indexes>
+      <index name="mdl_tag_use_ix" columns="userid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_tag_nam_uix" columns="name"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="rawname" type="string" column="rawname" length="255" nullable="false"/>
+    <field name="tagtype" type="string" column="tagtype" length="255" nullable="true"/>
+    <field name="description" type="text" column="description" nullable="true"/>
+    <field name="descriptionformat" type="boolean" column="descriptionformat" nullable="false"/>
+    <field name="flag" type="smallint" column="flag" nullable="true"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="true"/>
+  </entity>
+</doctrine-mapping>

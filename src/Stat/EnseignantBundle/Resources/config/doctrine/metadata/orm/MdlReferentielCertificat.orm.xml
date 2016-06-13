@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlReferentielCertificat" table="mdl_referentiel_certificat">
+    <indexes>
+      <index name="mdl_refecert_use_ix" columns="userid"/>
+      <index name="mdl_refecert_ref_ix" columns="ref_referentiel"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="commentaireCertificat" type="text" column="commentaire_certificat" nullable="false"/>
+    <field name="competencesCertificat" type="text" column="competences_certificat" nullable="false"/>
+    <field name="competencesActivite" type="text" column="competences_activite" nullable="false"/>
+    <field name="decisionJury" type="string" column="decision_jury" length="80" nullable="false"/>
+    <field name="dateDecision" type="bigint" column="date_decision" nullable="false"/>
+    <field name="refReferentiel" type="bigint" column="ref_referentiel" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="teacherid" type="bigint" column="teacherid" nullable="false"/>
+    <field name="verrou" type="boolean" column="verrou" nullable="false"/>
+    <field name="valide" type="boolean" column="valide" nullable="false"/>
+    <field name="evaluation" type="bigint" column="evaluation" nullable="false"/>
+    <field name="mailed" type="boolean" column="mailed" nullable="false"/>
+    <field name="mailnow" type="bigint" column="mailnow" nullable="false"/>
+    <field name="syntheseCertificat" type="text" column="synthese_certificat" nullable="false"/>
+  </entity>
+</doctrine-mapping>

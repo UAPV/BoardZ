@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlUserDevices" table="mdl_user_devices">
+    <indexes>
+      <index name="mdl_userdevi_use_ix" columns="userid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_userdevi_pususe_uix" columns="pushid,userid"/>
+      <unique-constraint name="mdl_userdevi_puspla_uix" columns="pushid,platform"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="appid" type="string" column="appid" length="128" nullable="false"/>
+    <field name="name" type="string" column="name" length="32" nullable="false"/>
+    <field name="model" type="string" column="model" length="32" nullable="false"/>
+    <field name="platform" type="string" column="platform" length="32" nullable="false"/>
+    <field name="version" type="string" column="version" length="32" nullable="false"/>
+    <field name="pushid" type="string" column="pushid" length="255" nullable="false"/>
+    <field name="uuid" type="string" column="uuid" length="255" nullable="false"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlWikiSubwikis" table="mdl_wiki_subwikis">
+    <indexes>
+      <index name="mdl_wikisubw_wik_ix" columns="wikiid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_wikisubw_wikgrouse_uix" columns="wikiid,groupid,userid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="wikiid" type="bigint" column="wikiid" nullable="false"/>
+    <field name="groupid" type="bigint" column="groupid" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlReferentielDocument" table="mdl_referentiel_document">
+    <indexes>
+      <index name="mdl_refedocu_ref_ix" columns="ref_activite"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="typeDocument" type="string" column="type_document" length="20" nullable="false"/>
+    <field name="descriptionDocument" type="text" column="description_document" nullable="false"/>
+    <field name="urlDocument" type="string" column="url_document" length="255" nullable="false"/>
+    <field name="refActivite" type="bigint" column="ref_activite" nullable="false"/>
+    <field name="cibleDocument" type="smallint" column="cible_document" nullable="false"/>
+    <field name="etiquetteDocument" type="string" column="etiquette_document" length="255" nullable="false"/>
+  </entity>
+</doctrine-mapping>

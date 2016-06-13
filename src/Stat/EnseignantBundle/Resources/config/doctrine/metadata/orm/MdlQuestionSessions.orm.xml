@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlQuestionSessions" table="mdl_question_sessions">
+    <indexes>
+      <index name="mdl_quessess_att_ix" columns="attemptid"/>
+      <index name="mdl_quessess_que_ix" columns="questionid"/>
+      <index name="mdl_quessess_new_ix" columns="newest"/>
+      <index name="mdl_quessess_new2_ix" columns="newgraded"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_quessess_attque_uix" columns="attemptid,questionid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="attemptid" type="bigint" column="attemptid" nullable="false"/>
+    <field name="questionid" type="bigint" column="questionid" nullable="false"/>
+    <field name="newest" type="bigint" column="newest" nullable="false"/>
+    <field name="newgraded" type="bigint" column="newgraded" nullable="false"/>
+    <field name="sumpenalty" type="decimal" column="sumpenalty" precision="12" scale="7" nullable="false"/>
+    <field name="manualcomment" type="text" column="manualcomment" nullable="false"/>
+    <field name="manualcommentformat" type="boolean" column="manualcommentformat" nullable="false"/>
+    <field name="flagged" type="boolean" column="flagged" nullable="false"/>
+  </entity>
+</doctrine-mapping>

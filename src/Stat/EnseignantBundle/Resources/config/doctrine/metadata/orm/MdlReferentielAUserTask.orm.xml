@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlReferentielAUserTask" table="mdl_referentiel_a_user_task">
+    <indexes>
+      <index name="mdl_refeausertask_ref_ix" columns="ref_task"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="refUser" type="bigint" column="ref_user" nullable="false"/>
+    <field name="refTask" type="bigint" column="ref_task" nullable="false"/>
+    <field name="dateSelection" type="bigint" column="date_selection" nullable="false"/>
+    <field name="refActivite" type="bigint" column="ref_activite" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlGlossaryEntries" table="mdl_glossary_entries">
+    <indexes>
+      <index name="mdl_glosentr_use_ix" columns="userid"/>
+      <index name="mdl_glosentr_con_ix" columns="concept"/>
+      <index name="mdl_glosentr_glo_ix" columns="glossaryid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="glossaryid" type="bigint" column="glossaryid" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="concept" type="string" column="concept" length="255" nullable="false"/>
+    <field name="definition" type="text" column="definition" nullable="false"/>
+    <field name="definitionformat" type="boolean" column="definitionformat" nullable="false"/>
+    <field name="definitiontrust" type="boolean" column="definitiontrust" nullable="false"/>
+    <field name="attachment" type="string" column="attachment" length="100" nullable="false"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="teacherentry" type="boolean" column="teacherentry" nullable="false"/>
+    <field name="sourceglossaryid" type="bigint" column="sourceglossaryid" nullable="false"/>
+    <field name="usedynalink" type="boolean" column="usedynalink" nullable="false"/>
+    <field name="casesensitive" type="boolean" column="casesensitive" nullable="false"/>
+    <field name="fullmatch" type="boolean" column="fullmatch" nullable="false"/>
+    <field name="approved" type="boolean" column="approved" nullable="false"/>
+  </entity>
+</doctrine-mapping>

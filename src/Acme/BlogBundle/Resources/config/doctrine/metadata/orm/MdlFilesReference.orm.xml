@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlFilesReference" table="mdl_files_reference">
+    <indexes>
+      <index name="mdl_filerefe_rep_ix" columns="repositoryid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_filerefe_repref_uix" columns="repositoryid,referencehash"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="repositoryid" type="bigint" column="repositoryid" nullable="false"/>
+    <field name="lastsync" type="bigint" column="lastsync" nullable="true"/>
+    <field name="reference" type="text" column="reference" nullable="true"/>
+    <field name="referencehash" type="string" column="referencehash" length="40" nullable="false"/>
+  </entity>
+</doctrine-mapping>

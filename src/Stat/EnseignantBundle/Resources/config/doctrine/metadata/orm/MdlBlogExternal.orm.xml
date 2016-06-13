@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlBlogExternal" table="mdl_blog_external">
+    <indexes>
+      <index name="mdl_blogexte_use_ix" columns="userid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="description" type="text" column="description" nullable="true"/>
+    <field name="url" type="text" column="url" nullable="false"/>
+    <field name="filtertags" type="string" column="filtertags" length="255" nullable="true"/>
+    <field name="failedlastsync" type="boolean" column="failedlastsync" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="true"/>
+    <field name="timefetched" type="bigint" column="timefetched" nullable="false"/>
+  </entity>
+</doctrine-mapping>

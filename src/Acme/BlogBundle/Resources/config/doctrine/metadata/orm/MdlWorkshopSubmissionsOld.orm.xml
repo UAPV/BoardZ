@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlWorkshopSubmissionsOld" table="mdl_workshop_submissions_old">
+    <indexes>
+      <index name="mdl_worksubmold_use_ix" columns="userid"/>
+      <index name="mdl_worksubmold_mai_ix" columns="mailed"/>
+      <index name="mdl_worksubmold_wor_ix" columns="workshopid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="workshopid" type="bigint" column="workshopid" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="title" type="string" column="title" length="100" nullable="false"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="mailed" type="boolean" column="mailed" nullable="false"/>
+    <field name="description" type="text" column="description" nullable="false"/>
+    <field name="gradinggrade" type="smallint" column="gradinggrade" nullable="false"/>
+    <field name="finalgrade" type="smallint" column="finalgrade" nullable="false"/>
+    <field name="late" type="smallint" column="late" nullable="false"/>
+    <field name="nassessments" type="bigint" column="nassessments" nullable="false"/>
+    <field name="newplugin" type="string" column="newplugin" length="28" nullable="true"/>
+    <field name="newid" type="bigint" column="newid" nullable="true"/>
+  </entity>
+</doctrine-mapping>

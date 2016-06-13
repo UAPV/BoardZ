@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlCourseFormatOptions" table="mdl_course_format_options">
+    <indexes>
+      <index name="mdl_courformopti_cou_ix" columns="courseid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_courformopti_couforsec_uix" columns="courseid,format,sectionid,name"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="courseid" type="bigint" column="courseid" nullable="false"/>
+    <field name="format" type="string" column="format" length="21" nullable="false"/>
+    <field name="sectionid" type="bigint" column="sectionid" nullable="false"/>
+    <field name="name" type="string" column="name" length="100" nullable="false"/>
+    <field name="value" type="text" column="value" nullable="true"/>
+  </entity>
+</doctrine-mapping>

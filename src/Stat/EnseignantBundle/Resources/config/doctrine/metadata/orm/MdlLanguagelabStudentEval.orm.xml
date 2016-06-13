@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlLanguagelabStudentEval" table="mdl_languagelab_student_eval">
+    <indexes>
+      <index name="mdl_langstudeval_lan_ix" columns="languagelab"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="languagelab" type="bigint" column="languagelab" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="correctionnotes" type="text" column="correctionnotes" nullable="true"/>
+    <field name="grade" type="bigint" column="grade" nullable="true"/>
+    <field name="teacher" type="bigint" column="teacher" nullable="true"/>
+    <field name="timemarked" type="bigint" column="timemarked" nullable="true"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="true"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlGradingformRubricFillings" table="mdl_gradingform_rubric_fillings">
+    <indexes>
+      <index name="mdl_gradrubrfill_lev_ix" columns="levelid"/>
+      <index name="mdl_gradrubrfill_ins_ix" columns="instanceid"/>
+      <index name="mdl_gradrubrfill_cri_ix" columns="criterionid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_gradrubrfill_inscri_uix" columns="instanceid,criterionid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="instanceid" type="bigint" column="instanceid" nullable="false"/>
+    <field name="criterionid" type="bigint" column="criterionid" nullable="false"/>
+    <field name="levelid" type="bigint" column="levelid" nullable="true"/>
+    <field name="remark" type="text" column="remark" nullable="true"/>
+    <field name="remarkformat" type="boolean" column="remarkformat" nullable="true"/>
+  </entity>
+</doctrine-mapping>

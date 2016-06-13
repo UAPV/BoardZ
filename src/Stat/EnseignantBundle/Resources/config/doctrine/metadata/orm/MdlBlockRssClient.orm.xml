@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlBlockRssClient" table="mdl_block_rss_client">
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="title" type="text" column="title" nullable="false"/>
+    <field name="preferredtitle" type="string" column="preferredtitle" length="64" nullable="false"/>
+    <field name="description" type="text" column="description" nullable="false"/>
+    <field name="shared" type="boolean" column="shared" nullable="false"/>
+    <field name="url" type="string" column="url" length="255" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlGlossaryEntriesCategories" table="mdl_glossary_entries_categories">
+    <indexes>
+      <index name="mdl_glosentrcate_cat_ix" columns="categoryid"/>
+      <index name="mdl_glosentrcate_ent_ix" columns="entryid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="categoryid" type="bigint" column="categoryid" nullable="false"/>
+    <field name="entryid" type="bigint" column="entryid" nullable="false"/>
+  </entity>
+</doctrine-mapping>

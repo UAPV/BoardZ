@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlData" table="mdl_data">
+    <indexes>
+      <index name="mdl_data_cou_ix" columns="course"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="course" type="bigint" column="course" nullable="false"/>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="intro" type="text" column="intro" nullable="false"/>
+    <field name="introformat" type="smallint" column="introformat" nullable="false"/>
+    <field name="comments" type="smallint" column="comments" nullable="false"/>
+    <field name="timeavailablefrom" type="bigint" column="timeavailablefrom" nullable="false"/>
+    <field name="timeavailableto" type="bigint" column="timeavailableto" nullable="false"/>
+    <field name="timeviewfrom" type="bigint" column="timeviewfrom" nullable="false"/>
+    <field name="timeviewto" type="bigint" column="timeviewto" nullable="false"/>
+    <field name="requiredentries" type="integer" column="requiredentries" nullable="false"/>
+    <field name="requiredentriestoview" type="integer" column="requiredentriestoview" nullable="false"/>
+    <field name="maxentries" type="integer" column="maxentries" nullable="false"/>
+    <field name="rssarticles" type="smallint" column="rssarticles" nullable="false"/>
+    <field name="singletemplate" type="text" column="singletemplate" nullable="true"/>
+    <field name="listtemplate" type="text" column="listtemplate" nullable="true"/>
+    <field name="listtemplateheader" type="text" column="listtemplateheader" nullable="true"/>
+    <field name="listtemplatefooter" type="text" column="listtemplatefooter" nullable="true"/>
+    <field name="addtemplate" type="text" column="addtemplate" nullable="true"/>
+    <field name="rsstemplate" type="text" column="rsstemplate" nullable="true"/>
+    <field name="rsstitletemplate" type="text" column="rsstitletemplate" nullable="true"/>
+    <field name="csstemplate" type="text" column="csstemplate" nullable="true"/>
+    <field name="jstemplate" type="text" column="jstemplate" nullable="true"/>
+    <field name="asearchtemplate" type="text" column="asearchtemplate" nullable="true"/>
+    <field name="approval" type="smallint" column="approval" nullable="false"/>
+    <field name="scale" type="bigint" column="scale" nullable="false"/>
+    <field name="assessed" type="bigint" column="assessed" nullable="false"/>
+    <field name="assesstimestart" type="bigint" column="assesstimestart" nullable="false"/>
+    <field name="assesstimefinish" type="bigint" column="assesstimefinish" nullable="false"/>
+    <field name="defaultsort" type="bigint" column="defaultsort" nullable="false"/>
+    <field name="defaultsortdir" type="smallint" column="defaultsortdir" nullable="false"/>
+    <field name="editany" type="smallint" column="editany" nullable="false"/>
+    <field name="notification" type="bigint" column="notification" nullable="false"/>
+  </entity>
+</doctrine-mapping>

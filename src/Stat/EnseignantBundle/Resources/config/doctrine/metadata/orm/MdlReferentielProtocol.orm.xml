@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlReferentielProtocol" table="mdl_referentiel_protocol">
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="refOccurrence" type="bigint" column="ref_occurrence" nullable="false"/>
+    <field name="seuilReferentiel" type="float" column="seuil_referentiel" precision="10" scale="0" nullable="false"/>
+    <field name="minimaReferentiel" type="bigint" column="minima_referentiel" nullable="false"/>
+    <field name="lDomainesOblig" type="text" column="l_domaines_oblig" nullable="false"/>
+    <field name="lSeuilsDomaines" type="text" column="l_seuils_domaines" nullable="false"/>
+    <field name="lMinimasDomaines" type="text" column="l_minimas_domaines" nullable="false"/>
+    <field name="lCompetencesOblig" type="text" column="l_competences_oblig" nullable="false"/>
+    <field name="lSeuilsCompetences" type="text" column="l_seuils_competences" nullable="false"/>
+    <field name="lMinimasCompetences" type="text" column="l_minimas_competences" nullable="false"/>
+    <field name="lItemsOblig" type="text" column="l_items_oblig" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="commentaire" type="text" column="commentaire" nullable="false"/>
+    <field name="actif" type="boolean" column="actif" nullable="false"/>
+  </entity>
+</doctrine-mapping>

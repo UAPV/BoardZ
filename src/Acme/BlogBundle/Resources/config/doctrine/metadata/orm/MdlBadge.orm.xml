@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlBadge" table="mdl_badge">
+    <indexes>
+      <index name="mdl_badg_typ_ix" columns="type"/>
+      <index name="mdl_badg_cou_ix" columns="courseid"/>
+      <index name="mdl_badg_use_ix" columns="usermodified"/>
+      <index name="mdl_badg_use2_ix" columns="usercreated"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="description" type="text" column="description" nullable="true"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="usercreated" type="bigint" column="usercreated" nullable="false"/>
+    <field name="usermodified" type="bigint" column="usermodified" nullable="false"/>
+    <field name="issuername" type="string" column="issuername" length="255" nullable="false"/>
+    <field name="issuerurl" type="string" column="issuerurl" length="255" nullable="false"/>
+    <field name="issuercontact" type="string" column="issuercontact" length="255" nullable="true"/>
+    <field name="expiredate" type="bigint" column="expiredate" nullable="true"/>
+    <field name="expireperiod" type="bigint" column="expireperiod" nullable="true"/>
+    <field name="type" type="boolean" column="type" nullable="false"/>
+    <field name="courseid" type="bigint" column="courseid" nullable="true"/>
+    <field name="message" type="text" column="message" nullable="false"/>
+    <field name="messagesubject" type="text" column="messagesubject" nullable="false"/>
+    <field name="attachment" type="boolean" column="attachment" nullable="false"/>
+    <field name="notification" type="boolean" column="notification" nullable="false"/>
+    <field name="status" type="boolean" column="status" nullable="false"/>
+    <field name="nextcron" type="bigint" column="nextcron" nullable="true"/>
+  </entity>
+</doctrine-mapping>

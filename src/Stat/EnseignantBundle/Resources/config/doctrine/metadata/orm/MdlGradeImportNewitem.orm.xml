@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlGradeImportNewitem" table="mdl_grade_import_newitem">
+    <indexes>
+      <index name="mdl_gradimponewi_imp_ix" columns="importer"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="itemname" type="string" column="itemname" length="255" nullable="false"/>
+    <field name="importcode" type="bigint" column="importcode" nullable="false"/>
+    <field name="importer" type="bigint" column="importer" nullable="false"/>
+  </entity>
+</doctrine-mapping>

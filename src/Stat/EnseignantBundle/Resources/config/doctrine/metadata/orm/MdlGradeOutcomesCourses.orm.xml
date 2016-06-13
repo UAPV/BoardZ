@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlGradeOutcomesCourses" table="mdl_grade_outcomes_courses">
+    <indexes>
+      <index name="mdl_gradoutccour_cou_ix" columns="courseid"/>
+      <index name="mdl_gradoutccour_out_ix" columns="outcomeid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_gradoutccour_couout_uix" columns="courseid,outcomeid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="courseid" type="bigint" column="courseid" nullable="false"/>
+    <field name="outcomeid" type="bigint" column="outcomeid" nullable="false"/>
+  </entity>
+</doctrine-mapping>

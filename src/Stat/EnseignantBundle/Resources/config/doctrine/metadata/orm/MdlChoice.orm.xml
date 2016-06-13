@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlChoice" table="mdl_choice">
+    <indexes>
+      <index name="mdl_choi_cou_ix" columns="course"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="course" type="bigint" column="course" nullable="false"/>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="intro" type="text" column="intro" nullable="false"/>
+    <field name="introformat" type="smallint" column="introformat" nullable="false"/>
+    <field name="publish" type="boolean" column="publish" nullable="false"/>
+    <field name="showresults" type="boolean" column="showresults" nullable="false"/>
+    <field name="display" type="smallint" column="display" nullable="false"/>
+    <field name="allowupdate" type="boolean" column="allowupdate" nullable="false"/>
+    <field name="showunanswered" type="boolean" column="showunanswered" nullable="false"/>
+    <field name="limitanswers" type="boolean" column="limitanswers" nullable="false"/>
+    <field name="timeopen" type="bigint" column="timeopen" nullable="false"/>
+    <field name="timeclose" type="bigint" column="timeclose" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="completionsubmit" type="boolean" column="completionsubmit" nullable="false"/>
+  </entity>
+</doctrine-mapping>

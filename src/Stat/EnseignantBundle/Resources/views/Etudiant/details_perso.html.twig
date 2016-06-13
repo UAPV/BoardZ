@@ -1,0 +1,65 @@
+{% extends "StatEnseignantBundle::layout.html.twig" %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var max = 20;
+            $('.graph').each(function()
+            {
+                id = $(this).attr('id');
+                getGraph($('#'+id+'_type').val(), id,$('#'+id+'_titre').val(),$('#'+id+'_data').val(),$('#'+id+'_max').val(),36,51);
+            });
+        })
+    </script>
+{% endblock %}
+
+{% block title %}{{ parent() }} - Détails de l'étudiant pour le cours {% endblock %}
+{% block menu %}
+    <li>
+        <a href="{{ url('stat_enseignant_homepage') }}">
+            Vue générale
+        </a>
+    </li>
+    <li style="margin-left: 50px;">
+        <a href="{{ url('stat_enseignant_devoir_global', { 'id': id | titreCours }) }}">
+            Vue devoirs
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('stat_enseignant_etudiant_global', { 'id': id | titreCours }) }}">
+            Vue étudiants
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('stat_enseignant_ressource_global', { 'id': id | titreCours }) }}">
+            Vue ressources
+        </a>
+    </li>
+{% endblock %}
+{% block body %}
+    {% include 'StatEnseignantBundle:Cours:template/menu.html.twig' with {'enseignant': autres['teacher']|length, 'student':autres['student']|length, responsable: responsable, labelisation: labelisation  } only %}
+
+    <h1>Détails de l'étudiant(e) "{{ name }}" pour ce cours</h1>
+    <table id="tabDetailCours" class="table tableCours">
+        {% for tmp in data %}
+            {% for t in tmp %}
+            <tr>
+                <th>
+                    <p class="titreCours">{{ t["titre"] }}</p>
+                    <p class="descriptionCours">
+                        {% if t['description'] is defined %} {{ t['description']|raw }}
+                        {% endif %}
+                    </p>
+                </th>
+                <td>
+                    <div id="{{ 'container_' ~ loop.index }}" class="{{ t['type']|default('') }} graph"></div>
+                </td>
+                <input id="{{ 'container_' ~ loop.index ~ '_data' }}" type="hidden" value="{{ t['data']|json_encode }}" />
+                <input id="{{ 'container_' ~ loop.index ~ '_titre' }}" type="hidden" value="{{ t['titre'] |default('')}}" />
+                <input id="{{ 'container_' ~ loop.index ~ '_max' }}" type="hidden" value="{{ t['max'] |default('')}}" />
+                <input id="{{ 'container_' ~ loop.index ~ '_type' }}" type="hidden" value="{{ t['type'] }}" />
+            </tr>
+            {% endfor %}
+        {% endfor %}
+    </table>
+{% endblock %}

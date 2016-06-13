@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlRoleAllowAssign" table="mdl_role_allow_assign">
+    <indexes>
+      <index name="mdl_rolealloassi_rol_ix" columns="roleid"/>
+      <index name="mdl_rolealloassi_all_ix" columns="allowassign"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_rolealloassi_rolall_uix" columns="roleid,allowassign"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="roleid" type="bigint" column="roleid" nullable="false"/>
+    <field name="allowassign" type="bigint" column="allowassign" nullable="false"/>
+  </entity>
+</doctrine-mapping>

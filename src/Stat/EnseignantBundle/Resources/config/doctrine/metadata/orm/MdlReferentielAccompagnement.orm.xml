@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlReferentielAccompagnement" table="mdl_referentiel_accompagnement">
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="accompagnement" type="string" column="accompagnement" length="3" nullable="false"/>
+    <field name="refInstance" type="bigint" column="ref_instance" nullable="false"/>
+    <field name="courseid" type="bigint" column="courseid" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="teacherid" type="bigint" column="teacherid" nullable="false"/>
+  </entity>
+</doctrine-mapping>

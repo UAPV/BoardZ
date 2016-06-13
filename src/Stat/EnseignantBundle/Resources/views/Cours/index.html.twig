@@ -1,0 +1,166 @@
+{% extends "StatEnseignantBundle::layout.html.twig" %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+          var $target = $('html,body');
+          $target.animate({scrollTop: $target.height()}, 1000);
+
+          $('.graph').each(function()
+          {
+            id = $(this).attr('id');
+            max = $('#'+id+'_max').val();
+
+            if(max == undefined)
+                max = 100;
+
+            if($('#'+id+'_debut') != undefined && $('#'+id+'_fin') != undefined)
+            {
+              var debut = $('#'+id+'_debut').val();
+              var fin = $('#'+id+'_fin').val();
+            }
+            else
+            {
+              debut = null;
+              fin = null;
+            }
+
+            getGraph($('#'+id+'_type').val(), id,$('#'+id+'_titre').val(),$('#'+id+'_data').val(),max,debut, fin, 500);
+          });
+
+          //Bouton affiché pour les responsables de formation
+          $('#respButton').on('click', function(){
+              choix = $('#selectFormation option:selected').attr('id');
+              route = "{{ path('stat_enseignant_responsable_formation', { 'id': "PLACEHOLDER" }) }}";
+              url = route.replace("PLACEHOLDER", choix);
+              window.open(url);
+          })
+        })
+    </script>
+{% endblock %}
+
+{% block title %}{{ parent() }} - Accueil {% endblock %}
+
+{% block body %}
+    {% include 'StatEnseignantBundle:Cours:template/menu.html.twig' with {'enseignant': data['teacher']|length, 'student':data['student']|length, responsable: responsable, labelisation: labelisation  } only %}
+
+    {% if (data['teacher']|length > 0) or (data['student']|length > 0) or responsable %}
+            <ul class="vueIndex">
+                {% if data['teacher'] != false %}
+                    <li><a href="#tabMesCoursEnseignant">Ma vue enseignante</a></li>
+                {% endif %}
+                {% if data['student']|length > 0 %}
+                    <li><a href="#tabMesCoursEtudiant">Ma vue étudiante</a></li>
+                {% endif %}
+                {% if responsable %}
+                    <li><a href="#tabResponsableFormation">Ma vue "responsable de formation"</a></li>
+                {% endif %}
+                {% if labelisation %}
+                    <li><a href="{{ path('stat_labelisation_homepage') }}">Ma vue "labelisation"</a></li>
+                {% endif %}
+            </ul>
+        {% endif %}
+
+        {% if(responsable != false) %}
+            <table id="tabResponsableFormation" class="table tableCours">
+                <tr>
+                    <th class="headerTableIndex" colspan="2">Formation(s) dans laquelle(s) je suis responsable</th>
+                </tr>
+                <tr>
+                    <th>
+                        <p class="titreCours">Choisir la formation pour laquelle vous souhaitez plus de détails.</p>
+                    </th>
+                    <td>
+                        <select class="form-control" id="selectFormation">
+                            {% for id,categ in responsable %}
+                                <option id="{{ id }}">{{ categ }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td>
+                        <button type="button" id="respButton" class="btn btn-info btn-default btnDetailsCours">Afficher</button>
+                    </td>
+                </tr>
+            </table>
+        {% endif %}
+
+        {% if(data['teacher'] is defined) %}
+        <table id="tabMesCoursEnseignant" class="table tableCours">
+            <tr>
+                <th class="headerTableIndex" colspan="2">Cours dans le(s)quel(s) je suis enseignant </th>
+            </tr>
+        {% for id,cours in data['teacher'] %}
+          <tr>
+              <th>
+                  <p class="titreCours">{{ cours['fullname'] }}</p>
+                  <p class="descriptionCours">
+                      {% if cours['desc'] is defined %} {{ cours['desc']|raw }}
+                      {% endif %}
+                  </p>
+                  {% if cours['alertes'][id] is defined %}
+                     <div class="alerte">
+                          {% for alerte in cours['alertes'][id] %}
+                              {% if alerte is defined %}
+                                  <span class="textAlerte" style="color: {{ alerte['couleur'] }}">
+                                    {% if alerte['message'] is defined %}
+                                        {{ alerte['message'] }}
+                                    {% endif %}
+                                  </span>
+                                  <div class="feuAlerte" style="background: {{ alerte['couleur'] }}"></div>
+                              {% endif %}
+                          {% endfor %}
+                      </div>
+                  {% endif %}
+              </th>
+              {% for indicateur,tab in cours['donnees'] %}
+              <td>
+                  <div id="{{ 'container_' ~ loop.index ~ '_' ~ loop.parent.loop.index }}" class="graph"></div>
+                  {% if loop.index == 1 or loop.index == 2 %}
+                      <a href="{{ url('stat_enseignant_details', { 'id': id | titreCours, 'type' : loop.index }) }}">
+                          <button type="button" class="btn btn-info btn-xs btnDetailsCours">Détails</button>
+                      </a>
+                  {%  endif %}
+              </td>
+              <input id="{{ 'container_' ~ loop.index ~ '_' ~ loop.parent.loop.index ~ '_data' }}" type="hidden" value="{{ tab['data']|json_encode }}" />
+              <input id="{{ 'container_' ~ loop.index ~ '_' ~ loop.parent.loop.index ~ '_titre' }}" type="hidden" value="{{ indicateur }}" />
+              <input id="{{ 'container_' ~ loop.index ~ '_' ~ loop.parent.loop.index ~ '_type' }}" type="hidden" value="{{ tab['type'] }}" />
+            {% endfor %}
+          </tr>
+        {% endfor %}
+        </table>
+        {% endif %}
+
+        {% if(data['student'] is defined) %}
+        <table id="tabMesCoursEtudiant" class="table tableCours">
+            <tr>
+                <th class="headerTableIndex" colspan="2">Cours dans le(s)quel(s) je suis étudiant </th>
+            </tr>
+           {% for id,cours in data['student'] %}
+               <tr>
+                  <th>
+                    <p class="titreCours">{{ cours['fullname'] }}</p>
+                    <p class="descriptionCours">
+                      {% if cours['desc'] is defined %} {{ cours['desc']|raw }}
+                      {% endif %}
+                    </p>
+                  </th>
+                   {% for tabTmp in cours['donnees'] %}
+                      {% for indicateur,tab in tabTmp %}
+                         <td>
+                            <div id="{{ 'container_' ~ loop.index ~ '_' ~ loop.parent.loop.index ~ '_2' }}" class="graph"></div>
+                         </td>
+                         <input id="{{ 'container_' ~ loop.index ~ '_' ~ loop.parent.loop.index ~ '_2_data' }}" type="hidden" value="{{ tab['data']|json_encode }}" />
+                         <input id="{{ 'container_' ~ loop.index ~ '_' ~ loop.parent.loop.index ~ '_2_titre' }}" type="hidden" value="{{ tab['titre'] }}" />
+                         <input id="{{ 'container_' ~ loop.index ~ '_' ~ loop.parent.loop.index ~ '_2_type' }}" type="hidden" value="{{ tab['type'] }}" />
+                         <input id="{{ 'container_' ~ loop.index ~ '_' ~ loop.parent.loop.index ~ '_2_max' }}" type="hidden" value="{{ tab['max'] }}" />
+                          {% if(tab['type'] == 'multipleLine' and tab['debut'] is defined and tab['fin'] is defined) %}
+                            <input id="{{ 'container_' ~ loop.index ~ '_' ~ loop.parent.loop.index ~ '_2_debut' }}" type="hidden" value="{{ tab['debut'] }}" />
+                            <input id="{{ 'container_' ~ loop.index ~ '_' ~ loop.parent.loop.index ~ '_2_fin' }}" type="hidden" value="{{ tab['fin'] }}" />
+                          {% endif %}
+                      {% endfor %}
+                   {% endfor %}
+           {% endfor %}
+        </table>
+        {% endif %}
+{% endblock %}

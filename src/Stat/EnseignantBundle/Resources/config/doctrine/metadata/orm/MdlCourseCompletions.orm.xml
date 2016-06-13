@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlCourseCompletions" table="mdl_course_completions">
+    <indexes>
+      <index name="mdl_courcomp_use_ix" columns="userid"/>
+      <index name="mdl_courcomp_cou_ix" columns="course"/>
+      <index name="mdl_courcomp_tim_ix" columns="timecompleted"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="course" type="bigint" column="course" nullable="false"/>
+    <field name="deleted" type="boolean" column="deleted" nullable="true"/>
+    <field name="timenotified" type="bigint" column="timenotified" nullable="true"/>
+    <field name="timeenrolled" type="bigint" column="timeenrolled" nullable="false"/>
+    <field name="timestarted" type="bigint" column="timestarted" nullable="false"/>
+    <field name="timecompleted" type="bigint" column="timecompleted" nullable="true"/>
+    <field name="reaggregate" type="bigint" column="reaggregate" nullable="false"/>
+  </entity>
+</doctrine-mapping>

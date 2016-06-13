@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlMnetHost2service" table="mdl_mnet_host2service">
+    <unique-constraints>
+      <unique-constraint name="mdl_mnethost_hosser_uix" columns="hostid,serviceid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="hostid" type="bigint" column="hostid" nullable="false"/>
+    <field name="serviceid" type="bigint" column="serviceid" nullable="false"/>
+    <field name="publish" type="boolean" column="publish" nullable="false"/>
+    <field name="subscribe" type="boolean" column="subscribe" nullable="false"/>
+  </entity>
+</doctrine-mapping>

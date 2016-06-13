@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlReferentielConsigne" table="mdl_referentiel_consigne">
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="typeConsigne" type="string" column="type_consigne" length="20" nullable="false"/>
+    <field name="descriptionConsigne" type="text" column="description_consigne" nullable="false"/>
+    <field name="urlConsigne" type="string" column="url_consigne" length="255" nullable="false"/>
+    <field name="refTask" type="bigint" column="ref_task" nullable="false"/>
+    <field name="cibleConsigne" type="smallint" column="cible_consigne" nullable="false"/>
+    <field name="etiquetteConsigne" type="string" column="etiquette_consigne" length="255" nullable="false"/>
+  </entity>
+</doctrine-mapping>

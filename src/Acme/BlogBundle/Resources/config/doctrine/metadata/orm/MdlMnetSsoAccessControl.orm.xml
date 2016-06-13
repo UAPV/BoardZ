@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlMnetSsoAccessControl" table="mdl_mnet_sso_access_control">
+    <unique-constraints>
+      <unique-constraint name="mdl_mnetssoaccecont_mneuse_uix" columns="mnet_host_id,username"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="username" type="string" column="username" length="100" nullable="false"/>
+    <field name="mnetHostId" type="bigint" column="mnet_host_id" nullable="false"/>
+    <field name="accessctrl" type="string" column="accessctrl" length="20" nullable="false"/>
+  </entity>
+</doctrine-mapping>

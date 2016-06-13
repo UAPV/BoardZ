@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlConfigLog" table="mdl_config_log">
+    <indexes>
+      <index name="mdl_conflog_tim_ix" columns="timemodified"/>
+      <index name="mdl_conflog_use_ix" columns="userid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="plugin" type="string" column="plugin" length="100" nullable="true"/>
+    <field name="name" type="string" column="name" length="100" nullable="false"/>
+    <field name="value" type="text" column="value" nullable="true"/>
+    <field name="oldvalue" type="text" column="oldvalue" nullable="true"/>
+  </entity>
+</doctrine-mapping>

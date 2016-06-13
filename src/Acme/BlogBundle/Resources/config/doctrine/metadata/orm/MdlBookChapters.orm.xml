@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlBookChapters" table="mdl_book_chapters">
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="bookid" type="bigint" column="bookid" nullable="false"/>
+    <field name="pagenum" type="bigint" column="pagenum" nullable="false"/>
+    <field name="subchapter" type="bigint" column="subchapter" nullable="false"/>
+    <field name="title" type="string" column="title" length="255" nullable="false"/>
+    <field name="content" type="text" column="content" nullable="false"/>
+    <field name="contentformat" type="smallint" column="contentformat" nullable="false"/>
+    <field name="hidden" type="boolean" column="hidden" nullable="false"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="importsrc" type="string" column="importsrc" length="255" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlGradeLetters" table="mdl_grade_letters">
+    <unique-constraints>
+      <unique-constraint name="mdl_gradlett_conlowlet_uix" columns="contextid,lowerboundary,letter"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="contextid" type="bigint" column="contextid" nullable="false"/>
+    <field name="lowerboundary" type="decimal" column="lowerboundary" precision="10" scale="5" nullable="false"/>
+    <field name="letter" type="string" column="letter" length="255" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlGradeOutcomes" table="mdl_grade_outcomes">
+    <indexes>
+      <index name="mdl_gradoutc_cou_ix" columns="courseid"/>
+      <index name="mdl_gradoutc_sca_ix" columns="scaleid"/>
+      <index name="mdl_gradoutc_use_ix" columns="usermodified"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_gradoutc_cousho_uix" columns="courseid,shortname"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="courseid" type="bigint" column="courseid" nullable="true"/>
+    <field name="shortname" type="string" column="shortname" length="255" nullable="false"/>
+    <field name="fullname" type="text" column="fullname" nullable="false"/>
+    <field name="scaleid" type="bigint" column="scaleid" nullable="true"/>
+    <field name="description" type="text" column="description" nullable="true"/>
+    <field name="descriptionformat" type="boolean" column="descriptionformat" nullable="false"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="true"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="true"/>
+    <field name="usermodified" type="bigint" column="usermodified" nullable="true"/>
+  </entity>
+</doctrine-mapping>

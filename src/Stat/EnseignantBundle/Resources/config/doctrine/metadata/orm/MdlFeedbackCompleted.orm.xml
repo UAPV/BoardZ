@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlFeedbackCompleted" table="mdl_feedback_completed">
+    <indexes>
+      <index name="mdl_feedcomp_use_ix" columns="userid"/>
+      <index name="mdl_feedcomp_fee_ix" columns="feedback"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="feedback" type="bigint" column="feedback" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="randomResponse" type="bigint" column="random_response" nullable="false"/>
+    <field name="anonymousResponse" type="boolean" column="anonymous_response" nullable="false"/>
+  </entity>
+</doctrine-mapping>

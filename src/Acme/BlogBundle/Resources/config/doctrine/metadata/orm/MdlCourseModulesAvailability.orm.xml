@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlCourseModulesAvailability" table="mdl_course_modules_availability">
+    <indexes>
+      <index name="mdl_courmoduavai_cou_ix" columns="coursemoduleid"/>
+      <index name="mdl_courmoduavai_sou_ix" columns="sourcecmid"/>
+      <index name="mdl_courmoduavai_gra_ix" columns="gradeitemid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="coursemoduleid" type="bigint" column="coursemoduleid" nullable="false"/>
+    <field name="sourcecmid" type="bigint" column="sourcecmid" nullable="true"/>
+    <field name="requiredcompletion" type="boolean" column="requiredcompletion" nullable="true"/>
+    <field name="gradeitemid" type="bigint" column="gradeitemid" nullable="true"/>
+    <field name="grademin" type="decimal" column="grademin" precision="10" scale="5" nullable="true"/>
+    <field name="grademax" type="decimal" column="grademax" precision="10" scale="5" nullable="true"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,10 @@
+{% extends "StatEnseignantBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Non autorisé {% endblock %}
+
+{% block body %}
+    <h1>Page d'erreur</h1>
+    <div>
+        {{ message }}
+    </div>
+{% endblock %}

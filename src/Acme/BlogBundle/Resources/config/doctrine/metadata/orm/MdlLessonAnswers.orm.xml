@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlLessonAnswers" table="mdl_lesson_answers">
+    <indexes>
+      <index name="mdl_lessansw_les_ix" columns="lessonid"/>
+      <index name="mdl_lessansw_pag_ix" columns="pageid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="lessonid" type="bigint" column="lessonid" nullable="false"/>
+    <field name="pageid" type="bigint" column="pageid" nullable="false"/>
+    <field name="jumpto" type="bigint" column="jumpto" nullable="false"/>
+    <field name="grade" type="smallint" column="grade" nullable="false"/>
+    <field name="score" type="bigint" column="score" nullable="false"/>
+    <field name="flags" type="smallint" column="flags" nullable="false"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="answer" type="text" column="answer" nullable="true"/>
+    <field name="answerformat" type="boolean" column="answerformat" nullable="false"/>
+    <field name="response" type="text" column="response" nullable="true"/>
+    <field name="responseformat" type="boolean" column="responseformat" nullable="false"/>
+  </entity>
+</doctrine-mapping>

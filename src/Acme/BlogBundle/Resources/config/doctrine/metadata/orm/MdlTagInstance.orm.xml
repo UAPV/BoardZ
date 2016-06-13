@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlTagInstance" table="mdl_tag_instance">
+    <indexes>
+      <index name="mdl_taginst_tag_ix" columns="tagid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_taginst_iteitetagtiu_uix" columns="itemtype,itemid,tagid,tiuserid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="tagid" type="bigint" column="tagid" nullable="false"/>
+    <field name="itemtype" type="string" column="itemtype" length="255" nullable="false"/>
+    <field name="itemid" type="bigint" column="itemid" nullable="false"/>
+    <field name="tiuserid" type="bigint" column="tiuserid" nullable="false"/>
+    <field name="ordering" type="bigint" column="ordering" nullable="true"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+  </entity>
+</doctrine-mapping>

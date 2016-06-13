@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlQuizQuestionInstances" table="mdl_quiz_question_instances">
+    <indexes>
+      <index name="mdl_quizquesinst_qui_ix" columns="quiz"/>
+      <index name="mdl_quizquesinst_que_ix" columns="question"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="quiz" type="bigint" column="quiz" nullable="false"/>
+    <field name="question" type="bigint" column="question" nullable="false"/>
+    <field name="grade" type="decimal" column="grade" precision="12" scale="7" nullable="false"/>
+  </entity>
+</doctrine-mapping>

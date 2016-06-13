@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlForumRead" table="mdl_forum_read">
+    <indexes>
+      <index name="mdl_foruread_usefor_ix" columns="userid,forumid"/>
+      <index name="mdl_foruread_usedis_ix" columns="userid,discussionid"/>
+      <index name="mdl_foruread_usepos_ix" columns="userid,postid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="forumid" type="bigint" column="forumid" nullable="false"/>
+    <field name="discussionid" type="bigint" column="discussionid" nullable="false"/>
+    <field name="postid" type="bigint" column="postid" nullable="false"/>
+    <field name="firstread" type="bigint" column="firstread" nullable="false"/>
+    <field name="lastread" type="bigint" column="lastread" nullable="false"/>
+  </entity>
+</doctrine-mapping>

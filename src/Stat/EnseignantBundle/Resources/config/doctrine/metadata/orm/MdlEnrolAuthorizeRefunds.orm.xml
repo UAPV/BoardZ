@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlEnrolAuthorizeRefunds" table="mdl_enrol_authorize_refunds">
+    <indexes>
+      <index name="mdl_enroauthrefu_tra_ix" columns="transid"/>
+      <index name="mdl_enroauthrefu_ord_ix" columns="orderid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="orderid" type="bigint" column="orderid" nullable="false"/>
+    <field name="status" type="boolean" column="status" nullable="false"/>
+    <field name="amount" type="string" column="amount" length="10" nullable="false"/>
+    <field name="transid" type="bigint" column="transid" nullable="true"/>
+    <field name="settletime" type="bigint" column="settletime" nullable="false"/>
+  </entity>
+</doctrine-mapping>

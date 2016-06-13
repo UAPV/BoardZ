@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlReportCustomsqlQueries" table="mdl_report_customsql_queries">
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="displayname" type="string" column="displayname" length="255" nullable="false"/>
+    <field name="description" type="text" column="description" nullable="true"/>
+    <field name="querysql" type="text" column="querysql" nullable="false"/>
+    <field name="queryparams" type="text" column="queryparams" nullable="true"/>
+    <field name="querylimit" type="bigint" column="querylimit" nullable="true"/>
+    <field name="capability" type="string" column="capability" length="255" nullable="false"/>
+    <field name="lastrun" type="bigint" column="lastrun" nullable="true"/>
+    <field name="lastexecutiontime" type="bigint" column="lastexecutiontime" nullable="true"/>
+    <field name="runable" type="string" column="runable" length="32" nullable="false"/>
+    <field name="singlerow" type="boolean" column="singlerow" nullable="false"/>
+    <field name="at" type="string" column="at" length="16" nullable="true"/>
+    <field name="emailto" type="string" column="emailto" length="255" nullable="true"/>
+    <field name="emailwhat" type="string" column="emailwhat" length="64" nullable="true"/>
+  </entity>
+</doctrine-mapping>

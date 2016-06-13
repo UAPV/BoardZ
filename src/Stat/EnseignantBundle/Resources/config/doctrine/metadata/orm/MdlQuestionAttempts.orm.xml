@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlQuestionAttempts" table="mdl_question_attempts">
+    <indexes>
+      <index name="mdl_quesatte_que_ix" columns="questionid"/>
+      <index name="mdl_quesatte_que2_ix" columns="questionusageid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_quesatte_queslo_uix" columns="questionusageid,slot"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="questionusageid" type="bigint" column="questionusageid" nullable="false"/>
+    <field name="slot" type="bigint" column="slot" nullable="false"/>
+    <field name="behaviour" type="string" column="behaviour" length="32" nullable="false"/>
+    <field name="questionid" type="bigint" column="questionid" nullable="false"/>
+    <field name="variant" type="bigint" column="variant" nullable="false"/>
+    <field name="maxmark" type="decimal" column="maxmark" precision="12" scale="7" nullable="false"/>
+    <field name="minfraction" type="decimal" column="minfraction" precision="12" scale="7" nullable="false"/>
+    <field name="flagged" type="boolean" column="flagged" nullable="false"/>
+    <field name="questionsummary" type="text" column="questionsummary" nullable="true"/>
+    <field name="rightanswer" type="text" column="rightanswer" nullable="true"/>
+    <field name="responsesummary" type="text" column="responsesummary" nullable="true"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlQuestionMatchSub" table="mdl_question_match_sub">
+    <indexes>
+      <index name="mdl_quesmatcsub_que_ix" columns="question"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="code" type="bigint" column="code" nullable="false"/>
+    <field name="question" type="bigint" column="question" nullable="false"/>
+    <field name="questiontext" type="text" column="questiontext" nullable="false"/>
+    <field name="questiontextformat" type="boolean" column="questiontextformat" nullable="false"/>
+    <field name="answertext" type="string" column="answertext" length="255" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlWorkshopOld" table="mdl_workshop_old">
+    <indexes>
+      <index name="mdl_workold_cou_ix" columns="course"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="course" type="bigint" column="course" nullable="false"/>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="description" type="text" column="description" nullable="false"/>
+    <field name="wtype" type="smallint" column="wtype" nullable="false"/>
+    <field name="nelements" type="smallint" column="nelements" nullable="false"/>
+    <field name="nattachments" type="smallint" column="nattachments" nullable="false"/>
+    <field name="phase" type="boolean" column="phase" nullable="false"/>
+    <field name="format" type="boolean" column="format" nullable="false"/>
+    <field name="gradingstrategy" type="boolean" column="gradingstrategy" nullable="false"/>
+    <field name="resubmit" type="boolean" column="resubmit" nullable="false"/>
+    <field name="agreeassessments" type="boolean" column="agreeassessments" nullable="false"/>
+    <field name="hidegrades" type="boolean" column="hidegrades" nullable="false"/>
+    <field name="anonymous" type="boolean" column="anonymous" nullable="false"/>
+    <field name="includeself" type="boolean" column="includeself" nullable="false"/>
+    <field name="maxbytes" type="bigint" column="maxbytes" nullable="false"/>
+    <field name="submissionstart" type="bigint" column="submissionstart" nullable="false"/>
+    <field name="assessmentstart" type="bigint" column="assessmentstart" nullable="false"/>
+    <field name="submissionend" type="bigint" column="submissionend" nullable="false"/>
+    <field name="assessmentend" type="bigint" column="assessmentend" nullable="false"/>
+    <field name="releasegrades" type="bigint" column="releasegrades" nullable="false"/>
+    <field name="grade" type="smallint" column="grade" nullable="false"/>
+    <field name="gradinggrade" type="smallint" column="gradinggrade" nullable="false"/>
+    <field name="ntassessments" type="smallint" column="ntassessments" nullable="false"/>
+    <field name="assessmentcomps" type="smallint" column="assessmentcomps" nullable="false"/>
+    <field name="nsassessments" type="smallint" column="nsassessments" nullable="false"/>
+    <field name="overallocation" type="smallint" column="overallocation" nullable="false"/>
+    <field name="timemodified" type="bigint" column="timemodified" nullable="false"/>
+    <field name="teacherweight" type="smallint" column="teacherweight" nullable="false"/>
+    <field name="showleaguetable" type="smallint" column="showleaguetable" nullable="false"/>
+    <field name="usepassword" type="smallint" column="usepassword" nullable="false"/>
+    <field name="password" type="string" column="password" length="32" nullable="false"/>
+    <field name="newplugin" type="string" column="newplugin" length="28" nullable="true"/>
+    <field name="newid" type="bigint" column="newid" nullable="true"/>
+  </entity>
+</doctrine-mapping>

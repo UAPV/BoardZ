@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlMnetserviceEnrolEnrolments" table="mdl_mnetservice_enrol_enrolments">
+    <indexes>
+      <index name="mdl_mnetenroenro_use_ix" columns="userid"/>
+      <index name="mdl_mnetenroenro_hos_ix" columns="hostid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="hostid" type="bigint" column="hostid" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="remotecourseid" type="bigint" column="remotecourseid" nullable="false"/>
+    <field name="rolename" type="string" column="rolename" length="255" nullable="false"/>
+    <field name="enroltime" type="bigint" column="enroltime" nullable="false"/>
+    <field name="enroltype" type="string" column="enroltype" length="20" nullable="false"/>
+  </entity>
+</doctrine-mapping>

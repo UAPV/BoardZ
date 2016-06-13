@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlWorkshopAssessmentsOld" table="mdl_workshop_assessments_old">
+    <indexes>
+      <index name="mdl_workasseold_use_ix" columns="userid"/>
+      <index name="mdl_workasseold_mai_ix" columns="mailed"/>
+      <index name="mdl_workasseold_wor_ix" columns="workshopid"/>
+      <index name="mdl_workasseold_sub_ix" columns="submissionid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="workshopid" type="bigint" column="workshopid" nullable="false"/>
+    <field name="submissionid" type="bigint" column="submissionid" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+    <field name="timegraded" type="bigint" column="timegraded" nullable="false"/>
+    <field name="timeagreed" type="bigint" column="timeagreed" nullable="false"/>
+    <field name="grade" type="float" column="grade" precision="10" scale="0" nullable="false"/>
+    <field name="gradinggrade" type="smallint" column="gradinggrade" nullable="false"/>
+    <field name="teachergraded" type="smallint" column="teachergraded" nullable="false"/>
+    <field name="mailed" type="smallint" column="mailed" nullable="false"/>
+    <field name="resubmission" type="smallint" column="resubmission" nullable="false"/>
+    <field name="donotuse" type="smallint" column="donotuse" nullable="false"/>
+    <field name="generalcomment" type="text" column="generalcomment" nullable="true"/>
+    <field name="teachercomment" type="text" column="teachercomment" nullable="true"/>
+    <field name="newplugin" type="string" column="newplugin" length="28" nullable="true"/>
+    <field name="newid" type="bigint" column="newid" nullable="true"/>
+  </entity>
+</doctrine-mapping>

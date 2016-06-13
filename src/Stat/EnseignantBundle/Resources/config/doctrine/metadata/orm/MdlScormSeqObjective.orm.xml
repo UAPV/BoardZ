@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlScormSeqObjective" table="mdl_scorm_seq_objective">
+    <indexes>
+      <index name="mdl_scorseqobje_sco_ix" columns="scoid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_scorseqobje_scoid_uix" columns="scoid,id"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="scoid" type="bigint" column="scoid" nullable="false"/>
+    <field name="primaryobj" type="boolean" column="primaryobj" nullable="false"/>
+    <field name="objectiveid" type="string" column="objectiveid" length="255" nullable="false"/>
+    <field name="satisfiedbymeasure" type="boolean" column="satisfiedbymeasure" nullable="false"/>
+    <field name="minnormalizedmeasure" type="float" column="minnormalizedmeasure" precision="11" scale="4" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,93 @@
+{% extends "StatEnseignantBundle::layout.html.twig" %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.graph').each(function()
+            {
+                id = $(this).attr('id');
+                max = $('#'+id+'_max');
+                getGraph($('#'+id+'_type').val(), id,$('#'+id+'_titre').val(),$('#'+id+'_data').val(),max);
+            });
+        })
+    </script>
+{% endblock %}
+
+{% block title %}{{ parent() }} - Détails du cours {% endblock %}
+{% block menu %}
+    <li>
+        <a href="{{ url('stat_enseignant_homepage') }}">
+            Vue générale
+        </a>
+    </li>
+    <li style="margin-left: 50px;">
+        <a href="{{ url('stat_enseignant_devoir_global', { 'id': id | titreCours }) }}">
+            Vue devoirs
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('stat_enseignant_etudiant_global', { 'id': id | titreCours }) }}">
+            Vue étudiants
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('stat_enseignant_ressource_global', { 'id': id | titreCours }) }}">
+            Vue ressources
+        </a>
+    </li>
+{% endblock %}
+{% block body %}
+    {% include 'StatEnseignantBundle:Cours:template/menu.html.twig' with {'enseignant': autres['teacher']|length, 'student':autres['student']|length, responsable: responsable, labelisation: labelisation  } only %}
+
+    {% if(data['alertes'] is defined) %}
+        <div class="alerte alerteOneCours">
+            {% for alerte in data['alertes'] %}
+                {% if(alerte['message'] is defined) %}
+                    <div class="textAlerte textAlerteOneCours" style="color: {{ alerte['couleur'] }}">
+                        {{ alerte['message'] }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <h3 id="titrePage">Vue <span style="color: #626262; font-style: italic;">"Mon usage "</span> pour le cours <span style="color: #626262; font-style: italic;">"{{ nomCours }}"</span></h3>
+    <table id="tabDetailCours" class="table tableCours">
+        {% for tmp in data %}
+            {% for test in tmp %}
+               {% if(cle != 'alertes') %}
+                <tr>
+                    <th>
+                        <p class="titreCours">{{ test['titre'] }}</p>
+                        <p class="descriptionCours">
+                            {% if tmp['description'] is defined %} {{ test['description']|raw }}
+                            {% endif %}
+                        </p>
+                        {% if cours['alertes'][id] is defined %}
+                            <div class="alerte">
+                                {% for alerte in cours['alertes'][id] %}
+                                    {% if alerte is defined %}
+                                        <span class="textAlerte" style="color: {{ alerte['couleur'] }}">
+                                    {% if alerte['message'] is defined %}
+                                        {{ alerte['message'] }}
+                                    {% endif %}
+                                  </span>
+                                        <div class="feuAlerte" style="background: {{ alerte['couleur'] }}"></div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </th>
+                    <td>
+                        <div id="{{ 'container_' ~ loop.index }}" class="{{ test['type'] }}"></div>
+                    </td>
+                    <input id="{{ 'container_' ~ loop.index ~ '_data' }}" type="hidden" value="{{ test['data']|json_encode }}" />
+                    <input id="{{ 'container_' ~ loop.index ~ '_titre' }}" type="hidden" value="{{ test['titre'] }}" />
+                    <input id="{{ 'container_' ~ loop.index ~ '_max' }}" type="hidden" value="{{ test['max'] }}" />
+                    <input id="{{ 'container_' ~ loop.index ~ '_type' }}" type="hidden" value="{{ test['type'] }}" />
+                </tr>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </table>
+{% endblock %}

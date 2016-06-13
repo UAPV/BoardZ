@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlWorkshopAggregations" table="mdl_workshop_aggregations">
+    <indexes>
+      <index name="mdl_workaggr_wor_ix" columns="workshopid"/>
+      <index name="mdl_workaggr_use_ix" columns="userid"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_workaggr_woruse_uix" columns="workshopid,userid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="workshopid" type="bigint" column="workshopid" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="gradinggrade" type="decimal" column="gradinggrade" precision="10" scale="5" nullable="true"/>
+    <field name="timegraded" type="bigint" column="timegraded" nullable="true"/>
+  </entity>
+</doctrine-mapping>

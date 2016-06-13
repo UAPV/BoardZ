@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlAssignPluginConfig" table="mdl_assign_plugin_config">
+    <indexes>
+      <index name="mdl_assiplugconf_plu_ix" columns="plugin"/>
+      <index name="mdl_assiplugconf_sub_ix" columns="subtype"/>
+      <index name="mdl_assiplugconf_nam_ix" columns="name"/>
+      <index name="mdl_assiplugconf_ass_ix" columns="assignment"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="assignment" type="bigint" column="assignment" nullable="false"/>
+    <field name="plugin" type="string" column="plugin" length="28" nullable="false"/>
+    <field name="subtype" type="string" column="subtype" length="28" nullable="false"/>
+    <field name="name" type="string" column="name" length="28" nullable="false"/>
+    <field name="value" type="text" column="value" nullable="true"/>
+  </entity>
+</doctrine-mapping>

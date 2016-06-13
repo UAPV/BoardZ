@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlLtiSubmission" table="mdl_lti_submission">
+    <indexes>
+      <index name="mdl_ltisubm_lti_ix" columns="ltiid"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="ltiid" type="bigint" column="ltiid" nullable="false"/>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="datesubmitted" type="bigint" column="datesubmitted" nullable="false"/>
+    <field name="dateupdated" type="bigint" column="dateupdated" nullable="false"/>
+    <field name="gradepercent" type="decimal" column="gradepercent" precision="10" scale="5" nullable="false"/>
+    <field name="originalgrade" type="decimal" column="originalgrade" precision="10" scale="5" nullable="false"/>
+    <field name="launchid" type="bigint" column="launchid" nullable="false"/>
+    <field name="state" type="boolean" column="state" nullable="false"/>
+  </entity>
+</doctrine-mapping>

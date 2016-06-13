@@ -1,0 +1,88 @@
+{% extends "StatEnseignantBundle::layout.html.twig" %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var max = 20;
+            $('.graph').each(function()
+            {
+                id = $(this).attr('id');
+                max = $('#'+id+'_max').val();
+                axe = $('#'+id+'_axe').val();
+                getGraph($('#'+id+'_type').val(), id,$('#'+id+'_titre').val(),$('#'+id+'_data').val(), max, axe);
+            });
+        })
+    </script>
+{% endblock %}
+
+{% block title %}{{ parent() }} - Détails du cours {% endblock %}
+
+    {% block menu %}
+        {% if(type == 'getDataCoursActif') %}
+            <li>
+                <a href="{{ url('stat_enseignant_homepage') }}">
+                    Vue générale
+                </a>
+            </li>
+            <li style="margin-left: 50px;">
+                <a href="{{ url('stat_enseignant_devoir_global', { 'id': id | titreCours }) }}">
+                    Vue devoirs
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('stat_enseignant_etudiant_global', { 'id': id | titreCours }) }}">
+                    Vue étudiants
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('stat_enseignant_ressource_global', { 'id': id | titreCours }) }}">
+                    Vue ressources
+                </a>
+            </li>
+        {% endif %}
+    {% endblock %}
+
+{% block body %}
+    {% include 'StatEnseignantBundle:Cours:template/menu.html.twig' with {'enseignant': autres['teacher']|length, 'student':autres['student']|length, responsable: responsable, labelisation: labelisation  } only %}
+
+    {% if type == 'getDataCoursActif' %}
+        {% if(data['alertes'] is defined) %}
+            <div class="alerte alerteOneCours">
+            {% for alerte in data['alertes'] %}
+                {% if(alerte['message'] is defined) %}
+                   <div class="textAlerte textAlerteOneCours" style="color: {{ alerte['couleur'] }}">
+                     {{ alerte['message'] }}
+                   </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+        {% endif %}
+    {% endif %}
+
+    <div style='clear: both;'></div>
+    <h3 id="titrePage">Vue <span style="color: #626262; font-style: italic;">"{{ typeNom }}"</span> pour le cours <span style="color: #626262; font-style: italic;">"{{ nomCours }}"</span></h3>
+    <table id="tabDetailCours" class="table tableCours">
+        {% for cle,tmp in data %}
+              {% for values in tmp %}
+                  {% if(cle != 'alertes') %}
+                      <tr>
+                          <th>
+                              <p class="titreCours">{{ values['titre'] }}</p>
+                              <p class="descriptionCours">
+                                  {% if values['description'] is defined %} {{ values['description']|raw }}
+                                  {% endif %}
+                              </p>
+                          <td>
+                              <div id="{{ 'container_' ~ loop.index }}" class="graph {{ values['type'] }}"></div>
+                          </td>
+                          <input id="{{ 'container_' ~ loop.index ~ '_data' }}" type="hidden" value="{{ values['data']|json_encode }}" />
+                          <input id="{{ 'container_' ~ loop.index ~ '_titre' }}" type="hidden" value="{{ values['titre'] }}" />
+                          <input id="{{ 'container_' ~ loop.index ~ '_max' }}" type="hidden" value="{{ values['max'] }}" />
+                          <input id="{{ 'container_' ~ loop.index ~ '_type' }}" type="hidden" value="{{ values['type'] }}" />
+                          <input id="{{ 'container_' ~ loop.index ~ '_axe' }}" type="hidden" value="{{ values['axe'] }}" />
+                      </tr>
+                  {% endif %}
+          {% endfor %}
+        {% endfor %}
+    </table>
+{% endblock %}

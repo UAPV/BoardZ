@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlProfiling" table="mdl_profiling">
+    <indexes>
+      <index name="mdl_prof_urlrun_ix" columns="url,runreference"/>
+      <index name="mdl_prof_timrun_ix" columns="timecreated,runreference"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_prof_run_uix" columns="runid"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="runid" type="string" column="runid" length="32" nullable="false"/>
+    <field name="url" type="string" column="url" length="255" nullable="false"/>
+    <field name="data" type="text" column="data" nullable="false"/>
+    <field name="totalexecutiontime" type="bigint" column="totalexecutiontime" nullable="false"/>
+    <field name="totalcputime" type="bigint" column="totalcputime" nullable="false"/>
+    <field name="totalcalls" type="bigint" column="totalcalls" nullable="false"/>
+    <field name="totalmemory" type="bigint" column="totalmemory" nullable="false"/>
+    <field name="runreference" type="boolean" column="runreference" nullable="false"/>
+    <field name="runcomment" type="string" column="runcomment" length="255" nullable="false"/>
+    <field name="timecreated" type="bigint" column="timecreated" nullable="false"/>
+  </entity>
+</doctrine-mapping>

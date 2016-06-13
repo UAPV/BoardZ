@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MdlForumDigests" table="mdl_forum_digests">
+    <indexes>
+      <index name="mdl_forudige_use_ix" columns="userid"/>
+      <index name="mdl_forudige_for_ix" columns="forum"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="mdl_forudige_forusemai_uix" columns="forum,userid,maildigest"/>
+    </unique-constraints>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userid" type="bigint" column="userid" nullable="false"/>
+    <field name="forum" type="bigint" column="forum" nullable="false"/>
+    <field name="maildigest" type="boolean" column="maildigest" nullable="false"/>
+  </entity>
+</doctrine-mapping>
