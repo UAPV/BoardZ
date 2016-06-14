@@ -69,4 +69,38 @@ http://localhost/test/app_dev.php/accueil
 2) Description de l'application
 ----------------------------------
 
-Rédaction en cours
+### Les pages de BoardZ
+
+1- L'accueil
+La page d'accueil regroupe la vue des cours dans lesquels je suis enseignant et la vue des cours dans lesquels je suis étudiant.
+Les graphes pour lesquels je suis enseignants sont sous forme de radar.
+Les graphes pour lesquels je suis étudiant sont deux courbes d'assiduité : les connexions et les rendus de devoirs. L'idée ici est de permettre à l'étudiant de se situer dans sa cohorte.
+
+2- La vue "étudiant" dans le détail de "Cours actifs"
+La page vue "étudiant" permet de voir les connexions et les rendus de devoirs de toute la cohorte
+
+3- La vue "ressource" dans le détail de "Cours actifs"
+La page vue "ressource" permet de voir le nombre de ressources consultées et le nombre d'étudiants différents l'ayant consultée
+
+4- La vue "devoir" dans le détail de "Cours actifs"
+La page vue "devoir" permet de voir le nombre de devoirs rendus et le nombre d'étudiants différents l'ayant rendu
+
+5- La vue pour un étudiant
+La page d'un étudiant lui permet de voir ses connexions à chacun de ses cours ainsi que les devoirs rendus par rapport à la cohorte
+
+6- La vue labélisation
+Mise en place à Avignon, la labélisation permet de valoriser un parcours si les matières le composant répondent à certains critères numériques
+Il s'agit d'un rôle créé spécialement dans Moodle pour BoardZ, et il permet de sélectionner des UE dans différents diplômes afin de calculer une note "labélisable"
+
+7- La vue admin
+Rôle d'administrateur dans Moodle => quelques données chiffrées comme le nombre de cours pauvres, le nombre de cours labélisables, le nombre de cours sans enseignants, etc.
+
+
+### ScreenShot de l'application et BoardZ en vidéo
+
+![ScreenShot](https://raw.github.com/UAPV/BoardZ/master/web/ScreenShot/accueilBoardZ.png)
+![ScreenShot](https://raw.github.com/UAPV/BoardZ/master/web/ScreenShot/indicateur.png)
+![ScreenShot](https://raw.github.com/UAPV/BoardZ/master/web/ScreenShot/indicateur2.png)
+
+Lien vers la vidéo faite au MoodleMoot 2014
+<http://moodlemoot2014.univ-paris3.fr/pluginfile.php/3477/mod_label/intro/demo.mp4>
