@@ -17,7 +17,8 @@ Cette application est développée en PHP avec le framework Symfony2.
 
 Pour récupérer le projet faire, cloner le projet
 
-    git clone git@github.com:UAPV/BoardZ.git cd BoardZ
+    git clone git@github.com:UAPV/BoardZ.git
+    cd BoardZ
 
 Créer deux dossiers dans "app" : cache et logs.
 Il devront avoir les droits de lecture et écriture pour le user www-data.
