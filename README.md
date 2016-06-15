@@ -66,6 +66,11 @@ Il est conseiller de faire pointer son document root vers "statMoodle > web" afi
 http://localhost/test/app_dev.php/accueil
 
 
+### Erreurs rencontrées
+
+- Il ne trouve pas la table "mdl_language" dans la base de données
+Notre Moodle est installé avec le plugin de labo de langues. Si il n'est pas installé chez vous, vous pouvez décommenter le ligne 566 de "Indicateur1.class.php"
+
 
 2) Description de l'application
 ----------------------------------
